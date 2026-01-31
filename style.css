@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  scroll-behavior: smooth; /* Smooth scroll when navigating links */
 }
 
 body {
@@ -21,6 +22,9 @@ body {
   align-items: center;
   padding: 8px 20px;
   font-size: 0.9rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .top-green a {
@@ -47,6 +51,15 @@ body {
   align-items: center;
   padding: 15px 20px;
   background-color: #ffcc00; /* Rich Yellow */
+  position: sticky;
+  top: 38px; /* just below top-green bar */
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+.main-header.sticky {
+  background-color: #ffd633; /* Slight lighter yellow when scrolling */
 }
 
 .main-header .logo-area {
@@ -82,54 +95,65 @@ body {
 .hero {
   background: linear-gradient(to right, #ffcc00, #fff5cc);
   text-align: center;
-  padding: 80px 20px;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  position: relative;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #004d26;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
 .hero .btn {
   background-color: #004d26;
   color: #ffcc00;
-  padding: 12px 25px;
+  padding: 15px 30px;
   text-decoration: none;
   font-weight: bold;
-  border-radius: 5px;
-  transition: background 0.3s;
+  border-radius: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .hero .btn:hover {
   background-color: #003d1f;
+  transform: translateY(-3px);
 }
 
 /* ---------- ABOUT SECTION ---------- */
 .about {
   text-align: center;
-  padding: 60px 20px;
+  padding: 80px 20px;
   background-color: #f9f9f9;
+  scroll-margin-top: 120px; /* offset for sticky header */
 }
 
 .about h2 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #004d26;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .about p {
-  font-size: 1rem;
-  max-width: 700px;
-  margin: 0 auto 20px auto;
+  font-size: 1.1rem;
+  max-width: 750px;
+  margin: 0 auto 25px auto;
 }
 
 .about .btn {
   background-color: #004d26;
   color: #ffcc00;
-  padding: 10px 20px;
+  padding: 12px 25px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-weight: bold;
 }
 
 .about .btn:hover {
@@ -142,43 +166,47 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  padding: 60px 20px;
+  padding: 80px 20px;
   background-color: #fff;
 }
 
 .features .box {
   background-color: #ffcc00;
   color: #004d26;
-  padding: 30px;
-  width: 250px;
+  padding: 35px 20px;
+  width: 280px;
   text-align: center;
-  border-radius: 8px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 12px;
+  transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .features .box:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: translateY(-12px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
 .features .box h3 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .features .box p {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  font-size: 1rem;
 }
 
 .features .btn-small {
   background-color: #004d26;
   color: #ffcc00;
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
   text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
 }
 
 .features .btn-small:hover {
   background-color: #003d1f;
+  transform: translateY(-2px);
 }
 
 /* ---------- FOOTER ---------- */
@@ -187,12 +215,13 @@ body {
   color: #fff;
   display: flex;
   justify-content: space-around;
-  padding: 40px 20px;
+  padding: 50px 20px;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .footer h4 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   color: #ffcc00;
 }
 
@@ -200,7 +229,7 @@ body {
   color: #fff;
   text-decoration: none;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .footer a:hover {
@@ -208,7 +237,7 @@ body {
 }
 
 .footer-contact p {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 /* ---------- COPYRIGHT ---------- */
@@ -216,8 +245,37 @@ body {
   background-color: #003d1f;
   color: #fff;
   text-align: center;
-  padding: 15px 0;
-  font-size: 0.9rem;
+  padding: 18px 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- FLOATING WHATSAPP BUTTON ---------- */
+.whatsapp-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #004d26; /* Dark Green */
+  color: #ffcc00; /* Rich Yellow */
+  padding: 12px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+  transition: transform 0.3s, background-color 0.3s;
+  z-index: 1000;
+  font-weight: bold;
+}
+
+.whatsapp-btn img {
+  width: 25px;
+  height: 25px;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  background-color: #003d1f;
 }
 
 /* ---------- RESPONSIVE ---------- */
