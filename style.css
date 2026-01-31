@@ -1,0 +1,141 @@
+body{
+margin:0;
+font-family:Arial;
+}
+
+/* TOP BAR */
+.top-green{
+background:#2faa4a;
+padding:8px 20px;
+display:flex;
+justify-content:space-between;
+}
+
+.top-green a{
+color:white;
+text-decoration:none;
+margin-right:10px;
+font-size:14px;
+}
+
+.top-green input{
+padding:5px;
+border:none;
+border-radius:4px;
+}
+
+/* HEADER */
+.main-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:white;
+}
+
+.logo-area{
+display:flex;
+align-items:center;
+}
+
+.logo-area img{
+height:60px;
+margin-right:10px;
+}
+
+nav a{
+margin:0 12px;
+text-decoration:none;
+color:#1d5c35;
+font-weight:bold;
+}
+
+/* HERO */
+.hero{
+background:url("school.jpg") center/cover;
+height:450px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-align:center;
+}
+
+.hero button{
+padding:12px 30px;
+background:transparent;
+border:2px solid white;
+color:white;
+font-size:16px;
+}
+
+/* ABOUT */
+.about{
+padding:60px 20px;
+text-align:center;
+}
+
+.about button{
+padding:10px 20px;
+border:2px solid #2faa4a;
+background:white;
+color:#2faa4a;
+}
+
+/* FEATURES */
+.features{
+display:flex;
+justify-content:space-around;
+padding:50px 20px;
+background:#1d5c35;
+color:white;
+}
+
+.box{
+width:30%;
+text-align:center;
+}
+
+/* FOOTER */
+.footer{
+background:#222;
+color:white;
+display:flex;
+justify-content:space-around;
+padding:40px;
+}
+
+.copyright{
+background:#111;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.main-header{
+flex-direction:column;
+}
+
+nav{
+text-align:center;
+}
+
+.features{
+flex-direction:column;
+}
+
+.box{
+width:100%;
+margin-bottom:20px;
+}
+
+.footer{
+flex-direction:column;
+text-align:center;
+}
+
+}
