@@ -6,7 +6,7 @@
 <title>Timetable - Parent Dashboard</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* Timetable specific styling */
+/* Timetable page styling */
 .timetable-container {
   max-width: 1000px;
   margin: 40px auto;
@@ -33,6 +33,7 @@
   border: 1px solid #004d26;
   padding: 12px;
   text-align: center;
+  cursor: pointer;
 }
 
 .timetable-container table th {
@@ -42,6 +43,51 @@
 
 .timetable-container table tr:nth-child(even) {
   background-color: #f9f9f9;
+}
+
+.timetable-container table td.selected {
+  background-color: #004d26;
+  color: #fff;
+}
+
+/* Info popup styling */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border: 2px solid #004d26;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  display: none;
+  width: 300px;
+  text-align: center;
+}
+
+.popup h3 {
+  margin-bottom: 10px;
+}
+
+.popup button {
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #ffcc00;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.overlay {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5);
+  display:none;
+  z-index: 500;
 }
 </style>
 </head>
@@ -81,7 +127,7 @@
 <!-- TIMETABLE CONTENT -->
 <section class="timetable-container">
   <h2>Student Timetable</h2>
-  <p>View your child's weekly class schedule.</p>
+  <p>Click a subject to see teacher and classroom details.</p>
 
   <!-- Week selector -->
   <div style="text-align:center; margin-bottom:20px;">
@@ -110,6 +156,15 @@
   </table>
 </section>
 
+<!-- Popup for class info -->
+<div class="overlay"></div>
+<div class="popup" id="class-popup">
+  <h3 id="subject-name"></h3>
+  <p id="teacher-name"></p>
+  <p id="classroom"></p>
+  <button onclick="closePopup()">Close</button>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-contact">
@@ -130,48 +185,8 @@
   Leads Community School © 2026. All Rights Reserved.
 </div>
 
-<!-- JS to make timetable dynamic -->
+<!-- JS for timetable dynamic & popup -->
 <script>
 const timetableData = {
   week1: [
-    { time: "08:00 - 09:00", Monday: "Math", Tuesday: "English", Wednesday: "Science", Thursday: "Math", Friday: "PE" },
-    { time: "09:00 - 10:00", Monday: "English", Tuesday: "Science", Wednesday: "Math", Thursday: "English", Friday: "Art" },
-    { time: "10:15 - 11:15", Monday: "Science", Tuesday: "Math", Wednesday: "English", Thursday: "Science", Friday: "Music" },
-    { time: "11:15 - 12:15", Monday: "ICT", Tuesday: "ICT", Wednesday: "ICT", Thursday: "ICT", Friday: "ICT" },
-  ],
-  week2: [
-    { time: "08:00 - 09:00", Monday: "English", Tuesday: "Math", Wednesday: "PE", Thursday: "Science", Friday: "Math" },
-    { time: "09:00 - 10:00", Monday: "Science", Tuesday: "English", Wednesday: "Math", Thursday: "English", Friday: "Art" },
-    { time: "10:15 - 11:15", Monday: "Math", Tuesday: "Science", Wednesday: "English", Thursday: "Math", Friday: "Music" },
-    { time: "11:15 - 12:15", Monday: "ICT", Tuesday: "ICT", Wednesday: "ICT", Thursday: "ICT", Friday: "ICT" },
-  ]
-};
-
-const tbody = document.getElementById("timetable-body");
-const weekSelect = document.getElementById("week-select");
-
-function renderTimetable(week) {
-  tbody.innerHTML = "";
-  timetableData[week].forEach(row => {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td>${row.time}</td>
-      <td>${row.Monday}</td>
-      <td>${row.Tuesday}</td>
-      <td>${row.Wednesday}</td>
-      <td>${row.Thursday}</td>
-      <td>${row.Friday}</td>
-    `;
-    tbody.appendChild(tr);
-  });
-}
-
-// Initial render
-renderTimetable(weekSelect.value);
-
-// Change week dynamically
-weekSelect.addEventListener("change", () => renderTimetable(weekSelect.value));
-</script>
-
-</body>
-</html>
+    { time: "08:00 - 09:00", Monday: {subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Tuesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 1
