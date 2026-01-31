@@ -31,24 +31,24 @@
   </div>
 
   <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="#about">About Us</a>
+    <a href="#academics">Academics</a>
+    <a href="#admissions">Admissions</a>
+    <a href="#campus">Our Campus</a>
+    <a href="#community">Community</a>
+    <a href="#news-events">News & Events</a>
+    <a href="#contact">Contact Us</a>
   </nav>
 </header>
 
 <!-- HERO SECTION -->
 <section class="hero">
   <h1>Training Tomorrow’s Leaders Today</h1>
-  <a href="admissions.html" class="btn">Schedule a Visit</a>
+  <a href="#admissions" class="btn">Schedule a Visit</a>
 </section>
 
 <!-- ABOUT SECTION -->
-<section class="about">
+<section class="about" id="about">
   <h2>An Educational Centre of Excellence</h2>
   <p>
     Leads Community School is dedicated to providing quality education that builds character,
@@ -59,25 +59,50 @@
 
 <!-- FEATURES SECTION -->
 <section class="features">
-
-  <div class="box">
+  <div class="box" id="academics">
     <h3>Academics</h3>
     <p>Strong curriculum aligned with GES standards.</p>
     <a href="academics.html" class="btn-small">Learn More</a>
   </div>
 
-  <div class="box">
+  <div class="box" id="admissions">
     <h3>Admissions</h3>
     <p>Enroll your child into a caring learning environment.</p>
     <a href="admissions.html" class="btn-small">Apply Now</a>
   </div>
 
-  <div class="box">
+  <div class="box" id="news-events">
     <h3>News & Events</h3>
     <p>Stay updated with school activities.</p>
     <a href="news-events.html" class="btn-small">Read More</a>
   </div>
+</section>
 
+<!-- CAMPUS SECTION -->
+<section class="about" id="campus">
+  <h2>Our Campus</h2>
+  <p>
+    Modern classrooms, safe playgrounds, and fully equipped labs ensure students get the best learning environment.
+  </p>
+  <a href="campus.html" class="btn">Explore Campus</a>
+</section>
+
+<!-- COMMUNITY SECTION -->
+<section class="about" id="community">
+  <h2>Our Community</h2>
+  <p>
+    We build strong bonds with parents, students, and teachers to create a nurturing school environment.
+  </p>
+  <a href="community.html" class="btn">Learn More</a>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="about" id="contact">
+  <h2>Contact Us</h2>
+  <p>
+    Want to learn more or visit our school? Reach out to us today!
+  </p>
+  <a href="contact.html" class="btn">Get in Touch</a>
 </section>
 
 <!-- FOOTER -->
@@ -94,12 +119,33 @@
     <a href="student-login.html">Student Login</a>
     <a href="parent-login.html">Parent Login</a>
     <a href="careers.html">Careers</a>
+    <a href="about.html">About Us</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
   </div>
 </footer>
 
 <div class="copyright">
   Leads Community School © 2026. All Rights Reserved.
 </div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/233XXXXXXXXX" target="_blank" class="whatsapp-btn">
+  <img src="whatsapp-icon.png" alt="WhatsApp">
+  Chat with us
+</a>
+
+<!-- OPTIONAL: Smooth scroll JS -->
+<script>
+  // Add smooth scroll for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if(target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
 
 </body>
 </html>
