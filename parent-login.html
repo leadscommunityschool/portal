@@ -5,6 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parent Login - Leads Community School</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Dashboard cards for Parent Login */
+.dashboard {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.dashboard h3 {
+  margin-bottom: 20px;
+  color: #004d26;
+}
+
+.dashboard .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.dashboard .card {
+  background-color: #ffcc00;
+  color: #004d26;
+  width: 220px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+
+.dashboard .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+</style>
 </head>
 <body>
 
@@ -44,12 +83,23 @@
 <!-- LOGIN FORM -->
 <section class="about">
   <h2>Parent Login</h2>
-  <form class="login-form">
+  <form class="login-form" onsubmit="handleLogin(event)">
     <input type="text" placeholder="Username or Email" required>
     <input type="password" placeholder="Password" required>
     <button type="submit" class="btn">Login</button>
   </form>
   <p>Forgot your password? <a href="#">Reset here</a></p>
+</section>
+
+<!-- PARENT DASHBOARD -->
+<section class="dashboard">
+  <h3>Parent Dashboard</h3>
+  <div class="cards">
+    <a href="child-grades.html" class="card">📝 View Child’s Grades</a>
+    <a href="attendance.html" class="card">📅 Attendance Records</a>
+    <a href="announcements.html" class="card">📢 School Announcements</a>
+    <a href="fees.html" class="card">💰 Fee Payments</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -72,6 +122,14 @@
 <div class="copyright">
   Leads Community School © 2026. All Rights Reserved.
 </div>
+
+<!-- JS -->
+<script>
+function handleLogin(e) {
+  e.preventDefault();
+  alert("Login successful! Welcome to your Parent Dashboard.");
+}
+</script>
 
 </body>
 </html>
