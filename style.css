@@ -4,7 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  scroll-behavior: smooth; /* Smooth scroll when navigating links */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
 
 /* ---------- TOP GREEN BAR ---------- */
 .top-green {
-  background-color: #004d26; /* Dark Green */
+  background-color: #004d26; 
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -35,7 +35,7 @@ body {
 }
 
 .top-green a:hover {
-  color: #ffcc00; /* Rich Yellow */
+  color: #ffcc00; 
 }
 
 .top-green input[type="text"] {
@@ -50,16 +50,16 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background-color: #ffcc00; /* Rich Yellow */
+  background-color: #ffcc00;
   position: sticky;
-  top: 38px; /* just below top-green bar */
+  top: 38px;
   z-index: 999;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: background 0.3s;
 }
 
 .main-header.sticky {
-  background-color: #ffd633; /* Slight lighter yellow when scrolling */
+  background-color: #ffd633;
 }
 
 .main-header .logo-area {
@@ -76,7 +76,7 @@ body {
 .main-header .logo-area span {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #004d26; /* Dark Green */
+  color: #004d26;
 }
 
 .main-nav a {
@@ -88,7 +88,7 @@ body {
 }
 
 .main-nav a:hover {
-  color: #003d1f; /* Slightly darker green on hover */
+  color: #003d1f;
 }
 
 /* ---------- HERO ---------- */
@@ -102,6 +102,14 @@ body {
   justify-content: center;
   min-height: 80vh;
   position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.hero.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .hero h1 {
@@ -132,7 +140,15 @@ body {
   text-align: center;
   padding: 80px 20px;
   background-color: #f9f9f9;
-  scroll-margin-top: 120px; /* offset for sticky header */
+  scroll-margin-top: 120px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+
+.about.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about h2 {
@@ -177,12 +193,14 @@ body {
   width: 280px;
   text-align: center;
   border-radius: 12px;
-  transition: transform 0.4s, box-shadow 0.4s;
+  transition: transform 0.4s, box-shadow 0.4s, opacity 1s;
+  opacity: 0;
+  transform: translateY(50px);
 }
 
-.features .box:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+.features .box.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .features .box h3 {
@@ -254,8 +272,8 @@ body {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background-color: #004d26; /* Dark Green */
-  color: #ffcc00; /* Rich Yellow */
+  background-color: #004d26;
+  color: #ffcc00;
   padding: 12px 22px;
   border-radius: 50px;
   text-decoration: none;
