@@ -58,10 +58,6 @@ body {
   transition: background 0.3s;
 }
 
-.main-header.sticky {
-  background-color: #ffd633;
-}
-
 .main-header .logo-area {
   display: flex;
   align-items: center;
@@ -135,7 +131,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* ---------- ABOUT SECTION ---------- */
+/* ---------- ABOUT ---------- */
 .about {
   text-align: center;
   padding: 80px 20px;
@@ -176,7 +172,7 @@ body {
   background-color: #003d1f;
 }
 
-/* ---------- FEATURES SECTION ---------- */
+/* ---------- FEATURES ---------- */
 .features {
   display: flex;
   flex-wrap: wrap;
