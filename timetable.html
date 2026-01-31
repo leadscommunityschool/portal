@@ -189,4 +189,71 @@
 <script>
 const timetableData = {
   week1: [
-    { time: "08:00 - 09:00", Monday: {subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Tuesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 1
+    { time: "08:00 - 09:00", Monday: {subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Tuesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Wednesday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Thursday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Friday:{subject:"PE", teacher:"Coach Ama", room:"Sports Hall"} },
+    { time: "09:00 - 10:00", Monday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Tuesday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Wednesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Thursday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Friday:{subject:"Art", teacher:"Ms. Abena", room:"Art Room"} },
+    { time: "10:15 - 11:15", Monday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Tuesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Wednesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Thursday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Friday:{subject:"Music", teacher:"Mr. Nana", room:"Music Room"} },
+    { time: "11:15 - 12:15", Monday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Tuesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Wednesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Thursday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Friday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"} },
+  ],
+  week2: [
+    { time: "08:00 - 09:00", Monday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Tuesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Wednesday:{subject:"PE", teacher:"Coach Ama", room:"Sports Hall"}, Thursday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Friday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"} },
+    { time: "09:00 - 10:00", Monday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Tuesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Wednesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Thursday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Friday:{subject:"Art", teacher:"Ms. Abena", room:"Art Room"} },
+    { time: "10:15 - 11:15", Monday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Tuesday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Wednesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Thursday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Friday:{subject:"Music", teacher:"Mr. Nana", room:"Music Room"} },
+    { time: "11:15 - 12:15", Monday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Tuesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Wednesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Thursday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Friday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"} },
+  ]
+};
+
+const tbody = document.getElementById("timetable-body");
+const weekSelect = document.getElementById("week-select");
+
+function renderTimetable(week) {
+  tbody.innerHTML = "";
+  timetableData[week].forEach(row => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${row.time}</td>
+      <td>${row.Monday.subject}</td>
+      <td>${row.Tuesday.subject}</td>
+      <td>${row.Wednesday.subject}</td>
+      <td>${row.Thursday.subject}</td>
+      <td>${row.Friday.subject}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  // Add click events to show popup
+  tbody.querySelectorAll("td").forEach((td, index) => {
+    if(index !== 0){ // skip time column
+      td.addEventListener("click", () => {
+        const col = index % 6;
+        const rowIndex = Math.floor(index / 6);
+        const day = ["Monday","Tuesday","Wednesday","Thursday","Friday"][col-1];
+        const classInfo = timetableData[week][rowIndex][day];
+        showPopup(classInfo);
+      });
+    }
+  });
+}
+
+// Popup functions
+function showPopup(classInfo){
+  document.getElementById("subject-name").innerText = classInfo.subject;
+  document.getElementById("teacher-name").innerText = "Teacher: " + classInfo.teacher;
+  document.getElementById("classroom").innerText = "Classroom: " + classInfo.room;
+  document.querySelector(".popup").style.display = "block";
+  document.querySelector(".overlay").style.display = "block";
+}
+
+function closePopup(){
+  document.querySelector(".popup").style.display = "none";
+  document.querySelector(".overlay").style.display = "none";
+}
+
+// Initial render
+renderTimetable(weekSelect.value);
+
+// Week selector change
+weekSelect.addEventListener("change", () => renderTimetable(weekSelect.value));
+</script>
+
+</body>
+</html>
