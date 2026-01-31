@@ -135,9 +135,9 @@
   Chat with us
 </a>
 
-<!-- OPTIONAL: Smooth scroll JS -->
+<!-- JAVASCRIPT -->
 <script>
-  // Add smooth scroll for internal links
+  // Smooth scroll for internal links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
@@ -145,41 +145,31 @@
       if(target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
-<script>
-// Show elements on scroll
-const scrollElements = document.querySelectorAll('.hero, .about, .features .box');
 
-const elementInView = (el, dividend = 1) => {
-  const elementTop = el.getBoundingClientRect().top;
-  return (
-    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-  );
-};
+  // Scroll animations
+  const scrollElements = document.querySelectorAll('.hero, .about, .features .box');
 
-const displayScrollElement = (element) => {
-  element.classList.add('show');
-};
+  const elementInView = (el, dividend = 1) => {
+    const elementTop = el.getBoundingClientRect().top;
+    return (
+      elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+    );
+  };
 
-const hideScrollElement = (element) => {
-  element.classList.remove('show');
-};
+  const displayScrollElement = (element) => {
+    element.classList.add('show');
+  };
 
-const handleScrollAnimation = () => {
-  scrollElements.forEach(el => {
-    if (elementInView(el, 1.25)) {
-      displayScrollElement(el);
-    }
-  });
-};
+  const handleScrollAnimation = () => {
+    scrollElements.forEach(el => {
+      if (elementInView(el, 1.25)) {
+        displayScrollElement(el);
+      }
+    });
+  };
 
-window.addEventListener('scroll', () => {
-  handleScrollAnimation();
-});
-
-// Trigger animations on load
-window.addEventListener('load', () => {
-  handleScrollAnimation();
-});
+  window.addEventListener('scroll', handleScrollAnimation);
+  window.addEventListener('load', handleScrollAnimation);
 </script>
 
 </body>
