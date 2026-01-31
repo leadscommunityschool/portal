@@ -10,10 +10,10 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f2f5;
+  background-color: #f5f7fa;
 }
 
-/* ===== Top Bar ===== */
+/* ===== Top Green Bar ===== */
 .top-green {
   background-color: #004d26;
   color: #fff;
@@ -42,21 +42,22 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #006b39;
-  color: #fff;
-  padding: 10px 20px;
+  padding: 15px 20px;
+  background-color: #fdf9f0;
+  border-bottom: 2px solid #004d26;
   flex-wrap: wrap;
 }
 
 .main-header .logo-area span {
   font-weight: bold;
+  color: #004d26;
   margin-left: 10px;
 }
 
 .main-nav a {
-  color: #fff;
-  margin-left: 20px;
+  margin-left: 15px;
   text-decoration: none;
+  color: #004d26;
   font-weight: bold;
 }
 
@@ -65,9 +66,10 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* always full height */
+  min-height: 80vh; /* visible on all screens */
   background: linear-gradient(120deg, #004d26, #006b39);
   padding: 20px;
+  box-sizing: border-box;
 }
 
 #login-section .about {
@@ -114,10 +116,10 @@ body, html {
 
 /* ===== Dashboard ===== */
 #dashboard-section {
-  display: none;
+  display: none; /* hidden until login */
   padding: 40px 20px;
-  background-color: #f0f2f5;
-  min-height: 100vh;
+  background-color: #f5f7fa;
+  min-height: 80vh;
 }
 
 .dashboard h3 {
@@ -191,9 +193,9 @@ body, html {
 <!-- Top Green Bar -->
 <div class="top-green">
   <div class="top-links">
-    <a href="#">Student Login</a>
-    <a href="#">Parent Login</a>
-    <a href="#">Staff Login</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="parent-login.html">Parent Login</a>
+    <a href="staff-login.html">Staff Login</a>
     <a href="#">Email Login</a>
     <a href="#">Careers</a>
   </div>
@@ -203,7 +205,7 @@ body, html {
 <!-- Header -->
 <header class="main-header">
   <div class="logo-area">
-    <img src="logo.png" alt="Logo" width="40">
+    <img src="logo.png" alt="Logo" width="50">
     <span>Leads Community School</span>
   </div>
   <nav class="main-nav">
@@ -234,7 +236,7 @@ body, html {
 <!-- Dashboard Section -->
 <section id="dashboard-section">
   <div class="dashboard">
-    <h3>Staff Dashboard</h3>
+    <h3>Welcome, Staff!</h3>
     <div class="cards">
       <a href="manage-classes.html" class="card">📚 Manage Classes</a>
       <a href="attendance.html" class="card">📅 Attendance Records</a>
@@ -256,8 +258,8 @@ body, html {
   </div>
   <div>
     <h4>Quick Links</h4>
-    <a href="#">Student Login</a>
-    <a href="#">Parent Login</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="parent-login.html">Parent Login</a>
     <a href="#">Careers</a>
   </div>
 </footer>
@@ -266,7 +268,6 @@ body, html {
   Leads Community School © 2026. All Rights Reserved.
 </div>
 
-<!-- JS -->
 <script>
 function handleLogin(e){
   e.preventDefault();
@@ -275,6 +276,7 @@ function handleLogin(e){
     alert("Enter Staff ID");
     return;
   }
+  // Hide login, show dashboard
   document.getElementById('login-section').style.display = 'none';
   document.getElementById('dashboard-section').style.display = 'block';
   alert("Login successful! Welcome to your Staff Dashboard.");
