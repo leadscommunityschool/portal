@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Staff Login - Leads Community School</title>
-<link rel="stylesheet" href="style.css">
 <style>
-/* ====================== General ====================== */
+/* ===== General ===== */
 body, html {
   margin: 0;
   padding: 0;
@@ -14,7 +13,7 @@ body, html {
   background-color: #f0f2f5;
 }
 
-/* ====================== Top Bar ====================== */
+/* ===== Top Bar ===== */
 .top-green {
   background-color: #004d26;
   color: #fff;
@@ -22,6 +21,7 @@ body, html {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+  flex-wrap: wrap;
 }
 
 .top-green .top-links a {
@@ -37,7 +37,7 @@ body, html {
   border: none;
 }
 
-/* ====================== Header ====================== */
+/* ===== Header ===== */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -45,6 +45,7 @@ body, html {
   background-color: #006b39;
   color: #fff;
   padding: 10px 20px;
+  flex-wrap: wrap;
 }
 
 .main-header .logo-area span {
@@ -59,13 +60,14 @@ body, html {
   font-weight: bold;
 }
 
-/* ====================== Login Section ====================== */
+/* ===== Login Section ===== */
 #login-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 70px); /* Full screen minus top bar */
+  min-height: 100vh; /* always full height */
   background: linear-gradient(120deg, #004d26, #006b39);
+  padding: 20px;
 }
 
 #login-section .about {
@@ -76,10 +78,10 @@ body, html {
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   width: 100%;
   max-width: 400px;
+  text-align: center;
 }
 
 #login-section .about h2 {
-  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -107,15 +109,15 @@ body, html {
 }
 
 #login-section .about p {
-  text-align: center;
   margin-top: 15px;
 }
 
-/* ====================== Dashboard ====================== */
+/* ===== Dashboard ===== */
 #dashboard-section {
-  display: none; /* Hidden until login */
+  display: none;
   padding: 40px 20px;
   background-color: #f0f2f5;
+  min-height: 100vh;
 }
 
 .dashboard h3 {
@@ -149,7 +151,7 @@ body, html {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* ====================== Footer ====================== */
+/* ===== Footer ===== */
 .footer {
   background-color: #004d26;
   color: #fff;
@@ -176,26 +178,32 @@ body, html {
   color: #fff;
   padding: 10px;
 }
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .dashboard .cards {flex-direction: column; align-items: center;}
+  .dashboard .card {width: 80%;}
+}
 </style>
 </head>
 <body>
 
-<!-- TOP GREEN BAR -->
+<!-- Top Green Bar -->
 <div class="top-green">
   <div class="top-links">
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
+    <a href="#">Student Login</a>
+    <a href="#">Parent Login</a>
+    <a href="#">Staff Login</a>
+    <a href="#">Email Login</a>
+    <a href="#">Careers</a>
   </div>
   <input type="text" placeholder="Search...">
 </div>
 
-<!-- HEADER -->
+<!-- Header -->
 <header class="main-header">
   <div class="logo-area">
-    <img src="logo.png" alt="Leads Community School Logo" width="40">
+    <img src="logo.png" alt="Logo" width="40">
     <span>Leads Community School</span>
   </div>
   <nav class="main-nav">
@@ -210,20 +218,20 @@ body, html {
   </nav>
 </header>
 
-<!-- LOGIN SECTION -->
+<!-- Login Section -->
 <section id="login-section">
   <div class="about">
     <h2>Staff Login</h2>
     <form class="login-form" onsubmit="handleLogin(event)">
-      <input type="text" placeholder="Staff ID" required>
-      <input type="password" placeholder="Password" required>
+      <input type="text" id="staff-id" placeholder="Staff ID" required>
+      <input type="password" id="password" placeholder="Password" required>
       <button type="submit" class="btn">Login</button>
     </form>
     <p>Forgot your password? <a href="#">Reset here</a></p>
   </div>
 </section>
 
-<!-- DASHBOARD SECTION -->
+<!-- Dashboard Section -->
 <section id="dashboard-section">
   <div class="dashboard">
     <h3>Staff Dashboard</h3>
@@ -238,7 +246,7 @@ body, html {
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer class="footer">
   <div>
     <h4>Contact Us</h4>
@@ -248,9 +256,9 @@ body, html {
   </div>
   <div>
     <h4>Quick Links</h4>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="careers.html">Careers</a>
+    <a href="#">Student Login</a>
+    <a href="#">Parent Login</a>
+    <a href="#">Careers</a>
   </div>
 </footer>
 
@@ -260,11 +268,14 @@ body, html {
 
 <!-- JS -->
 <script>
-function handleLogin(e) {
+function handleLogin(e){
   e.preventDefault();
-  // Hide login section
+  const staffId = document.getElementById('staff-id').value.trim();
+  if(!staffId){
+    alert("Enter Staff ID");
+    return;
+  }
   document.getElementById('login-section').style.display = 'none';
-  // Show dashboard section
   document.getElementById('dashboard-section').style.display = 'block';
   alert("Login successful! Welcome to your Staff Dashboard.");
 }
