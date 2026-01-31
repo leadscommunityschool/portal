@@ -323,3 +323,27 @@ body {
     width: 90%;
   }
 }
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-area img {
+  width: 70px;
+  height: auto;
+}
+
+.school-name h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #004d26;
+  font-weight: bold;
+}
+
+.school-name p {
+  margin: 0;
+  font-size: 13px;
+  color: #ffcc00;
+  font-weight: bold;
+}
