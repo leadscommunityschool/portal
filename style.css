@@ -1,18 +1,20 @@
 body {
     margin: 0;
-    font-family: Arial;
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #1d5c35; /* default text dark green */
 }
 
 /* TOP BAR */
 .top-green {
-    background: #1d5c35; /* Dark green */
+    background: #1d5c35; /* dark green */
     padding: 8px 20px;
     display: flex;
     justify-content: space-between;
 }
 
 .top-green a {
-    color: #FFD700; /* Rich yellow */
+    color: #FFD700; /* rich yellow */
     text-decoration: none;
     margin-right: 10px;
     font-size: 14px;
@@ -30,7 +32,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    background: #1d5c35; /* Dark green */
+    background: #1d5c35; /* dark green */
 }
 
 .logo-area {
@@ -46,7 +48,7 @@ body {
 nav a {
     margin: 0 12px;
     text-decoration: none;
-    color: #FFD700; /* Rich yellow */
+    color: #FFD700; /* rich yellow */
     font-weight: bold;
 }
 
@@ -58,16 +60,27 @@ nav a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #FFD700; /* Rich yellow text */
+    color: #FFD700; /* rich yellow text */
     text-align: center;
+}
+
+.hero h1, .hero p {
+    color: #FFD700; /* rich yellow text */
 }
 
 .hero button {
     padding: 12px 30px;
-    background: transparent;
-    border: 2px solid #FFD700; /* Rich yellow */
-    color: #FFD700;
+    background: #FFD700; /* rich yellow */
+    border: 2px solid #1d5c35; /* dark green border */
+    color: #1d5c35; /* dark green text */
     font-size: 16px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: transparent;
+    color: #FFD700;
+    border-color: #FFD700;
 }
 
 /* ABOUT */
@@ -76,11 +89,21 @@ nav a {
     text-align: center;
 }
 
+.about h2, .about p {
+    color: #1d5c35;
+}
+
 .about button {
     padding: 10px 20px;
-    border: 2px solid #1d5c35; /* Dark green */
-    background: #FFD700; /* Rich yellow */
+    border: 2px solid #1d5c35; /* dark green border */
+    background: #FFD700; /* rich yellow background */
     color: #1d5c35;
+    cursor: pointer;
+}
+
+.about button:hover {
+    background: #1d5c35;
+    color: #FFD700;
 }
 
 /* FEATURES */
@@ -88,8 +111,8 @@ nav a {
     display: flex;
     justify-content: space-around;
     padding: 50px 20px;
-    background: #1d5c35; /* Dark green */
-    color: #FFD700; /* Rich yellow text */
+    background: #1d5c35; /* dark green */
+    color: #FFD700; /* rich yellow text */
 }
 
 .box {
@@ -97,24 +120,37 @@ nav a {
     text-align: center;
 }
 
+.box h3, .box p {
+    color: #FFD700;
+}
+
 /* FOOTER */
 .footer {
-    background: #1d5c35; /* Dark green */
-    color: #FFD700; /* Rich yellow text */
+    background: #1d5c35; /* dark green */
+    color: #FFD700; /* rich yellow text */
     display: flex;
     justify-content: space-around;
     padding: 40px;
 }
 
+.footer a {
+    color: #FFD700;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
 .copyright {
     background: #111;
-    color: #FFD700; /* Rich yellow */
+    color: #FFD700; /* rich yellow */
     text-align: center;
     padding: 15px;
 }
 
 /* MOBILE */
-@media(max-width:768px){
+@media(max-width:768px) {
 
     .main-header {
         flex-direction: column;
