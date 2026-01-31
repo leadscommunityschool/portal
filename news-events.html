@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News & Events - Leads Community School</title>
+<style>
+/* ===== General ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #004d26;
+}
+
+/* ===== Top Green Bar ===== */
+.top-green {
+  background: #004d26;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.top-green .top-links a {
+  color: #ffcc00;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.top-green input[type="text"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* ===== Header ===== */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffcc00;
+  border-bottom: 2px solid #004d26;
+  flex-wrap: wrap;
+}
+
+.main-header .logo-area span {
+  font-weight: bold;
+  color: #004d26;
+  margin-left: 10px;
+}
+
+.main-nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #004d26;
+  font-weight: bold;
+}
+
+.main-nav a:hover {
+  color: #002013;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  color: #004d26;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #004d26;
+  line-height: 1.6;
+}
+
+/* ===== News & Events Section ===== */
+.section-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-left: 6px solid #ffcc00;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-container h2 {
+  color: #004d26;
+  margin-bottom: 15px;
+}
+
+/* ===== News List ===== */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background: #f9f9f9;
+  border-left: 4px solid #ffcc00;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.news-item img {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.news-content {
+  flex: 1;
+}
+
+.news-content h3 {
+  margin: 0 0 10px 0;
+  color: #004d26;
+}
+
+.news-content p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #004d26;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .news-item {
+    flex-direction: column;
+    align-items: center;
+  }
+  .news-item img {
+    width: 90%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Green Bar -->
+<div class="top-green">
+  <div class="top-links">
+    <a href="index.html">Home</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="parent-login.html">Parent Login</a>
+    <a href="staff-login.html">Staff Login</a>
+    <a href="email-login.html">Email Login</a>
+    <a href="careers.html">Careers</a>
+  </div>
+  <input type="text" placeholder="Search...">
+</div>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="logo-area">
+    <img src="logo.png" alt="Leads Community School Logo" width="50">
+    <span>Leads Community School</span>
+  </div>
+  <nav class="main-nav">
+    <a href="about.html">About Us</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="campus.html">Our Campus</a>
+    <a href="community.html">Community</a>
+    <a href="news-events.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Latest News & Upcoming Events</h1>
+  <p>Stay updated with all the latest happenings at Leads Community School. From academic achievements to social events, we keep you informed.</p>
+</section>
+
+<!-- News Section -->
+<section class="section-container">
+  <h2>News & Events</h2>
+  <div class="news-list">
+    <div class="news-item">
+      <img src="news1.jpg" alt="Science Fair">
+      <div class="news-content">
+        <h3>Annual Science Fair</h3>
+        <p>Our students showcased their innovative science projects at the Annual Science Fair held on 2026-02-10. Parents and community members attended and applauded their creativity.</p>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="news2.jpg" alt="Sports Day">
+      <div class="news-content">
+        <h3>Sports Day 2026</h3>
+        <p>Leads Community School Sports Day was held on 2026-03-01. Students competed in various sports and demonstrated teamwork, perseverance, and school spirit.</p>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="news3.jpg" alt="Library Opening">
+      <div class="news-content">
+        <h3>New Library Opening</h3>
+        <p>We inaugurated our new library with modern facilities to encourage reading and research. Students now have access to a wide range of books and digital resources.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
+  <p>
+    <a href="index.html">Home</a> | 
+    <a href="about.html">About Us</a> | 
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+</body>
+</html>
