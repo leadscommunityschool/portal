@@ -3,8 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attendance Records - Leads Community School</title>
+<title>Attendance - Parent Dashboard</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Attendance page specific styling */
+.attendance-container {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.attendance-container h2 {
+  color: #004d26;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.attendance-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.attendance-container table th,
+.attendance-container table td {
+  border: 1px solid #004d26;
+  padding: 10px;
+  text-align: center;
+}
+
+.attendance-container table th {
+  background-color: #ffcc00;
+  color: #004d26;
+}
+
+.attendance-container table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.attendance-container .summary {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #004d26;
+  text-align: right;
+}
+</style>
 </head>
 <body>
 
@@ -29,44 +72,67 @@
     </a>
   </div>
   <nav class="main-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="parent-dashboard.html">Dashboard</a>
+    <a href="attendance.html">Attendance</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="report-cards.html">Report Cards</a>
+    <a href="fees.html">Fees</a>
+    <a href="messages.html">Messages</a>
+    <a href="announcements.html">Announcements</a>
   </nav>
 </header>
 
-<!-- CONTENT -->
-<section class="about">
-  <h2>Attendance Records</h2>
-  <p>Check your child’s attendance for the academic year.</p>
+<!-- ATTENDANCE CONTENT -->
+<section class="attendance-container">
+  <h2>Student Attendance</h2>
+  <p>Track your child's daily attendance and monthly summary.</p>
 
-  <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
-    <tr style="background-color:#ffcc00;">
-      <th>Date</th>
-      <th>Day</th>
-      <th>Status</th>
-    </tr>
-    <tr>
-      <td>2026-01-05</td>
-      <td>Monday</td>
-      <td>Present</td>
-    </tr>
-    <tr>
-      <td>2026-01-06</td>
-      <td>Tuesday</td>
-      <td>Absent</td>
-    </tr>
-    <tr>
-      <td>2026-01-07</td>
-      <td>Wednesday</td>
-      <td>Present</td>
-    </tr>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Day</th>
+        <th>Status</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>2026-01-20</td>
+        <td>Monday</td>
+        <td>Present</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2026-01-21</td>
+        <td>Tuesday</td>
+        <td>Absent</td>
+        <td>Sick</td>
+      </tr>
+      <tr>
+        <td>2026-01-22</td>
+        <td>Wednesday</td>
+        <td>Present</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2026-01-23</td>
+        <td>Thursday</td>
+        <td>Present</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td>2026-01-24</td>
+        <td>Friday</td>
+        <td>Present</td>
+        <td>-</td>
+      </tr>
+    </tbody>
   </table>
+
+  <div class="summary">
+    Total Present: 4 | Total Absent: 1 | Attendance %: 80%
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -79,7 +145,7 @@
   </div>
   <div class="footer-links">
     <h4>Quick Links</h4>
-    <a href="parent-login.html">Parent Login</a>
+    <a href="parent-dashboard.html">Parent Dashboard</a>
     <a href="student-login.html">Student Login</a>
     <a href="careers.html">Careers</a>
   </div>
@@ -88,5 +154,6 @@
 <div class="copyright">
   Leads Community School © 2026. All Rights Reserved.
 </div>
+
 </body>
 </html>
