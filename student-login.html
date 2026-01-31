@@ -4,25 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Login - Leads Community School</title>
-<link rel="stylesheet" href="style.css">
 <style>
-/* ===== General ===== */
-body, html {
-  margin:0;
-  padding:0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(120deg, #004d26, #00733a);
-  height: 100vh;
-}
+/* Reset */
+* {margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif;}
 
-/* ===== Top Green Bar ===== */
+/* Top Green Bar */
 .top-green {
   background: #004d26;
   color: #fff;
   display: flex;
   justify-content: space-between;
-  padding: 10px 20px;
   align-items: center;
+  padding: 10px 20px;
 }
 .top-green .top-links a {
   color: #fff;
@@ -36,7 +29,7 @@ body, html {
   border: none;
 }
 
-/* ===== Header ===== */
+/* Header */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -62,7 +55,9 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 70px); /* Full screen minus top bar */
+  min-height: calc(100vh - 70px); /* full screen minus top bar */
+  background: #f5f7fa;
+  padding: 20px;
 }
 .about {
   background: #fff;
@@ -106,7 +101,7 @@ body, html {
   text-decoration: none;
 }
 
-/* ===== Dashboard (Hidden initially) ===== */
+/* Dashboard (hidden initially) */
 #dashboard-section {
   display: none;
   padding: 40px 20px;
@@ -140,6 +135,12 @@ body, html {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
+
+/* Responsive */
+@media(max-width:768px){
+  .dashboard .cards {flex-direction: column; align-items: center;}
+  .dashboard .card {width: 80%;}
+}
 </style>
 </head>
 <body>
@@ -159,7 +160,7 @@ body, html {
 <!-- Header -->
 <header class="main-header">
   <div class="logo-area">
-    <img src="logo.png" alt="Leads Community School Logo" width="50">
+    <img src="logo.png" alt="Logo" width="50">
     <span>Leads Community School</span>
   </div>
   <nav class="main-nav">
@@ -187,29 +188,27 @@ body, html {
   </div>
 </section>
 
-<!-- Dashboard Section (Hidden) -->
+<!-- Dashboard Section -->
 <section id="dashboard-section">
   <div class="dashboard">
     <h3>Welcome, <span id="student-name"></span>!</h3>
     <div class="cards">
-      <a href="#schedule-section" class="card">📅 Check Class Schedule</a>
-      <a href="#grades-section" class="card">📝 View Grades & Reports</a>
-      <a href="#assignments-section" class="card">📚 Assignments & Homework</a>
-      <a href="#announcements-section" class="card">📢 School Announcements</a>
+      <a href="#" class="card">📅 Check Class Schedule</a>
+      <a href="#" class="card">📝 View Grades & Reports</a>
+      <a href="#" class="card">📚 Assignments & Homework</a>
+      <a href="#" class="card">📢 School Announcements</a>
     </div>
   </div>
 </section>
 
-<!-- JS -->
 <script>
 function handleLogin(e){
   e.preventDefault();
-  const username = document.getElementById("username").value;
-  if(username.trim() === ""){
-    alert("Enter your username");
+  const username = document.getElementById("username").value.trim();
+  if(!username){
+    alert("Please enter your username");
     return;
   }
-  // Hide login, show dashboard
   document.getElementById("login-section").style.display = "none";
   document.getElementById("dashboard-section").style.display = "block";
   document.getElementById("student-name").textContent = username;
