@@ -347,3 +347,17 @@ body {
   color: #ffcc00;
   font-weight: bold;
 }
+.logo-area {
+  animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
