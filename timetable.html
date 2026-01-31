@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timetable - Parent Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* Timetable specific styling */
+.timetable-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background-color: #fdf9f0;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.timetable-container h2 {
+  text-align: center;
+  color: #004d26;
+  margin-bottom: 20px;
+}
+
+.timetable-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.timetable-container table th,
+.timetable-container table td {
+  border: 1px solid #004d26;
+  padding: 12px;
+  text-align: center;
+}
+
+.timetable-container table th {
+  background-color: #ffcc00;
+  color: #004d26;
+}
+
+.timetable-container table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP GREEN BAR -->
+<div class="top-green">
+  <div class="top-links">
+    <a href="student-login.html">Student Login</a>
+    <a href="parent-login.html">Parent Login</a>
+    <a href="staff-login.html">Staff Login</a>
+    <a href="email-login.html">Email Login</a>
+    <a href="careers.html">Careers</a>
+  </div>
+  <input type="text" placeholder="Search...">
+</div>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="logo-area">
+    <a href="index.html">
+      <img src="logo.png" alt="Leads Community School Logo">
+      <span>Leads Community School</span>
+    </a>
+  </div>
+  <nav class="main-nav">
+    <a href="parent-dashboard.html">Dashboard</a>
+    <a href="attendance.html">Attendance</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="report-cards.html">Report Cards</a>
+    <a href="fees.html">Fees</a>
+    <a href="messages.html">Messages</a>
+    <a href="announcements.html">Announcements</a>
+  </nav>
+</header>
+
+<!-- TIMETABLE CONTENT -->
+<section class="timetable-container">
+  <h2>Student Timetable</h2>
+  <p>View your child's weekly class schedule.</p>
+
+  <!-- Week selector -->
+  <div style="text-align:center; margin-bottom:20px;">
+    <label for="week-select">Select Week:</label>
+    <select id="week-select">
+      <option value="week1">Week 1</option>
+      <option value="week2">Week 2</option>
+    </select>
+  </div>
+
+  <!-- Timetable Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+      </tr>
+    </thead>
+    <tbody id="timetable-body">
+      <!-- Dynamic rows here -->
+    </tbody>
+  </table>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-contact">
+    <h4>Contact Us</h4>
+    <p>Leads Community School</p>
+    <p>Tel: +233 XXXXXXX</p>
+    <p>Email: info@leadsschools.com</p>
+  </div>
+  <div class="footer-links">
+    <h4>Quick Links</h4>
+    <a href="parent-dashboard.html">Parent Dashboard</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="careers.html">Careers</a>
+  </div>
+</footer>
+
+<div class="copyright">
+  Leads Community School © 2026. All Rights Reserved.
+</div>
+
+<!-- JS to make timetable dynamic -->
+<script>
+const timetableData = {
+  week1: [
+    { time: "08:00 - 09:00", Monday: "Math", Tuesday: "English", Wednesday: "Science", Thursday: "Math", Friday: "PE" },
+    { time: "09:00 - 10:00", Monday: "English", Tuesday: "Science", Wednesday: "Math", Thursday: "English", Friday: "Art" },
+    { time: "10:15 - 11:15", Monday: "Science", Tuesday: "Math", Wednesday: "English", Thursday: "Science", Friday: "Music" },
+    { time: "11:15 - 12:15", Monday: "ICT", Tuesday: "ICT", Wednesday: "ICT", Thursday: "ICT", Friday: "ICT" },
+  ],
+  week2: [
+    { time: "08:00 - 09:00", Monday: "English", Tuesday: "Math", Wednesday: "PE", Thursday: "Science", Friday: "Math" },
+    { time: "09:00 - 10:00", Monday: "Science", Tuesday: "English", Wednesday: "Math", Thursday: "English", Friday: "Art" },
+    { time: "10:15 - 11:15", Monday: "Math", Tuesday: "Science", Wednesday: "English", Thursday: "Math", Friday: "Music" },
+    { time: "11:15 - 12:15", Monday: "ICT", Tuesday: "ICT", Wednesday: "ICT", Thursday: "ICT", Friday: "ICT" },
+  ]
+};
+
+const tbody = document.getElementById("timetable-body");
+const weekSelect = document.getElementById("week-select");
+
+function renderTimetable(week) {
+  tbody.innerHTML = "";
+  timetableData[week].forEach(row => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${row.time}</td>
+      <td>${row.Monday}</td>
+      <td>${row.Tuesday}</td>
+      <td>${row.Wednesday}</td>
+      <td>${row.Thursday}</td>
+      <td>${row.Friday}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Initial render
+renderTimetable(weekSelect.value);
+
+// Change week dynamically
+weekSelect.addEventListener("change", () => renderTimetable(weekSelect.value));
+</script>
+
+</body>
+</html>
