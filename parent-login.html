@@ -3,45 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parent Login - Leads Community School</title>
+<title>Parent Dashboard - Leads Community School</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* Dashboard cards for Parent Login */
+/* Extra styling for dashboard cards */
 .dashboard {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.dashboard h3 {
-  margin-bottom: 20px;
-  color: #004d26;
-}
-
-.dashboard .cards {
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
   justify-content: center;
-  gap: 25px;
-  margin-top: 20px;
+  padding: 40px 20px;
 }
 
 .dashboard .card {
   background-color: #ffcc00;
   color: #004d26;
   width: 220px;
-  padding: 20px;
-  border-radius: 8px;
+  padding: 25px;
   text-align: center;
-  font-weight: bold;
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
 }
 
 .dashboard .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.dashboard .card h3 {
+  margin-bottom: 15px;
+}
+
+.dashboard .card p {
+  font-size: 0.95rem;
 }
 </style>
 </head>
@@ -67,7 +63,6 @@
       <span>Leads Community School</span>
     </a>
   </div>
-
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About Us</a>
@@ -80,25 +75,41 @@
   </nav>
 </header>
 
-<!-- LOGIN FORM -->
+<!-- DASHBOARD CONTENT -->
 <section class="about">
-  <h2>Parent Login</h2>
-  <form class="login-form" onsubmit="handleLogin(event)">
-    <input type="text" placeholder="Username or Email" required>
-    <input type="password" placeholder="Password" required>
-    <button type="submit" class="btn">Login</button>
-  </form>
-  <p>Forgot your password? <a href="#">Reset here</a></p>
-</section>
+  <h2>Welcome to Your Parent Dashboard</h2>
+  <p>Quick access to your child’s records, announcements, and school activities.</p>
 
-<!-- PARENT DASHBOARD -->
-<section class="dashboard">
-  <h3>Parent Dashboard</h3>
-  <div class="cards">
-    <a href="child-grades.html" class="card">📝 View Child’s Grades</a>
-    <a href="attendance.html" class="card">📅 Attendance Records</a>
-    <a href="announcements.html" class="card">📢 School Announcements</a>
-    <a href="fees.html" class="card">💰 Fee Payments</a>
+  <div class="dashboard">
+    <a href="attendance.html" class="card">
+      <h3>Attendance</h3>
+      <p>Check your child’s daily attendance and history.</p>
+    </a>
+
+    <a href="timetable.html" class="card">
+      <h3>Class Timetable</h3>
+      <p>View weekly schedule for all subjects.</p>
+    </a>
+
+    <a href="announcements.html" class="card">
+      <h3>Announcements</h3>
+      <p>Stay updated with school news and events.</p>
+    </a>
+
+    <a href="fees.html" class="card">
+      <h3>Fee Payments</h3>
+      <p>Check balances and make online payments.</p>
+    </a>
+
+    <a href="report-cards.html" class="card">
+      <h3>Report Cards</h3>
+      <p>View your child’s grades and progress reports.</p>
+    </a>
+
+    <a href="messages.html" class="card">
+      <h3>Messages</h3>
+      <p>Communicate with teachers and school administration.</p>
+    </a>
   </div>
 </section>
 
@@ -110,11 +121,10 @@
     <p>Tel: +233 XXXXXXX</p>
     <p>Email: info@leadsschools.com</p>
   </div>
-
   <div class="footer-links">
     <h4>Quick Links</h4>
-    <a href="student-login.html">Student Login</a>
     <a href="parent-login.html">Parent Login</a>
+    <a href="student-login.html">Student Login</a>
     <a href="careers.html">Careers</a>
   </div>
 </footer>
@@ -122,14 +132,6 @@
 <div class="copyright">
   Leads Community School © 2026. All Rights Reserved.
 </div>
-
-<!-- JS -->
-<script>
-function handleLogin(e) {
-  e.preventDefault();
-  alert("Login successful! Welcome to your Parent Dashboard.");
-}
-</script>
 
 </body>
 </html>
