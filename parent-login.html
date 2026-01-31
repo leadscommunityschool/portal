@@ -122,7 +122,7 @@ body, html {
 }
 
 .dashboard .card {
-  background-color: #ffcc00;
+  background-color: #ffcc00; /* Rich yellow */
   color: #004d26;
   width: 220px;
   padding: 20px;
@@ -181,6 +181,7 @@ body, html {
   text-align: center;
 }
 
+/* ===== Responsive ===== */
 @media(max-width:768px){
   .dashboard {flex-direction: column; align-items: center;}
   .dashboard .card {width: 80%;}
@@ -192,6 +193,7 @@ body, html {
 <!-- Top Green Bar -->
 <div class="top-green">
   <div class="top-links">
+    <a href="index.html" id="home-link" style="display:none;">Home</a>
     <a href="#">Student Login</a>
     <a href="#">Parent Login</a>
     <a href="#">Staff Login</a>
@@ -209,12 +211,12 @@ body, html {
   </div>
   <nav class="main-nav">
     <a href="#">Dashboard</a>
-    <a href="#">Attendance</a>
-    <a href="#">Timetable</a>
-    <a href="#">Report Cards</a>
-    <a href="#">Fees</a>
-    <a href="#">Messages</a>
-    <a href="#">Announcements</a>
+    <a href="#attendance-section">Attendance</a>
+    <a href="#timetable-section">Timetable</a>
+    <a href="#report-section">Report Cards</a>
+    <a href="#fees-section">Fees</a>
+    <a href="#messages-section">Messages</a>
+    <a href="#announcements-section">Announcements</a>
   </nav>
 </header>
 
@@ -233,7 +235,7 @@ body, html {
 
 <!-- Dashboard Section -->
 <section id="dashboard-section">
-  <!-- Cards -->
+  <!-- Dashboard Cards -->
   <section class="dashboard">
     <a href="#attendance-section" class="card"><h3>Attendance</h3><p>Track daily & monthly attendance</p></a>
     <a href="#timetable-section" class="card"><h3>Timetable</h3><p>See weekly class schedule</p></a>
@@ -257,8 +259,68 @@ body, html {
     </table>
   </section>
 
-  <!-- Other sections (Timetable, Reports, Fees, Messages, Announcements) -->
-  <!-- You can reuse the previous HTML sections here -->
+  <!-- Timetable Section -->
+  <section id="timetable-section" class="section-container">
+    <h2>Timetable</h2>
+    <p>Pick a date to see your child’s classes.</p>
+    <input type="date" id="date-picker">
+    <table class="timetable-table">
+      <thead>
+        <tr><th>Time</th><th>Subject</th><th>Teacher</th><th>Room</th></tr>
+      </thead>
+      <tbody id="timetable-body"></tbody>
+    </table>
+  </section>
+
+  <!-- Report Cards Section -->
+  <section id="report-section" class="section-container">
+    <h2>Report Cards</h2>
+    <table>
+      <thead>
+        <tr><th>Subject</th><th>Grade</th><th>Teacher Remark</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Math</td><td>A</td><td>Excellent progress</td></tr>
+        <tr><td>English</td><td>B+</td><td>Good improvement</td></tr>
+        <tr><td>Science</td><td>A-</td><td>Very good</td></tr>
+        <tr><td>ICT</td><td>B</td><td>Can improve</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Fees Section -->
+  <section id="fees-section" class="section-container">
+    <h2>Fees</h2>
+    <table>
+      <thead><tr><th>Term</th><th>Amount</th><th>Paid</th><th>Balance</th></tr></thead>
+      <tbody>
+        <tr><td>Term 1</td><td>₵1200</td><td>₵1200</td><td>₵0</td></tr>
+        <tr><td>Term 2</td><td>₵1200</td><td>₵600</td><td>₵600</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Messages Section -->
+  <section id="messages-section" class="section-container">
+    <h2>Messages</h2>
+    <table>
+      <thead><tr><th>Date</th><th>From</th><th>Message</th></tr></thead>
+      <tbody>
+        <tr><td>2026-01-20</td><td>Mr. Mensah</td><td>Reminder: Math homework due tomorrow</td></tr>
+        <tr><td>2026-01-21</td><td>Mrs. Adjoa</td><td>Science project submission</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Announcements Section -->
+  <section id="announcements-section" class="section-container">
+    <h2>Announcements</h2>
+    <ul>
+      <li>Parent-Teacher meeting on 2026-02-15 at 10:00 AM</li>
+      <li>School sports day scheduled for 2026-03-01</li>
+      <li>New library books have arrived</li>
+    </ul>
+  </section>
 </section>
 
 <!-- Footer -->
@@ -266,22 +328,63 @@ body, html {
   Leads Community School © 2026. All Rights Reserved.
 </footer>
 
-<!-- JS Login -->
+<!-- JS Login + Timetable -->
 <script>
 function handleLogin(e){
   e.preventDefault();
   const parentId = document.getElementById('parent-id').value.trim();
   const password = document.getElementById('password').value.trim();
   
-  // You can add real authentication here
   if(parentId && password){
     document.getElementById('login-section').style.display = 'none';
     document.getElementById('dashboard-section').style.display = 'block';
+    document.getElementById('home-link').style.display = 'inline'; // show Home
     alert("Login successful! Welcome to your Parent Dashboard.");
   } else {
     alert("Enter Parent ID and Password");
   }
 }
+
+// Timetable
+const weeklySchedule = {
+  Monday: [
+    {time:"08:00-09:00",subject:"Math",teacher:"Mr. Mensah",room:"101"},
+    {time:"09:00-10:00",subject:"English",teacher:"Mrs. Adjoa",room:"102"},
+    {time:"10:15-11:15",subject:"Science",teacher:"Mr. Kofi",room:"Lab1"},
+    {time:"11:15-12:15",subject:"ICT",teacher:"Mr. Yaw",room:"CompLab"}
+  ],
+  Tuesday: [
+    {time:"08:00-09:00",subject:"English",teacher:"Mrs. Adjoa",room:"102"},
+    {time:"09:00-10:00",subject:"Science",teacher:"Mr. Kofi",room:"Lab1"},
+    {time:"10:15-11:15",subject:"Math",teacher:"Mr. Mensah",room:"101"},
+    {time:"11:15-12:15",subject:"ICT",teacher:"Mr. Yaw",room:"CompLab"}
+  ]
+  // You can add other days...
+};
+
+const datePicker = document.getElementById("date-picker");
+const tbody = document.getElementById("timetable-body");
+
+function renderDailyTimetable(dateStr){
+  tbody.innerHTML = "";
+  const dayName = new Date(dateStr).toLocaleDateString('en-US',{ weekday:'long'});
+  const classes = weeklySchedule[dayName] || [];
+  if(classes.length === 0){
+    tbody.innerHTML = "<tr><td colspan='4'>No classes scheduled for this day.</td></tr>";
+    return;
+  }
+  classes.forEach(cls=>{
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${cls.time}</td><td>${cls.subject}</td><td>${cls.teacher}</td><td>${cls.room}</td>`;
+    tbody.appendChild(tr);
+  });
+}
+
+// Initialize today
+const today = new Date().toISOString().split('T')[0];
+datePicker.value = today;
+renderDailyTimetable(today);
+datePicker.addEventListener("change", e=> renderDailyTimetable(e.target.value));
 </script>
 
 </body>
