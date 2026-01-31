@@ -5,6 +5,72 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Careers - Leads Community School</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* Career cards */
+.careers-section {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.careers-section h2 {
+  color: #004d26;
+  margin-bottom: 15px;
+}
+
+.careers-section p {
+  max-width: 700px;
+  margin: 0 auto 20px auto;
+}
+
+.job-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.job-card {
+  background-color: #ffcc00;
+  color: #004d26;
+  width: 250px;
+  padding: 25px;
+  border-radius: 8px;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+}
+
+.job-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.job-card h3 {
+  margin-bottom: 10px;
+}
+
+.job-card p {
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.job-card .apply-btn {
+  display: inline-block;
+  background-color: #004d26;
+  color: #ffcc00;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.job-card .apply-btn:hover {
+  background-color: #003d1f;
+}
+</style>
 </head>
 <body>
 
@@ -42,13 +108,38 @@
 </header>
 
 <!-- CAREERS SECTION -->
-<section class="about">
+<section class="careers-section">
   <h2>Join Our Team</h2>
   <p>
     Leads Community School is always looking for passionate educators and staff to join our growing family.
+    Check our open positions below and apply today to make a difference in students' lives.
   </p>
-  <p>Check our open positions and apply today to make a difference in students' lives.</p>
-  <a href="#" class="btn">View Open Positions</a>
+
+  <div class="job-cards">
+    <a href="apply-primary.html" class="job-card">
+      <h3>Primary School Teacher</h3>
+      <p>Teach and inspire young learners with a strong GES-aligned curriculum.</p>
+      <span class="apply-btn">Apply Now</span>
+    </a>
+
+    <a href="apply-admin.html" class="job-card">
+      <h3>Administrative Officer</h3>
+      <p>Manage school records, scheduling, and office operations efficiently.</p>
+      <span class="apply-btn">Apply Now</span>
+    </a>
+
+    <a href="apply-ict.html" class="job-card">
+      <h3>ICT Specialist</h3>
+      <p>Support IT systems, maintain the website, and assist staff and students.</p>
+      <span class="apply-btn">Apply Now</span>
+    </a>
+
+    <a href="apply-counselor.html" class="job-card">
+      <h3>School Counselor</h3>
+      <p>Provide guidance and support to students’ academic and emotional needs.</p>
+      <span class="apply-btn">Apply Now</span>
+    </a>
+  </div>
 </section>
 
 <!-- FOOTER -->
