@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Timetable - Parent Dashboard</title>
+<title>Parent Dashboard Calendar - Leads Community School</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* Timetable page styling */
-.timetable-container {
+/* Calendar & Timetable styling */
+.dashboard-container {
   max-width: 1000px;
   margin: 40px auto;
   padding: 30px 20px;
@@ -16,41 +16,54 @@
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
-.timetable-container h2 {
+.dashboard-container h2 {
   text-align: center;
   color: #004d26;
   margin-bottom: 20px;
 }
 
-.timetable-container table {
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.calendar-container input[type="date"] {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #004d26;
+}
+
+.timetable-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
 }
 
-.timetable-container table th,
-.timetable-container table td {
+.timetable-table th,
+.timetable-table td {
   border: 1px solid #004d26;
   padding: 12px;
   text-align: center;
   cursor: pointer;
 }
 
-.timetable-container table th {
+.timetable-table th {
   background-color: #ffcc00;
   color: #004d26;
 }
 
-.timetable-container table tr:nth-child(even) {
+.timetable-table tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.timetable-container table td.selected {
+.timetable-table td.selected {
   background-color: #004d26;
   color: #fff;
 }
 
-/* Info popup styling */
+/* Popup styling */
 .popup {
   position: fixed;
   top: 50%;
@@ -124,34 +137,26 @@
   </nav>
 </header>
 
-<!-- TIMETABLE CONTENT -->
-<section class="timetable-container">
-  <h2>Student Timetable</h2>
-  <p>Click a subject to see teacher and classroom details.</p>
+<!-- DASHBOARD CONTENT -->
+<section class="dashboard-container">
+  <h2>Student Timetable & Calendar</h2>
+  <p>Pick a date to see your child’s classes for that day.</p>
 
-  <!-- Week selector -->
-  <div style="text-align:center; margin-bottom:20px;">
-    <label for="week-select">Select Week:</label>
-    <select id="week-select">
-      <option value="week1">Week 1</option>
-      <option value="week2">Week 2</option>
-    </select>
+  <div class="calendar-container">
+    <input type="date" id="date-picker" />
   </div>
 
-  <!-- Timetable Table -->
-  <table>
+  <table class="timetable-table">
     <thead>
       <tr>
         <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
+        <th>Subject</th>
+        <th>Teacher</th>
+        <th>Classroom</th>
       </tr>
     </thead>
     <tbody id="timetable-body">
-      <!-- Dynamic rows here -->
+      <!-- Dynamic content -->
     </tbody>
   </table>
 </section>
@@ -185,60 +190,74 @@
   Leads Community School © 2026. All Rights Reserved.
 </div>
 
-<!-- JS for timetable dynamic & popup -->
+<!-- JS -->
 <script>
-const timetableData = {
-  week1: [
-    { time: "08:00 - 09:00", Monday: {subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Tuesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Wednesday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Thursday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Friday:{subject:"PE", teacher:"Coach Ama", room:"Sports Hall"} },
-    { time: "09:00 - 10:00", Monday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Tuesday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Wednesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Thursday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Friday:{subject:"Art", teacher:"Ms. Abena", room:"Art Room"} },
-    { time: "10:15 - 11:15", Monday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Tuesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Wednesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Thursday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Friday:{subject:"Music", teacher:"Mr. Nana", room:"Music Room"} },
-    { time: "11:15 - 12:15", Monday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Tuesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Wednesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Thursday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Friday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"} },
+// Example class schedule per weekday
+const weeklySchedule = {
+  Monday: [
+    {time: "08:00 - 09:00", subject:"Math", teacher:"Mr. Mensah", room:"Room 101"},
+    {time: "09:00 - 10:00", subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"},
+    {time: "10:15 - 11:15", subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"},
+    {time: "11:15 - 12:15", subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}
   ],
-  week2: [
-    { time: "08:00 - 09:00", Monday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Tuesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Wednesday:{subject:"PE", teacher:"Coach Ama", room:"Sports Hall"}, Thursday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Friday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"} },
-    { time: "09:00 - 10:00", Monday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Tuesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Wednesday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Thursday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Friday:{subject:"Art", teacher:"Ms. Abena", room:"Art Room"} },
-    { time: "10:15 - 11:15", Monday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Tuesday:{subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"}, Wednesday:{subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"}, Thursday:{subject:"Math", teacher:"Mr. Mensah", room:"Room 101"}, Friday:{subject:"Music", teacher:"Mr. Nana", room:"Music Room"} },
-    { time: "11:15 - 12:15", Monday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Tuesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Wednesday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Thursday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}, Friday:{subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"} },
+  Tuesday: [
+    {time: "08:00 - 09:00", subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"},
+    {time: "09:00 - 10:00", subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"},
+    {time: "10:15 - 11:15", subject:"Math", teacher:"Mr. Mensah", room:"Room 101"},
+    {time: "11:15 - 12:15", subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}
+  ],
+  Wednesday: [
+    {time: "08:00 - 09:00", subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"},
+    {time: "09:00 - 10:00", subject:"Math", teacher:"Mr. Mensah", room:"Room 101"},
+    {time: "10:15 - 11:15", subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"},
+    {time: "11:15 - 12:15", subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}
+  ],
+  Thursday: [
+    {time: "08:00 - 09:00", subject:"Math", teacher:"Mr. Mensah", room:"Room 101"},
+    {time: "09:00 - 10:00", subject:"English", teacher:"Mrs. Adjoa", room:"Room 102"},
+    {time: "10:15 - 11:15", subject:"Science", teacher:"Mr. Kofi", room:"Lab 1"},
+    {time: "11:15 - 12:15", subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}
+  ],
+  Friday: [
+    {time: "08:00 - 09:00", subject:"PE", teacher:"Coach Ama", room:"Sports Hall"},
+    {time: "09:00 - 10:00", subject:"Art", teacher:"Ms. Abena", room:"Art Room"},
+    {time: "10:15 - 11:15", subject:"Music", teacher:"Mr. Nana", room:"Music Room"},
+    {time: "11:15 - 12:15", subject:"ICT", teacher:"Mr. Yaw", room:"Computer Lab"}
   ]
 };
 
+const datePicker = document.getElementById("date-picker");
 const tbody = document.getElementById("timetable-body");
-const weekSelect = document.getElementById("week-select");
 
-function renderTimetable(week) {
+function renderDailyTimetable(dateStr){
   tbody.innerHTML = "";
-  timetableData[week].forEach(row => {
+  const dayName = new Date(dateStr).toLocaleDateString('en-US', { weekday: 'long' });
+  const classes = weeklySchedule[dayName] || [];
+  if(classes.length === 0){
+    tbody.innerHTML = "<tr><td colspan='4'>No classes scheduled for this day.</td></tr>";
+    return;
+  }
+  classes.forEach(cls=>{
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${row.time}</td>
-      <td>${row.Monday.subject}</td>
-      <td>${row.Tuesday.subject}</td>
-      <td>${row.Wednesday.subject}</td>
-      <td>${row.Thursday.subject}</td>
-      <td>${row.Friday.subject}</td>
+      <td>${cls.time}</td>
+      <td>${cls.subject}</td>
+      <td>${cls.teacher}</td>
+      <td>${cls.room}</td>
     `;
+    // click to show popup
+    tr.querySelector("td:nth-child(2)").addEventListener("click", ()=>{
+      showPopup(cls);
+    });
     tbody.appendChild(tr);
-  });
-
-  // Add click events to show popup
-  tbody.querySelectorAll("td").forEach((td, index) => {
-    if(index !== 0){ // skip time column
-      td.addEventListener("click", () => {
-        const col = index % 6;
-        const rowIndex = Math.floor(index / 6);
-        const day = ["Monday","Tuesday","Wednesday","Thursday","Friday"][col-1];
-        const classInfo = timetableData[week][rowIndex][day];
-        showPopup(classInfo);
-      });
-    }
   });
 }
 
 // Popup functions
-function showPopup(classInfo){
-  document.getElementById("subject-name").innerText = classInfo.subject;
-  document.getElementById("teacher-name").innerText = "Teacher: " + classInfo.teacher;
-  document.getElementById("classroom").innerText = "Classroom: " + classInfo.room;
+function showPopup(cls){
+  document.getElementById("subject-name").innerText = cls.subject;
+  document.getElementById("teacher-name").innerText = "Teacher: " + cls.teacher;
+  document.getElementById("classroom").innerText = "Classroom: " + cls.room;
   document.querySelector(".popup").style.display = "block";
   document.querySelector(".overlay").style.display = "block";
 }
@@ -248,11 +267,13 @@ function closePopup(){
   document.querySelector(".overlay").style.display = "none";
 }
 
-// Initial render
-renderTimetable(weekSelect.value);
+// Initial render today
+const today = new Date().toISOString().split('T')[0];
+datePicker.value = today;
+renderDailyTimetable(today);
 
-// Week selector change
-weekSelect.addEventListener("change", () => renderTimetable(weekSelect.value));
+// Change timetable when date changes
+datePicker.addEventListener("change", e=> renderDailyTimetable(e.target.value));
 </script>
 
 </body>
