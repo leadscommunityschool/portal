@@ -3,15 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Dashboard - Leads Community School</title>
+<title>Student Login - Leads Community School</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* General styles */
-body {
+/* ===== General ===== */
+body, html {
+  margin:0;
+  padding:0;
   font-family: Arial, sans-serif;
-  margin:0; padding:0;
-  background-color: #f5f7fa;
+  background: linear-gradient(120deg, #004d26, #00733a);
+  height: 100vh;
 }
+
+/* ===== Top Green Bar ===== */
 .top-green {
   background: #004d26;
   color: #fff;
@@ -32,7 +36,7 @@ body {
   border: none;
 }
 
-/* Header */
+/* ===== Header ===== */
 .main-header {
   display: flex;
   justify-content: space-between;
@@ -53,48 +57,66 @@ body {
   font-weight: bold;
 }
 
-/* Login Form */
+/* ===== Login Section ===== */
+#login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px); /* Full screen minus top bar */
+}
 .about {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 30px;
   background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 40px 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   text-align: center;
 }
 .about h2 {
-  margin-bottom: 20px;
   color: #004d26;
+  margin-bottom: 20px;
 }
 .login-form input {
   width: 90%;
-  padding: 10px;
+  padding: 12px;
   margin-bottom: 15px;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #004d26;
 }
 .login-form .btn {
+  width: 95%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
   background-color: #004d26;
   color: #fff;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
 }
 .login-form .btn:hover {
   background-color: #00733a;
 }
+.about p {
+  margin-top: 15px;
+}
+.about p a {
+  color: #004d26;
+  font-weight: bold;
+  text-decoration: none;
+}
 
-/* Dashboard Cards */
-.dashboard {
+/* ===== Dashboard (Hidden initially) ===== */
+#dashboard-section {
+  display: none;
   padding: 40px 20px;
   background-color: #f9f9f9;
-  text-align: center;
+  min-height: 100vh;
 }
 .dashboard h3 {
-  margin-bottom: 20px;
+  text-align: center;
   color: #004d26;
+  margin-bottom: 30px;
 }
 .dashboard .cards {
   display: flex;
@@ -106,53 +128,17 @@ body {
   background-color: #ffcc00;
   color: #004d26;
   width: 220px;
-  padding: 20px;
+  padding: 25px;
   border-radius: 10px;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .dashboard .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-}
-
-/* Section containers */
-.section-container {
-  max-width: 900px;
-  margin: 20px auto 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* Tables */
-.section-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-.section-container table th,
-.section-container table td {
-  border: 1px solid #004d26;
-  padding: 10px;
-  text-align: center;
-}
-.section-container table th {
-  background-color: #ffcc00;
-  color: #004d26;
-}
-.section-container table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-/* Responsive */
-@media(max-width:768px){
-  .dashboard .cards {flex-direction: column; align-items: center;}
-  .dashboard .card {width: 80%;}
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 </style>
 </head>
@@ -161,11 +147,11 @@ body {
 <!-- Top Green Bar -->
 <div class="top-green">
   <div class="top-links">
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
+    <a href="#">Student Login</a>
+    <a href="#">Parent Login</a>
+    <a href="#">Staff Login</a>
+    <a href="#">Email Login</a>
+    <a href="#">Careers</a>
   </div>
   <input type="text" placeholder="Search...">
 </div>
@@ -173,175 +159,61 @@ body {
 <!-- Header -->
 <header class="main-header">
   <div class="logo-area">
-    <a href="index.html">
-      <img src="logo.png" alt="Logo" width="50">
-      <span>Leads Community School</span>
-    </a>
+    <img src="logo.png" alt="Leads Community School Logo" width="50">
+    <span>Leads Community School</span>
   </div>
   <nav class="main-nav">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Academics</a>
+    <a href="#">Admissions</a>
+    <a href="#">Campus</a>
+    <a href="#">Community</a>
+    <a href="#">News & Events</a>
+    <a href="#">Contact Us</a>
   </nav>
 </header>
 
-<!-- Login Form -->
-<section class="about" id="login-section">
-  <h2>Student Login</h2>
-  <form class="login-form" onsubmit="handleLogin(event)">
-    <input type="text" placeholder="Username" id="username" required>
-    <input type="password" placeholder="Password" id="password" required>
-    <button type="submit" class="btn">Login</button>
-  </form>
-  <p>Forgot your password? <a href="#">Reset here</a></p>
-</section>
-
-<!-- Dashboard -->
-<section class="dashboard" id="dashboard-section" style="display:none;">
-  <h3>Welcome, <span id="student-name"></span>!</h3>
-  <div class="cards">
-    <a href="#schedule-section" class="card">📅 Check Class Schedule</a>
-    <a href="#grades-section" class="card">📝 View Grades & Reports</a>
-    <a href="#assignments-section" class="card">📚 Assignments & Homework</a>
-    <a href="#announcements-section" class="card">📢 School Announcements</a>
+<!-- Login Section -->
+<section id="login-section">
+  <div class="about">
+    <h2>Student Login</h2>
+    <form class="login-form" onsubmit="handleLogin(event)">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p>Forgot your password? <a href="#">Reset here</a></p>
   </div>
 </section>
 
-<!-- Schedule Section -->
-<section id="schedule-section" class="section-container">
-  <h2>Class Schedule</h2>
-  <p>Select a day to view your schedule:</p>
-  <input type="date" id="schedule-date">
-  <table>
-    <thead><tr><th>Time</th><th>Subject</th><th>Teacher</th><th>Room</th></tr></thead>
-    <tbody id="schedule-body"></tbody>
-  </table>
-</section>
-
-<!-- Grades Section -->
-<section id="grades-section" class="section-container">
-  <h2>Grades & Reports</h2>
-  <table>
-    <thead><tr><th>Subject</th><th>Grade</th><th>Teacher Remark</th></tr></thead>
-    <tbody>
-      <tr><td>Math</td><td>A</td><td>Excellent</td></tr>
-      <tr><td>English</td><td>B+</td><td>Good</td></tr>
-      <tr><td>Science</td><td>A-</td><td>Very Good</td></tr>
-      <tr><td>ICT</td><td>B</td><td>Can Improve</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- Assignments Section -->
-<section id="assignments-section" class="section-container">
-  <h2>Assignments & Homework</h2>
-  <table>
-    <thead><tr><th>Subject</th><th>Assignment</th><th>Due Date</th></tr></thead>
-    <tbody>
-      <tr><td>Math</td><td>Algebra Practice</td><td>2026-02-10</td></tr>
-      <tr><td>English</td><td>Essay Writing</td><td>2026-02-12</td></tr>
-      <tr><td>Science</td><td>Lab Report</td><td>2026-02-14</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- Announcements Section -->
-<section id="announcements-section" class="section-container">
-  <h2>School Announcements</h2>
-  <ul>
-    <li>Parent-Teacher meeting on 2026-02-15</li>
-    <li>Sports Day scheduled for 2026-03-01</li>
-    <li>New library books available from 2026-02-05</li>
-  </ul>
-</section>
-
-<!-- Footer -->
-<footer class="footer section-container">
-  <div class="footer-contact">
-    <h4>Contact Us</h4>
-    <p>Leads Community School</p>
-    <p>Tel: +233 XXXXXXX</p>
-    <p>Email: info@leadsschools.com</p>
+<!-- Dashboard Section (Hidden) -->
+<section id="dashboard-section">
+  <div class="dashboard">
+    <h3>Welcome, <span id="student-name"></span>!</h3>
+    <div class="cards">
+      <a href="#schedule-section" class="card">📅 Check Class Schedule</a>
+      <a href="#grades-section" class="card">📝 View Grades & Reports</a>
+      <a href="#assignments-section" class="card">📚 Assignments & Homework</a>
+      <a href="#announcements-section" class="card">📢 School Announcements</a>
+    </div>
   </div>
-</footer>
+</section>
 
 <!-- JS -->
 <script>
-// Mock login function
 function handleLogin(e){
   e.preventDefault();
   const username = document.getElementById("username").value;
   if(username.trim() === ""){
-    alert("Enter username");
+    alert("Enter your username");
     return;
   }
   // Hide login, show dashboard
-  document.getElementById("login-section").style.display="none";
-  document.getElementById("dashboard-section").style.display="block";
+  document.getElementById("login-section").style.display = "none";
+  document.getElementById("dashboard-section").style.display = "block";
   document.getElementById("student-name").textContent = username;
 }
-
-// Schedule logic
-const weeklySchedule = {
-  Monday:[
-    {time:"08:00-09:00", subject:"Math", teacher:"Mr. Mensah", room:"101"},
-    {time:"09:00-10:00", subject:"English", teacher:"Mrs. Adjoa", room:"102"},
-    {time:"10:15-11:15", subject:"Science", teacher:"Mr. Kofi", room:"Lab1"},
-    {time:"11:15-12:15", subject:"ICT", teacher:"Mr. Yaw", room:"CompLab"}
-  ],
-  Tuesday:[
-    {time:"08:00-09:00", subject:"English", teacher:"Mrs. Adjoa", room:"102"},
-    {time:"09:00-10:00", subject:"Science", teacher:"Mr. Kofi", room:"Lab1"},
-    {time:"10:15-11:15", subject:"Math", teacher:"Mr. Mensah", room:"101"},
-    {time:"11:15-12:15", subject:"ICT", teacher:"Mr. Yaw", room:"CompLab"}
-  ],
-  Wednesday:[
-    {time:"08:00-09:00", subject:"Science", teacher:"Mr. Kofi", room:"Lab1"},
-    {time:"09:00-10:00", subject:"Math", teacher:"Mr. Mensah", room:"101"},
-    {time:"10:15-11:15", subject:"English", teacher:"Mrs. Adjoa", room:"102"},
-    {time:"11:15-12:15", subject:"ICT", teacher:"Mr. Yaw", room:"CompLab"}
-  ],
-  Thursday:[
-    {time:"08:00-09:00", subject:"Math", teacher:"Mr. Mensah", room:"101"},
-    {time:"09:00-10:00", subject:"English", teacher:"Mrs. Adjoa", room:"102"},
-    {time:"10:15-11:15", subject:"Science", teacher:"Mr. Kofi", room:"Lab1"},
-    {time:"11:15-12:15", subject:"ICT", teacher:"Mr. Yaw", room:"CompLab"}
-  ],
-  Friday:[
-    {time:"08:00-09:00", subject:"PE", teacher:"Coach Ama", room:"SportsHall"},
-    {time:"09:00-10:00", subject:"Art", teacher:"Ms. Abena", room:"ArtRoom"},
-    {time:"10:15-11:15", subject:"Music", teacher:"Mr. Nana", room:"MusicRoom"},
-    {time:"11:15-12:15", subject:"ICT", teacher:"Mr. Yaw", room:"CompLab"}
-  ]
-};
-
-const scheduleDate = document.getElementById("schedule-date");
-const scheduleBody = document.getElementById("schedule-body");
-const today = new Date().toISOString().split("T")[0];
-scheduleDate.value = today;
-
-function renderSchedule(dateStr){
-  const day = new Date(dateStr).toLocaleDateString('en-US',{weekday:'long'});
-  const classes = weeklySchedule[day] || [];
-  scheduleBody.innerHTML = "";
-  if(classes.length === 0){
-    scheduleBody.innerHTML = "<tr><td colspan='4'>No classes scheduled.</td></tr>";
-    return;
-  }
-  classes.forEach(cls=>{
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${cls.time}</td><td>${cls.subject}</td><td>${cls.teacher}</td><td>${cls.room}</td>`;
-    scheduleBody.appendChild(tr);
-  });
-}
-
-renderSchedule(today);
-scheduleDate.addEventListener("change", e=> renderSchedule(e.target.value));
 </script>
 
 </body>
