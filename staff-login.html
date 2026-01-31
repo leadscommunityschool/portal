@@ -15,7 +15,7 @@ body, html {
 
 /* ===== Top Green Bar ===== */
 .top-green {
-  background-color: #004d26;
+  background: #004d26;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -66,15 +66,12 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh; /* visible on all screens */
-  background: linear-gradient(120deg, #004d26, #006b39);
+  min-height: 80vh;
   padding: 20px;
-  box-sizing: border-box;
 }
 
-#login-section .about {
-  background: rgba(255,255,255,0.95);
-  color: #004d26;
+#login-section .login-box {
+  background: #fff;
   padding: 40px 30px;
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
@@ -83,11 +80,12 @@ body, html {
   text-align: center;
 }
 
-#login-section .about h2 {
+#login-section .login-box h2 {
   margin-bottom: 20px;
+  color: #004d26;
 }
 
-#login-section .login-form input {
+#login-section .login-box input {
   width: 100%;
   padding: 12px;
   margin: 8px 0;
@@ -95,7 +93,7 @@ body, html {
   border: 1px solid #ccc;
 }
 
-#login-section .login-form .btn {
+#login-section .login-box button {
   width: 100%;
   padding: 12px;
   background-color: #004d26;
@@ -106,44 +104,31 @@ body, html {
   font-weight: bold;
 }
 
-#login-section .login-form .btn:hover {
+#login-section .login-box button:hover {
   background-color: #006b39;
 }
 
-#login-section .about p {
-  margin-top: 15px;
-}
-
-/* ===== Dashboard ===== */
+/* ===== Dashboard Sections ===== */
 #dashboard-section {
   display: none; /* hidden until login */
-  padding: 40px 20px;
-  background-color: #f5f7fa;
-  min-height: 80vh;
 }
 
-.dashboard h3 {
-  text-align: center;
-  color: #004d26;
-  margin-bottom: 30px;
-}
-
-.dashboard .cards {
+.dashboard {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 25px;
+  justify-content: center;
+  padding: 30px 20px;
 }
 
 .dashboard .card {
-  background-color: #ffcc00;
+  background-color: #ffcc00; /* rich yellow */
   color: #004d26;
   width: 220px;
-  padding: 25px;
+  padding: 20px;
   border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
   cursor: pointer;
+  text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   text-decoration: none;
 }
@@ -153,37 +138,52 @@ body, html {
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+.dashboard .card h3 {
+  margin-bottom: 10px;
+}
+
+.section-container {
+  max-width: 1000px;
+  margin: 20px auto 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.section-container table th,
+.section-container table td {
+  border: 1px solid #004d26;
+  padding: 10px;
+  text-align: center;
+}
+
+.section-container table th {
+  background-color: #ffcc00;
+  color: #004d26;
+}
+
+.section-container table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
 /* ===== Footer ===== */
 .footer {
   background-color: #004d26;
   color: #fff;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
   padding: 20px;
-}
-
-.footer h4 {
-  margin-bottom: 10px;
-}
-
-.footer a {
-  color: #fff;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 5px;
-}
-
-.copyright {
   text-align: center;
-  background-color: #003d20;
-  color: #fff;
-  padding: 10px;
 }
 
 /* ===== Responsive ===== */
 @media(max-width:768px){
-  .dashboard .cards {flex-direction: column; align-items: center;}
+  .dashboard {flex-direction: column; align-items: center;}
   .dashboard .card {width: 80%;}
 }
 </style>
@@ -193,9 +193,10 @@ body, html {
 <!-- Top Green Bar -->
 <div class="top-green">
   <div class="top-links">
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
+    <a href="index.html" id="home-link" style="display:none;">Home</a>
+    <a href="#">Student Login</a>
+    <a href="#">Parent Login</a>
+    <a href="#">Staff Login</a>
     <a href="#">Email Login</a>
     <a href="#">Careers</a>
   </div>
@@ -209,25 +210,24 @@ body, html {
     <span>Leads Community School</span>
   </div>
   <nav class="main-nav">
-    <a href="#">Home</a>
-    <a href="#">About Us</a>
-    <a href="#">Academics</a>
-    <a href="#">Admissions</a>
-    <a href="#">Campus</a>
-    <a href="#">Community</a>
-    <a href="#">News & Events</a>
-    <a href="#">Contact Us</a>
+    <a href="#">Dashboard</a>
+    <a href="#manage-classes">Manage Classes</a>
+    <a href="#attendance-section">Attendance</a>
+    <a href="#assignments-section">Assignments</a>
+    <a href="#messages-section">Messages</a>
+    <a href="#reports-section">Reports</a>
+    <a href="#announcements-section">Announcements</a>
   </nav>
 </header>
 
 <!-- Login Section -->
 <section id="login-section">
-  <div class="about">
+  <div class="login-box">
     <h2>Staff Login</h2>
-    <form class="login-form" onsubmit="handleLogin(event)">
+    <form onsubmit="handleLogin(event)">
       <input type="text" id="staff-id" placeholder="Staff ID" required>
       <input type="password" id="password" placeholder="Password" required>
-      <button type="submit" class="btn">Login</button>
+      <button type="submit">Login</button>
     </form>
     <p>Forgot your password? <a href="#">Reset here</a></p>
   </div>
@@ -235,51 +235,101 @@ body, html {
 
 <!-- Dashboard Section -->
 <section id="dashboard-section">
-  <div class="dashboard">
-    <h3>Welcome, Staff!</h3>
-    <div class="cards">
-      <a href="manage-classes.html" class="card">📚 Manage Classes</a>
-      <a href="attendance.html" class="card">📅 Attendance Records</a>
-      <a href="assignments.html" class="card">📝 Assignments & Grades</a>
-      <a href="announcements.html" class="card">📢 School Announcements</a>
-      <a href="messages.html" class="card">💬 Messages</a>
-      <a href="reports.html" class="card">📊 Reports & Analytics</a>
-    </div>
-  </div>
+  <!-- Dashboard Cards -->
+  <section class="dashboard">
+    <a href="#manage-classes" class="card"><h3>Manage Classes</h3><p>View & edit class info</p></a>
+    <a href="#attendance-section" class="card"><h3>Attendance</h3><p>Record student attendance</p></a>
+    <a href="#assignments-section" class="card"><h3>Assignments</h3><p>Create & check assignments</p></a>
+    <a href="#messages-section" class="card"><h3>Messages</h3><p>Communicate with parents/students</p></a>
+    <a href="#reports-section" class="card"><h3>Reports</h3><p>Generate student reports</p></a>
+    <a href="#announcements-section" class="card"><h3>Announcements</h3><p>Post school updates</p></a>
+  </section>
+
+  <!-- Manage Classes Section -->
+  <section id="manage-classes" class="section-container">
+    <h2>Manage Classes</h2>
+    <table>
+      <thead><tr><th>Class</th><th>Subject</th><th>Room</th><th>Students</th></tr></thead>
+      <tbody>
+        <tr><td>Grade 5A</td><td>Math</td><td>101</td><td>30</td></tr>
+        <tr><td>Grade 5B</td><td>English</td><td>102</td><td>28</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Attendance Section -->
+  <section id="attendance-section" class="section-container">
+    <h2>Attendance Records</h2>
+    <table>
+      <thead><tr><th>Date</th><th>Class</th><th>Present</th><th>Absent</th></tr></thead>
+      <tbody>
+        <tr><td>2026-01-20</td><td>5A</td><td>28</td><td>2</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Assignments Section -->
+  <section id="assignments-section" class="section-container">
+    <h2>Assignments & Grades</h2>
+    <table>
+      <thead><tr><th>Class</th><th>Subject</th><th>Assignment</th><th>Due Date</th></tr></thead>
+      <tbody>
+        <tr><td>5A</td><td>Math</td><td>Algebra Homework</td><td>2026-02-01</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Messages Section -->
+  <section id="messages-section" class="section-container">
+    <h2>Messages</h2>
+    <table>
+      <thead><tr><th>Date</th><th>From</th><th>Message</th></tr></thead>
+      <tbody>
+        <tr><td>2026-01-20</td><td>Principal</td><td>Staff meeting at 10:00 AM</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Reports Section -->
+  <section id="reports-section" class="section-container">
+    <h2>Reports & Analytics</h2>
+    <table>
+      <thead><tr><th>Class</th><th>Average Grade</th><th>Remarks</th></tr></thead>
+      <tbody>
+        <tr><td>5A</td><td>B+</td><td>Good progress</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Announcements Section -->
+  <section id="announcements-section" class="section-container">
+    <h2>School Announcements</h2>
+    <ul>
+      <li>Parent-Teacher meeting on 2026-02-15</li>
+      <li>Sports Day scheduled for 2026-03-01</li>
+    </ul>
+  </section>
 </section>
 
 <!-- Footer -->
 <footer class="footer">
-  <div>
-    <h4>Contact Us</h4>
-    <p>Leads Community School</p>
-    <p>Tel: +233 XXXXXXX</p>
-    <p>Email: info@leadsschools.com</p>
-  </div>
-  <div>
-    <h4>Quick Links</h4>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="#">Careers</a>
-  </div>
+  Leads Community School © 2026. All Rights Reserved.
 </footer>
 
-<div class="copyright">
-  Leads Community School © 2026. All Rights Reserved.
-</div>
-
+<!-- JS Login -->
 <script>
 function handleLogin(e){
   e.preventDefault();
   const staffId = document.getElementById('staff-id').value.trim();
-  if(!staffId){
-    alert("Enter Staff ID");
-    return;
+  const password = document.getElementById('password').value.trim();
+  if(staffId && password){
+    document.getElementById('login-section').style.display = 'none';
+    document.getElementById('dashboard-section').style.display = 'block';
+    document.getElementById('home-link').style.display = 'inline';
+    alert("Login successful! Welcome to your Staff Dashboard.");
+  } else {
+    alert("Enter Staff ID and Password");
   }
-  // Hide login, show dashboard
-  document.getElementById('login-section').style.display = 'none';
-  document.getElementById('dashboard-section').style.display = 'block';
-  alert("Login successful! Welcome to your Staff Dashboard.");
 }
 </script>
 
