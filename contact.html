@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Leads Community School</title>
+<style>
+/* ===== General ===== */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #004d26;
+}
+
+/* ===== Top Green Bar ===== */
+.top-green {
+  background: #004d26;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  flex-wrap: wrap;
+}
+
+.top-green .top-links a {
+  color: #ffcc00;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.top-green input[type="text"] {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* ===== Header ===== */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffcc00;
+  border-bottom: 2px solid #004d26;
+  flex-wrap: wrap;
+}
+
+.main-header .logo-area span {
+  font-weight: bold;
+  color: #004d26;
+  margin-left: 10px;
+}
+
+.main-nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: #004d26;
+  font-weight: bold;
+}
+
+.main-nav a:hover {
+  color: #002013;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  color: #004d26;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #004d26;
+  line-height: 1.6;
+}
+
+/* ===== Contact Section ===== */
+.contact-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-left: 6px solid #ffcc00;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Contact Form */
+.contact-form {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-form h2 {
+  color: #004d26;
+  margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #004d26;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background-color: #006b39;
+}
+
+/* School Info */
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  background-color: #f9f9f9;
+  border-left: 4px solid #004d26;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.contact-info h2 {
+  color: #004d26;
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Map Placeholder */
+.map-placeholder {
+  width: 100%;
+  height: 250px;
+  background-color: #e1e1e1;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #004d26;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background-color: #004d26;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media(max-width:768px){
+  .contact-container {flex-direction: column;}
+}
+</style>
+</head>
+<body>
+
+<!-- Top Green Bar -->
+<div class="top-green">
+  <div class="top-links">
+    <a href="index.html">Home</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="parent-login.html">Parent Login</a>
+    <a href="staff-login.html">Staff Login</a>
+    <a href="email-login.html">Email Login</a>
+    <a href="careers.html">Careers</a>
+  </div>
+  <input type="text" placeholder="Search...">
+</div>
+
+<!-- Header -->
+<header class="main-header">
+  <div class="logo-area">
+    <img src="logo.png" alt="Leads Community School Logo" width="50">
+    <span>Leads Community School</span>
+  </div>
+  <nav class="main-nav">
+    <a href="about.html">About Us</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="campus.html">Our Campus</a>
+    <a href="community.html">Community</a>
+    <a href="news-events.html">News & Events</a>
+    <a href="contact.html">Contact Us</a>
+  </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+  <h1>Contact Us</h1>
+  <p>Have questions or need assistance? Reach out to Leads Community School. We are here to support students, parents, and the community.</p>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-container">
+  <!-- Form -->
+  <div class="contact-form">
+    <h2>Send a Message</h2>
+    <form onsubmit="handleContactForm(event)">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Subject" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- School Info & Map -->
+  <div class="contact-info">
+    <h2>Our Address</h2>
+    <p>Leads Community School</p>
+    <p>123 Education Lane, Accra, Ghana</p>
+    <p>Phone: +233 24 000 0000</p>
+    <p>Email: info@leadsschools.com</p>
+    <div class="map-placeholder">Map Placeholder</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
+  <p>
+    <a href="index.html">Home</a> | 
+    <a href="about.html">About Us</a> | 
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+function handleContactForm(e){
+  e.preventDefault();
+  alert("Thank you! Your message has been sent.");
+}
+</script>
+
+</body>
+</html>
