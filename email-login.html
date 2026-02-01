@@ -27,7 +27,7 @@ flex-wrap:wrap;
 .school-name h1{margin:0;color:#ffcc00;font-size:22px;}
 .school-name p{margin:0;color:#fff;font-size:13px;}
 
-.main-nav a{color:#ffcc00;margin-left:15px;font-weight:bold;text-decoration:none;display:none;}
+.main-nav a{color:#ffcc00;margin-left:15px;font-weight:bold;text-decoration:none;}
 
 #login-section{display:flex;justify-content:center;align-items:center;min-height:70vh;}
 
@@ -60,8 +60,6 @@ font-weight:bold;
 cursor:pointer;
 }
 
-#error{color:red;margin-top:10px;}
-
 #dashboard-section{display:none;}
 
 .dashboard{
@@ -93,6 +91,7 @@ border-top:5px solid #ffcc00;
 </style>
 
 <script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
@@ -108,31 +107,31 @@ appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// LOGIN
 window.login = function(e){
 e.preventDefault();
 
-const email=document.getElementById("email").value;
-const password=document.getElementById("pass").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("pass").value;
 
 signInWithEmailAndPassword(auth,email,password)
-.catch(err=>{
-document.getElementById("error").innerText=err.message;
-});
+.catch(err=>alert(err.message));
 };
 
-window.logout=function(){
+// LOGOUT
+window.logout = function(){
 signOut(auth).then(()=>location.reload());
 };
 
+// AUTH STATE
 onAuthStateChanged(auth,user=>{
 if(user){
 document.getElementById("login-section").style.display="none";
 document.getElementById("dashboard-section").style.display="block";
 document.getElementById("homeLink").style.display="inline";
-document.getElementById("dashLink").style.display="inline";
-document.getElementById("logoutLink").style.display="inline";
 }
 });
+
 </script>
 
 </head>
@@ -159,8 +158,7 @@ document.getElementById("logoutLink").style.display="inline";
 </a>
 
 <nav class="main-nav">
-<a id="dashLink" href="#dashboard-section">Dashboard</a>
-<a id="logoutLink" href="#" onclick="logout()">Logout</a>
+<a href="#" onclick="logout()">Logout</a>
 </nav>
 </header>
 
@@ -173,22 +171,17 @@ document.getElementById("logoutLink").style.display="inline";
 <input type="password" id="pass" placeholder="Password" required>
 <button>Login</button>
 </form>
-
-<div id="error"></div>
-
 </div>
 </section>
 
 <section id="dashboard-section">
 <div class="dashboard">
-
 <div class="card">Inbox</div>
 <div class="card">Compose</div>
 <div class="card">Sent Mail</div>
 <div class="card">Drafts</div>
 <div class="card">Trash</div>
 <div class="card">Settings</div>
-
 </div>
 </section>
 
