@@ -6,256 +6,253 @@
 <title>Leads Community School</title>
 <style>
 /* ===== GENERAL ===== */
-body, html {
-  margin: 0;
-  padding: 0;
+body, html{
+  margin:0;
+  padding:0;
   font-family: Arial, sans-serif;
   scroll-behavior: smooth;
 }
 
 /* ===== TOP GREEN BAR ===== */
-.top-green {
-  background: #004d26;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+.top-green{
+  background:#004d26;
+  padding:10px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
-.top-links a {
-  color: #ffcc00;
-  margin-right: 15px;
-  font-weight: bold;
-  text-decoration: none;
+.top-links a{
+  color:#ffcc00;
+  margin-right:15px;
+  font-weight:bold;
+  text-decoration:none;
   transition: color 0.3s;
 }
-.top-links a:hover {
-  color: #ffffff;
+.top-links a:hover{
+  color:#fff;
 }
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.top-green input[type="text"]{
+  padding:5px 10px;
+  border-radius:5px;
+  border:none;
 }
 
 /* ===== HEADER ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background: #004d26;
-  border-bottom: 5px solid #ffcc00;
-  flex-wrap: wrap;
+.main-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#004d26;
+  border-bottom:5px solid #ffcc00;
+  padding:15px 20px;
+  flex-wrap:wrap;
 }
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  text-decoration: none;
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
-.logo-wrap img {
-  width: 70px;
-  background: #fff;
-  padding: 5px;
-  border-radius: 10px;
+.logo-area img{
+  width:70px;
+  border-radius:10px;
+  background:#fff;
+  padding:5px;
 }
-.school-name h1 {
-  margin: 0;
-  color: #ffcc00;
-  font-size: 22px;
+.school-name h1{
+  margin:0;
+  color:#ffcc00;
+  font-size:22px;
 }
-.school-name p {
-  margin: 0;
-  color: #fff;
-  font-size: 13px;
+.school-name p{
+  margin:0;
+  color:#fff;
+  font-size:13px;
 }
-.main-nav a {
-  color: #ffcc00;
-  margin-left: 15px;
-  font-weight: bold;
-  text-decoration: none;
+.main-nav a{
+  color:#ffcc00;
+  margin-left:15px;
+  font-weight:bold;
+  text-decoration:none;
   transition: color 0.3s;
 }
-.main-nav a:hover {
-  color: #ffffff;
+.main-nav a:hover{
+  color:#fff;
 }
 
-/* ===== HERO SECTION ===== */
-.hero {
-  background: #004d26;
-  color: #ffcc00;
-  padding: 100px 20px;
-  text-align: center;
+/* ===== HERO ===== */
+.hero{
+  background:#004d26;
+  color:#ffcc00;
+  text-align:center;
+  padding:120px 20px;
 }
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.hero h1{
+  font-size:3rem;
+  margin-bottom:20px;
 }
-.hero a.btn {
-  display: inline-block;
-  padding: 15px 30px;
-  background: #ffcc00;
-  color: #004d26;
-  font-weight: bold;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: transform 0.3s, background 0.3s;
+.hero .btn{
+  background:#ffcc00;
+  color:#004d26;
+  padding:15px 30px;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:10px;
+  transition:transform 0.3s, background 0.3s;
 }
-.hero a.btn:hover {
-  background: #ffd633;
-  transform: translateY(-5px);
+.hero .btn:hover{
+  background:#ffd633;
+  transform:translateY(-5px);
 }
 
-/* ===== FEATURES SECTION ===== */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 0 20px;
+/* ===== FEATURES ===== */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1200px;
+  margin:50px auto;
+  padding:0 20px;
 }
-.features .box {
-  background: #004d26;
-  color: #ffcc00;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
+.features .box{
+  background:#004d26;
+  color:#ffcc00;
+  text-align:center;
+  padding:30px;
+  border-radius:12px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
-.features .box:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 10px 25px rgba(0,0,0,.3);
+.features .box:hover{
+  transform:translateY(-7px);
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
 }
-.features .box h3 {
-  margin-bottom: 10px;
-  font-size: 1.5rem;
+.features .box h3{
+  margin-bottom:10px;
+  font-size:1.5rem;
 }
-.features .box p {
-  line-height: 1.5;
+.features .box p{
+  line-height:1.5;
 }
-.features .box a.btn-small {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-top: 15px;
-  background: #ffcc00;
-  color: #004d26;
-  font-weight: bold;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.3s;
+.features .box a.btn-small{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  background:#ffcc00;
+  color:#004d26;
+  font-weight:bold;
+  border-radius:6px;
+  text-decoration:none;
+  transition: transform 0.3s, background 0.3s;
 }
-.features .box a.btn-small:hover {
-  background: #ffd633;
-  transform: translateY(-3px);
+.features .box a.btn-small:hover{
+  background:#ffd633;
+  transform:translateY(-3px);
 }
 
-/* ===== ABOUT / CAMPUS / COMMUNITY SECTIONS ===== */
-.section-colored {
-  background: #e6f2e6;
-  padding: 60px 20px;
-  text-align: center;
+/* ===== SECTIONS ===== */
+.section-colored{
+  background:#e6f2e6;
+  padding:60px 20px;
+  text-align:center;
 }
-.section-colored h2 {
-  color: #004d26;
-  font-size: 2rem;
-  margin-bottom: 20px;
+.section-colored h2{
+  color:#004d26;
+  font-size:2rem;
+  margin-bottom:20px;
 }
-.section-colored p {
-  color: #004d26;
-  max-width: 800px;
-  margin: 0 auto 20px;
-  line-height: 1.6;
+.section-colored p{
+  color:#004d26;
+  max-width:800px;
+  margin:0 auto 20px;
+  line-height:1.6;
 }
-.section-colored a.btn {
-  display: inline-block;
-  padding: 12px 25px;
-  background: #004d26;
-  color: #ffcc00;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
+.section-colored a.btn{
+  display:inline-block;
+  padding:12px 25px;
+  background:#004d26;
+  color:#ffcc00;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
   transition: background 0.3s;
 }
-.section-colored a.btn:hover {
-  background: #006b39;
+.section-colored a.btn:hover{
+  background:#006b39;
 }
 
 /* ===== FOOTER ===== */
-.footer {
-  background: #004d26;
-  color: #ffcc00;
-  text-align: center;
-  padding: 40px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 30px;
+.footer{
+  background:#004d26;
+  color:#ffcc00;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:30px;
+  padding:40px 20px;
 }
-.footer h4 {
-  margin-bottom: 10px;
+.footer h4{
+  margin-bottom:10px;
 }
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  display: block;
-  margin: 3px 0;
+.footer a{
+  display:block;
+  color:#ffcc00;
+  text-decoration:none;
+  margin:3px 0;
 }
-.footer a:hover {
-  text-decoration: underline;
+.footer a:hover{
+  text-decoration:underline;
 }
-.footer-contact, .footer-links {
-  flex: 1;
-  min-width: 200px;
+.footer-contact, .footer-links{
+  flex:1;
+  min-width:200px;
 }
-.copyright {
-  text-align: center;
-  background: #004d26;
-  color: #ffcc00;
-  padding: 15px 0;
-  font-size: 14px;
+.copyright{
+  text-align:center;
+  background:#004d26;
+  color:#ffcc00;
+  padding:15px 0;
+  font-size:14px;
 }
 
 /* ===== FLOATING WHATSAPP BUTTON ===== */
-.whatsapp-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25d366;
-  color: #fff;
-  padding: 12px 18px;
-  border-radius: 50px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,.2);
+.whatsapp-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:bold;
+  box-shadow:0 5px 15px rgba(0,0,0,.2);
   transition: transform 0.3s;
 }
-.whatsapp-btn:hover {
-  transform: translateY(-5px);
+.whatsapp-btn:hover{
+  transform:translateY(-5px);
 }
 
-/* ===== ANIMATIONS ===== */
-.show {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.8s ease-out;
+/* ===== SCROLL ANIMATION ===== */
+.show{
+  opacity:1;
+  transform:translateY(0);
+  transition:all 0.8s ease-out;
 }
-.hero, .features .box, .section-colored {
-  opacity: 0;
-  transform: translateY(40px);
+.hero, .features .box, .section-colored{
+  opacity:0;
+  transform:translateY(40px);
 }
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:768px){
-  .logo-wrap { flex-direction: column; text-align: center; }
-  .main-nav { margin-top: 10px; flex-wrap: wrap; justify-content: center; }
-  .features { grid-template-columns: 1fr; padding: 0 10px; }
-  .section-colored { padding: 40px 20px; }
-  .footer { flex-direction: column; align-items: center; text-align: center; }
+  .logo-area{flex-direction:column;text-align:center;}
+  .main-nav{margin-top:10px;flex-wrap:wrap;justify-content:center;}
+  .features{grid-template-columns:1fr; padding:0 10px;}
+  .section-colored{padding:40px 20px;}
+  .footer{flex-direction:column;align-items:center;text-align:center;}
 }
 </style>
 </head>
@@ -275,13 +272,13 @@ body, html {
 
 <!-- HEADER -->
 <header class="main-header">
-  <a href="index.html" class="logo-wrap">
+  <div class="logo-area">
     <img src="IMG-20260129-WA0005.jpg" alt="Logo">
     <div class="school-name">
       <h1>Leads Community School</h1>
       <p>Training Tomorrow’s Leaders Today</p>
     </div>
-  </a>
+  </div>
   <nav class="main-nav">
     <a href="#about">About Us</a>
     <a href="#academics">Academics</a>
@@ -316,31 +313,23 @@ body, html {
     <p>Stay updated with school news, activities, and special events.</p>
     <a href="news-events.html" class="btn-small">Read More</a>
   </div>
-  <div class="box" id="campus">
-    <h3>Our Campus</h3>
-    <p>Modern classrooms, playgrounds, and fully equipped labs ensure quality education.</p>
-    <a href="campus.html" class="btn-small">Explore Campus</a>
-  </div>
-  <div class="box" id="community">
-    <h3>Community</h3>
-    <p>We foster strong bonds between parents, teachers, and students for holistic development.</p>
-    <a href="community.html" class="btn-small">Learn More</a>
-  </div>
 </section>
 
-<!-- ABOUT, CAMPUS, COMMUNITY SECTIONS -->
+<!-- ABOUT -->
 <section class="section-colored" id="about">
   <h2>About Leads Community School</h2>
   <p>Dedicated to providing quality education that builds character, creativity, and confidence in every child.</p>
   <a href="about.html" class="btn">Read More</a>
 </section>
 
+<!-- CAMPUS -->
 <section class="section-colored" id="campus">
   <h2>Our Campus</h2>
   <p>Modern classrooms, safe playgrounds, and fully equipped labs ensure students get the best learning environment.</p>
   <a href="campus.html" class="btn">Explore Campus</a>
 </section>
 
+<!-- COMMUNITY -->
 <section class="section-colored" id="community">
   <h2>Our Community</h2>
   <p>We build strong bonds with parents, students, and teachers to create a nurturing school environment.</p>
@@ -373,6 +362,7 @@ body, html {
     <a href="admissions.html">Admissions</a>
   </div>
 </footer>
+
 <div class="copyright">
   Leads Community School © 2026. All Rights Reserved.
 </div>
@@ -384,15 +374,12 @@ body, html {
 
 <!-- SCROLL ANIMATION -->
 <script>
-const scrollElements = document.querySelectorAll('.hero, .features .box, .section-colored');
-const elementInView = (el, dividend = 1) => {
-  const top = el.getBoundingClientRect().top;
-  return top <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
-};
-const displayScrollElement = (el) => el.classList.add('show');
-const handleScrollAnimation = () => scrollElements.forEach(el => { if(elementInView(el,1.25)) displayScrollElement(el); });
-window.addEventListener('scroll', handleScrollAnimation);
-window.addEventListener('load', handleScrollAnimation);
+const scrollElements=document.querySelectorAll('.hero,.features .box,.section-colored');
+const elementInView=(el,div=1)=>el.getBoundingClientRect().top<=(window.innerHeight||document.documentElement.clientHeight)/div;
+const displayScrollElement=el=>el.classList.add('show');
+const handleScrollAnimation=()=>scrollElements.forEach(el=>{if(elementInView(el,1.25))displayScrollElement(el)});
+window.addEventListener('scroll',handleScrollAnimation);
+window.addEventListener('load',handleScrollAnimation);
 </script>
 
 </body>
