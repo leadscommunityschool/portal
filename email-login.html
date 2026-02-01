@@ -6,139 +6,93 @@
 <title>Email Login - Leads Community School</title>
 
 <style>
-body,html {margin:0;padding:0;font-family:Arial,sans-serif;background:#f2f2f2;}
-
+body,html{margin:0;padding:0;font-family:Arial,sans-serif;background:#f2f2f2;}
 .top-green{background:#004d26;padding:10px 20px;}
-.top-links a{color:#ffcc00;margin-right:15px;font-weight:bold;text-decoration:none;}
-
-.main-header{
-  background:#004d26;
-  border-bottom:5px solid #ffcc00;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
+.top-links a{color:#ffcc00;margin-right:15px;font-weight:bold;text-decoration:none;cursor:pointer;}
+.main-header{background:#004d26;border-bottom:5px solid #ffcc00;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;}
 .logo-wrap{display:flex;align-items:center;gap:15px;text-decoration:none;}
 .logo-wrap img{width:70px;background:#fff;padding:5px;border-radius:10px;}
 .school-name h1{margin:0;color:#ffcc00;font-size:22px;}
 .school-name p{margin:0;color:#fff;font-size:13px;}
-
 .main-nav a{color:#ffcc00;margin-left:15px;font-weight:bold;text-decoration:none;}
-
 #login-section{display:flex;justify-content:center;align-items:center;min-height:70vh;}
-.login-box{
-  background:#fff;
-  padding:40px;
-  border-radius:15px;
-  width:350px;
-  text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
-}
-
+.login-box{background:#fff;padding:40px;border-radius:15px;width:350px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,.3);}
 .login-box h2{color:#004d26;}
-.login-box input{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:5px;
-  border:1px solid #ccc;
-}
-.login-box button{
-  width:100%;
-  padding:12px;
-  background:#004d26;
-  color:#ffcc00;
-  border:2px solid #ffcc00;
-  font-weight:bold;
-  cursor:pointer;
-}
-
+.login-box input{width:100%;padding:12px;margin:10px 0;border-radius:5px;border:1px solid #ccc;}
+.login-box button{width:100%;padding:12px;background:#004d26;color:#ffcc00;border:2px solid #ffcc00;font-weight:bold;cursor:pointer;}
 #dashboard-section{display:none;}
-.dashboard{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-  padding:30px;
-}
-.card{
-  background:#ffcc00;
-  color:#004d26;
-  width:220px;
-  padding:20px;
-  border-radius:10px;
-  border:2px solid #004d26;
-  text-align:center;
-  font-weight:bold;
-}
-.footer{
-  background:#004d26;
-  color:#ffcc00;
-  text-align:center;
-  padding:20px;
-  border-top:5px solid #ffcc00;
-}
+.dashboard{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:30px;}
+.card{background:#ffcc00;color:#004d26;width:220px;padding:20px;border-radius:10px;border:2px solid #004d26;text-align:center;font-weight:bold;}
+.footer{background:#004d26;color:#ffcc00;text-align:center;padding:20px;border-top:5px solid #ffcc00;}
+.error-msg{color:red;font-size:0.95rem;margin-top:10px;}
 </style>
 
-<!-- ===== FIREBASE ===== -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
-  authDomain: "leads-community-school.firebaseapp.com",
-  projectId: "leads-community-school",
-  storageBucket: "leads-community-school.appspot.com",
-  messagingSenderId: "862968562597",
-  appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
+apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+authDomain: "leads-community-school.firebaseapp.com",
+projectId: "leads-community-school",
+storageBucket: "leads-community-school.appspot.com",
+messagingSenderId: "862968562597",
+appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// LOGIN FUNCTION
+// login function
 window.login = function(e){
   e.preventDefault();
   const email = document.getElementById("email").value;
   const password = document.getElementById("pass").value;
+  const errorDiv = document.getElementById("error-msg");
 
   signInWithEmailAndPassword(auth,email,password)
-    .then(() => {
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard-section").style.display = "block";
-      document.getElementById("homeLink").style.display = "inline";
-      alert("Welcome to School Email!");
-    })
-    .catch(err => alert("Login failed: " + err.message));
-};
-
-// LOGOUT FUNCTION
-window.logout = function(){
-  signOut(auth).then(() => {
-    document.getElementById("login-section").style.display = "flex";
-    document.getElementById("dashboard-section").style.display = "none";
-    document.getElementById("homeLink").style.display = "none";
-    alert("Logged out successfully!");
+  .then(()=>{
+    document.getElementById("login-section").style.display="none";
+    document.getElementById("dashboard-section").style.display="block";
+    document.getElementById("homeLink").style.display="inline";
+    errorDiv.textContent = "";
+  })
+  .catch(err=>{
+    errorDiv.textContent = "Login failed: " + err.message;
   });
 };
 
-// AUTO LOGIN CHECK
-onAuthStateChanged(auth, user => {
+// logout function
+window.logout = function(){
+  signOut(auth).then(()=>{
+    document.getElementById("login-section").style.display="flex";
+    document.getElementById("dashboard-section").style.display="none";
+    document.getElementById("homeLink").style.display="none";
+  });
+};
+
+// auto login
+onAuthStateChanged(auth,user=>{
   if(user){
-    document.getElementById("login-section").style.display = "none";
-    document.getElementById("dashboard-section").style.display = "block";
-    document.getElementById("homeLink").style.display = "inline";
+    document.getElementById("login-section").style.display="none";
+    document.getElementById("dashboard-section").style.display="block";
+    document.getElementById("homeLink").style.display="inline";
   }
 });
-</script>
 
+// prevent top "Email" link from reopening login if already logged in
+window.showLogin = function(){
+  if(auth.currentUser){
+    alert("You are already logged in!");
+  } else {
+    document.getElementById("login-section").style.display="flex";
+    document.getElementById("dashboard-section").style.display="none";
+  }
+}
+</script>
 </head>
+
 <body>
 
 <div class="top-green">
@@ -147,7 +101,7 @@ onAuthStateChanged(auth, user => {
 <a href="student-login.html">Student</a>
 <a href="parent-login.html">Parent</a>
 <a href="staff-login.html">Staff</a>
-<a href="#">Email</a>
+<a onclick="showLogin()">Email</a>
 </div>
 </div>
 
@@ -169,11 +123,10 @@ onAuthStateChanged(auth, user => {
 <section id="login-section">
 <div class="login-box">
 <h2>Email Login</h2>
-<form onsubmit="login(event)">
 <input type="email" id="email" placeholder="Email Address" required>
 <input type="password" id="pass" placeholder="Password" required>
-<button>Login</button>
-</form>
+<button onclick="login(event)">Login</button>
+<div id="error-msg" class="error-msg"></div>
 </div>
 </section>
 
