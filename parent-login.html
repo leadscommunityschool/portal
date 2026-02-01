@@ -6,136 +6,136 @@
 <title>Parent Login - Leads Community School</title>
 
 <style>
-
 body,html{
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
-background:#f2f2f2;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;
 }
 
 /* TOP BAR */
 .top-green{
-background:#004d26;
-padding:10px 20px;
+  background:#004d26;
+  padding:10px 20px;
 }
 
 .top-links a{
-color:#ffcc00;
-margin-right:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-right:15px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /* HEADER */
 .main-header{
-background:#004d26;
-border-bottom:5px solid #ffcc00;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
+  background:#004d26;
+  border-bottom:5px solid #ffcc00;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 .logo-wrap{
-display:flex;
-align-items:center;
-gap:15px;
-text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  text-decoration:none;
 }
 
 .logo-wrap img{
-width:70px;
-background:#fff;
-padding:5px;
-border-radius:10px;
+  width:70px;
+  background:#fff;
+  padding:5px;
+  border-radius:10px;
 }
 
 .school-name h1{
-margin:0;
-color:#ffcc00;
-font-size:22px;
+  margin:0;
+  color:#ffcc00;
+  font-size:22px;
 }
 
 .school-name p{
-margin:0;
-color:#fff;
-font-size:13px;
+  margin:0;
+  color:#fff;
+  font-size:13px;
 }
 
 .main-nav a{
-color:#ffcc00;
-margin-left:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-left:15px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /* LOGIN */
 #login-section{
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:70vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:70vh;
 }
 
 .login-box{
-background:#fff;
-padding:40px;
-border-radius:15px;
-width:350px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
+  background:#fff;
+  padding:40px;
+  border-radius:15px;
+  width:350px;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,.3);
 }
 
 .login-box h2{
-color:#004d26;
+  color:#004d26;
 }
 
 .login-box input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
 }
 
 .login-box button{
-width:100%;
-padding:12px;
-background:#004d26;
-color:#ffcc00;
-border:2px solid #ffcc00;
-font-weight:bold;
-cursor:pointer;
+  width:100%;
+  padding:12px;
+  background:#004d26;
+  color:#ffcc00;
+  border:2px solid #ffcc00;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* DASHBOARD */
 #dashboard-section{display:none;}
 
 .dashboard{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-padding:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  padding:30px;
 }
 
 .card{
-background:#ffcc00;
-color:#004d26;
-width:220px;
-padding:20px;
-border-radius:10px;
-border:2px solid #004d26;
-text-align:center;
+  background:#ffcc00;
+  color:#004d26;
+  width:220px;
+  padding:20px;
+  border-radius:10px;
+  border:2px solid #004d26;
+  text-align:center;
+  font-weight:bold;
 }
 
 .section-container{
-background:#fff;
-margin:20px;
-padding:20px;
-border-radius:10px;
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:10px;
 }
 
 /* TABLE */
@@ -145,11 +145,11 @@ td{border:1px solid #004d26;padding:10px;}
 
 /* FOOTER */
 .footer{
-background:#004d26;
-color:#ffcc00;
-text-align:center;
-padding:20px;
-border-top:5px solid #ffcc00;
+  background:#004d26;
+  color:#ffcc00;
+  text-align:center;
+  padding:20px;
+  border-top:5px solid #ffcc00;
 }
 
 /* MOBILE */
@@ -157,8 +157,58 @@ border-top:5px solid #ffcc00;
 .logo-wrap{flex-direction:column;text-align:center;}
 .card{width:90%;}
 }
-
 </style>
+
+<!-- FIREBASE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+    authDomain: "leads-community-school.firebaseapp.com",
+    projectId: "leads-community-school",
+    storageBucket: "leads-community-school.appspot.com",
+    messagingSenderId: "862968562597",
+    appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  // Login function
+  window.login = function(e){
+    e.preventDefault();
+    const email = document.getElementById("parent").value;
+    const password = document.getElementById("pass").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("dashboard-section").style.display = "block";
+      document.getElementById("homeLink").style.display = "inline";
+      alert("Welcome Parent!");
+    })
+    .catch((error) => {
+      alert("Login failed: " + error.message);
+    });
+  };
+
+  // Logout
+  window.logout = function(){
+    signOut(auth).then(() => location.reload());
+  };
+
+  // Check login state
+  onAuthStateChanged(auth, (user) => {
+    if(user){
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("dashboard-section").style.display = "block";
+      document.getElementById("homeLink").style.display = "inline";
+    }
+  });
+</script>
+
 </head>
 
 <body>
@@ -174,7 +224,6 @@ border-top:5px solid #ffcc00;
 </div>
 
 <header class="main-header">
-
 <a href="index.html" class="logo-wrap">
 <img src="IMG-20260129-WA0005.jpg">
 <div class="school-name">
@@ -188,41 +237,33 @@ border-top:5px solid #ffcc00;
 <a href="#attendance">Attendance</a>
 <a href="#fees">Fees</a>
 <a href="#reports">Reports</a>
+<a href="#" onclick="logout()">Logout</a>
 </nav>
-
 </header>
 
 <section id="login-section">
-
 <div class="login-box">
 <h2>Parent Login</h2>
-
 <form onsubmit="login(event)">
-<input type="text" id="parent" placeholder="Parent ID" required>
+<input type="email" id="parent" placeholder="Parent Email" required>
 <input type="password" id="pass" placeholder="Password" required>
 <button>Login</button>
 </form>
-
 </div>
-
 </section>
 
 <section id="dashboard-section">
-
 <div class="dashboard" id="dashboard">
-
 <div class="card">Attendance</div>
 <div class="card">Timetable</div>
 <div class="card">Report Cards</div>
 <div class="card">Fees</div>
 <div class="card">Messages</div>
 <div class="card">Announcements</div>
-
 </div>
 
 <div class="section-container" id="attendance">
 <h2>Attendance</h2>
-
 <table>
 <tr><th>Date</th><th>Status</th></tr>
 <tr><td>20/01/26</td><td>Present</td></tr>
@@ -232,7 +273,6 @@ border-top:5px solid #ffcc00;
 
 <div class="section-container" id="fees">
 <h2>Fees</h2>
-
 <table>
 <tr><th>Total</th><th>Paid</th><th>Balance</th></tr>
 <tr><td>₵1200</td><td>₵600</td><td>₵600</td></tr>
@@ -241,7 +281,6 @@ border-top:5px solid #ffcc00;
 
 <div class="section-container" id="reports">
 <h2>Report Cards</h2>
-
 <table>
 <tr><th>Subject</th><th>Grade</th></tr>
 <tr><td>Math</td><td>A</td></tr>
@@ -249,22 +288,11 @@ border-top:5px solid #ffcc00;
 <tr><td>Science</td><td>A-</td></tr>
 </table>
 </div>
-
 </section>
 
 <footer class="footer">
 Leads Community School © 2026
 </footer>
-
-<script>
-function login(e){
-e.preventDefault();
-document.getElementById("login-section").style.display="none";
-document.getElementById("dashboard-section").style.display="block";
-document.getElementById("homeLink").style.display="inline";
-alert("Welcome Parent!");
-}
-</script>
 
 </body>
 </html>
