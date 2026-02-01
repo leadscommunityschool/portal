@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parent Login - Leads Community School</title>
+<title>Leads Community School</title>
 
 <style>
 body,html{
@@ -14,17 +13,25 @@ body,html{
   background:#f2f2f2;
 }
 
-/* TOP BAR */
+/* TOP GREEN BAR */
 .top-green{
   background:#004d26;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   padding:10px 20px;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 .top-links a{
   color:#ffcc00;
   margin-right:15px;
-  font-weight:bold;
   text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* HEADER */
@@ -71,28 +78,35 @@ body,html{
   text-decoration:none;
 }
 
-/* LOGIN */
-#login-section{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:70vh;
+/* MODAL STYLES */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index:10000;
 }
 
-.login-box{
-  background:#fff;
-  padding:40px;
-  border-radius:15px;
-  width:350px;
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 350px;
   text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
+  box-shadow:0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+  animation: popUp 0.4s ease;
 }
 
-.login-box h2{
-  color:#004d26;
+@keyframes popUp {
+  from { transform: translateY(-50px); opacity:0; }
+  to { transform: translateY(0); opacity:1; }
 }
 
-.login-box input{
+.modal input{
   width:100%;
   padding:12px;
   margin:10px 0;
@@ -100,7 +114,7 @@ body,html{
   border:1px solid #ccc;
 }
 
-.login-box button{
+.modal button{
   width:100%;
   padding:12px;
   background:#004d26;
@@ -108,11 +122,20 @@ body,html{
   border:2px solid #ffcc00;
   font-weight:bold;
   cursor:pointer;
+  border-radius:5px;
+}
+
+.close{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:22px;
+  cursor:pointer;
+  color:#004d26;
 }
 
 /* DASHBOARD */
 #dashboard-section{display:none;}
-
 .dashboard{
   display:flex;
   flex-wrap:wrap;
@@ -120,7 +143,6 @@ body,html{
   justify-content:center;
   padding:30px;
 }
-
 .card{
   background:#ffcc00;
   color:#004d26;
@@ -139,12 +161,10 @@ body,html{
   border-radius:10px;
 }
 
-/* TABLE */
-table{width:100%;border-collapse:collapse;}
-th{background:#004d26;color:#ffcc00;padding:10px;}
-td{border:1px solid #004d26;padding:10px;}
+table{width:100%; border-collapse:collapse;}
+th{background:#004d26; color:#ffcc00; padding:10px;}
+td{border:1px solid #004d26; padding:10px;}
 
-/* FOOTER */
 .footer{
   background:#004d26;
   color:#ffcc00;
@@ -153,79 +173,103 @@ td{border:1px solid #004d26;padding:10px;}
   border-top:5px solid #ffcc00;
 }
 
-/* MOBILE */
 @media(max-width:768px){
-.logo-wrap{flex-direction:column;text-align:center;}
-.card{width:90%;}
+  .logo-wrap{flex-direction:column;text-align:center;}
+  .card{width:90%;}
 }
 </style>
 
 <!-- FIREBASE -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
-    authDomain: "leads-community-school.firebaseapp.com",
-    projectId: "leads-community-school",
-    storageBucket: "leads-community-school.appspot.com",
-    messagingSenderId: "862968562597",
-    appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+  authDomain: "leads-community-school.firebaseapp.com",
+  projectId: "leads-community-school",
+  storageBucket: "leads-community-school.appspot.com",
+  messagingSenderId: "862968562597",
+  appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-  // Login function
-  window.login = function(e){
-    e.preventDefault();
-    const email = document.getElementById("parent").value;
-    const password = document.getElementById("pass").value;
+// Open/Close modals
+const studentModal = document.getElementById("studentLoginModal");
+const parentModal = document.getElementById("parentLoginModal");
 
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard-section").style.display = "block";
-      document.getElementById("homeLink").style.display = "inline";
-      alert("Welcome Parent!");
-    })
-    .catch((error) => {
-      alert("Login failed: " + error.message);
-    });
-  };
+window.openStudent = () => studentModal.style.display="flex";
+window.openParent = () => parentModal.style.display="flex";
 
-  // Logout
-  window.logout = function(){
-    signOut(auth).then(() => location.reload());
-  };
+window.closeStudent = () => studentModal.style.display="none";
+window.closeParent = () => parentModal.style.display="none";
 
-  // Check login state
-  onAuthStateChanged(auth, (user) => {
-    if(user){
-      document.getElementById("login-section").style.display = "none";
-      document.getElementById("dashboard-section").style.display = "block";
-      document.getElementById("homeLink").style.display = "inline";
-    }
-  });
+window.onclick = function(e){
+  if(e.target==studentModal) studentModal.style.display="none";
+  if(e.target==parentModal) parentModal.style.display="none";
+}
+
+// Firebase Login functions
+window.loginStudent = function(e){
+  e.preventDefault();
+  const email = document.getElementById("sid").value;
+  const password = document.getElementById("pwd").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then(() => {
+    studentModal.style.display="none";
+    document.getElementById("dashboard-section").style.display="block";
+    alert("Welcome Student!");
+  })
+  .catch(err=>alert("Login failed: "+err.message));
+}
+
+window.loginParent = function(e){
+  e.preventDefault();
+  const email = document.getElementById("parent").value;
+  const password = document.getElementById("pass").value;
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then(() => {
+    parentModal.style.display="none";
+    document.getElementById("dashboard-section").style.display="block";
+    alert("Welcome Parent!");
+  })
+  .catch(err=>alert("Login failed: "+err.message));
+}
+
+// Logout
+window.logout = function(){
+  signOut(auth).then(()=>location.reload());
+}
+
+// Auto-login check
+onAuthStateChanged(auth, user=>{
+  if(user){
+    document.getElementById("dashboard-section").style.display="block";
+  }
+});
 </script>
-
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <div class="top-green">
-<div class="top-links">
-<a href="index.html" id="homeLink" style="display:none;">Home</a>
-<a href="student-login.html">Student</a>
-<a href="#">Parent</a>
-<a href="staff-login.html">Staff</a>
-<a href="email-login.html">Email</a>
-</div>
+  <div class="top-links">
+    <a href="#" onclick="openStudent()">Student Login</a>
+    <a href="#" onclick="openParent()">Parent Login</a>
+    <a href="staff-login.html">Staff Login</a>
+    <a href="email-login.html">Email Login</a>
+    <a href="careers.html">Careers</a>
+  </div>
 </div>
 
+<!-- HEADER -->
 <header class="main-header">
-<a href="index.html" class="logo-wrap">
+<a href="#" class="logo-wrap">
 <img src="IMG-20260129-WA0005.jpg">
 <div class="school-name">
 <h1>Leads Community School</h1>
@@ -242,25 +286,41 @@ td{border:1px solid #004d26;padding:10px;}
 </nav>
 </header>
 
-<section id="login-section">
-<div class="login-box">
-<h2>Parent Login</h2>
-<form onsubmit="login(event)">
-<input type="email" id="parent" placeholder="Parent Email" required>
-<input type="password" id="pass" placeholder="Password" required>
-<button>Login</button>
-</form>
+<!-- STUDENT LOGIN MODAL -->
+<div id="studentLoginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="studentClose" onclick="closeStudent()">&times;</span>
+    <h2>Student Login</h2>
+    <form onsubmit="loginStudent(event)">
+      <input type="email" id="sid" placeholder="Student Email" required>
+      <input type="password" id="pwd" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </div>
-</section>
 
+<!-- PARENT LOGIN MODAL -->
+<div id="parentLoginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="parentClose" onclick="closeParent()">&times;</span>
+    <h2>Parent Login</h2>
+    <form onsubmit="loginParent(event)">
+      <input type="email" id="parent" placeholder="Parent Email" required>
+      <input type="password" id="pass" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- DASHBOARD SECTION -->
 <section id="dashboard-section">
-<div class="dashboard" id="dashboard">
-<div class="card">Attendance</div>
-<div class="card">Timetable</div>
-<div class="card">Report Cards</div>
-<div class="card">Fees</div>
-<div class="card">Messages</div>
-<div class="card">Announcements</div>
+<div class="dashboard">
+  <div class="card">Attendance</div>
+  <div class="card">Timetable</div>
+  <div class="card">Report Cards</div>
+  <div class="card">Fees</div>
+  <div class="card">Messages</div>
+  <div class="card">Announcements</div>
 </div>
 
 <div class="section-container" id="attendance">
