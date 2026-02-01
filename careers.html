@@ -4,286 +4,253 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Careers - Leads Community School</title>
+
 <style>
-/* ===== General ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+
+body,html{
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:#f2f2f2;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+.top-green{
+background:#004d26;
+padding:10px 20px;
 }
 
-.top-green .top-links a {
-  color: #ffcc00;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:15px;
+font-weight:bold;
+text-decoration:none;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+/* HEADER */
+.main-header{
+background:#004d26;
+border-bottom:5px solid #ffcc00;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
 }
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+.logo-wrap img{
+width:70px;
+background:#fff;
+padding:5px;
+border-radius:10px;
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.school-name h1{
+margin:0;
+color:#ffcc00;
+font-size:22px;
 }
 
-.main-nav a:hover {
-  color: #002013;
+.school-name p{
+margin:0;
+color:#fff;
+font-size:13px;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  text-align: center;
+.main-nav a{
+color:#ffcc00;
+margin-left:15px;
+font-weight:bold;
+text-decoration:none;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  color: #004d26;
-  margin-bottom: 15px;
+/* HERO */
+.hero{
+background:#fff;
+margin:30px auto;
+max-width:1000px;
+padding:40px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
 }
 
-.hero p {
-  font-size: 1.1rem;
-  color: #004d26;
-  line-height: 1.6;
+.hero h1{color:#004d26;}
+.hero p{line-height:1.6;}
+
+/* JOBS */
+.jobs{
+max-width:1000px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px;
 }
 
-/* ===== Job Openings Section ===== */
-.jobs-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+.job{
+background:#fff;
+padding:25px;
+border-left:6px solid #ffcc00;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
-.job-card {
-  background-color: #fff;
-  border-left: 6px solid #ffcc00;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.job h3{color:#004d26;}
+
+.job button{
+margin-top:10px;
+padding:10px;
+background:#004d26;
+color:#ffcc00;
+border:none;
+width:100%;
+cursor:pointer;
+font-weight:bold;
 }
 
-.job-card h3 {
-  margin: 0 0 10px 0;
-  color: #004d26;
+/* FORM */
+.apply{
+background:#fff;
+max-width:1000px;
+margin:40px auto;
+padding:30px;
+border-radius:10px;
+border-left:6px solid #004d26;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
 }
 
-.job-card p {
-  margin: 5px 0;
-  line-height: 1.5;
+.apply h2{color:#004d26;}
+
+.apply input,.apply textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
-.job-card button {
-  margin-top: 10px;
-  padding: 10px 15px;
-  background-color: #004d26;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
+.apply button{
+width:100%;
+padding:12px;
+background:#004d26;
+color:#ffcc00;
+border:none;
+font-weight:bold;
+cursor:pointer;
 }
 
-.job-card button:hover {
-  background-color: #006b39;
+/* FOOTER */
+.footer{
+background:#004d26;
+color:#ffcc00;
+text-align:center;
+padding:20px;
+border-top:5px solid #ffcc00;
 }
 
-/* ===== Application Form ===== */
-.application-form {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #004d26;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.application-form h2 {
-  color: #004d26;
-  margin-bottom: 15px;
-}
-
-.application-form input,
-.application-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-}
-
-.application-form button {
-  width: 100%;
-  padding: 12px;
-  background-color: #004d26;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.application-form button:hover {
-  background-color: #006b39;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
+/* MOBILE */
 @media(max-width:768px){
-  .jobs-container, .application-form {padding: 15px;}
+.logo-wrap{flex-direction:column;text-align:center;}
 }
+
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="index.html">Home</a>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html">Home</a>
+<a href="student-login.html">Student</a>
+<a href="parent-login.html">Parent</a>
+<a href="staff-login.html">Staff</a>
+<a href="email-login.html">Email</a>
+<a href="#">Careers</a>
+</div>
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+
+<a href="index.html" class="logo-wrap">
+<img src="IMG-20260129-WA0005.jpg">
+<div class="school-name">
+<h1>Leads Community School</h1>
+<p>Training Tomorrow’s Leaders Today</p>
+</div>
+</a>
+
+<nav class="main-nav">
+<a href="about.html">About</a>
+<a href="academics.html">Academics</a>
+<a href="admissions.html">Admissions</a>
+<a href="campus.html">Campus</a>
+<a href="community.html">Community</a>
+<a href="news-events.html">News</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
-  <h1>Join Our Team</h1>
-  <p>Explore exciting career opportunities at Leads Community School. We are looking for passionate educators and staff to help shape the future of our students.</p>
+<h1>Join Our Professional Team</h1>
+<p>
+At Leads Community School, we believe great teachers build great leaders.
+We invite passionate educators and professionals to join our growing academic family.
+</p>
 </section>
 
-<!-- Job Openings -->
-<section class="jobs-container">
-  <div class="job-card">
-    <h3>Mathematics Teacher</h3>
-    <p>We are looking for a dedicated Math teacher to inspire students from JHS to Senior High. Must have experience teaching curriculum-approved material.</p>
-    <button onclick="alert('Application submitted for Mathematics Teacher!')">Apply Now</button>
-  </div>
-  <div class="job-card">
-    <h3>English Teacher</h3>
-    <p>Seeking a creative English teacher to develop students’ reading, writing, and communication skills. Must be GES certified.</p>
-    <button onclick="alert('Application submitted for English Teacher!')">Apply Now</button>
-  </div>
-  <div class="job-card">
-    <h3>ICT Coordinator</h3>
-    <p>Responsible for maintaining the ICT lab, teaching ICT lessons, and coordinating digital learning programs for students.</p>
-    <button onclick="alert('Application submitted for ICT Coordinator!')">Apply Now</button>
-  </div>
+<section class="jobs">
+
+<div class="job">
+<h3>Mathematics Teacher</h3>
+<p>Teach Primary & JHS mathematics using GES curriculum.</p>
+<button onclick="alert('Applied for Math Teacher')">Apply</button>
+</div>
+
+<div class="job">
+<h3>English Teacher</h3>
+<p>Develop literacy, communication and writing skills.</p>
+<button onclick="alert('Applied for English Teacher')">Apply</button>
+</div>
+
+<div class="job">
+<h3>ICT Coordinator</h3>
+<p>Manage ICT lab and digital learning.</p>
+<button onclick="alert('Applied for ICT Coordinator')">Apply</button>
+</div>
+
 </section>
 
-<!-- Application Form -->
-<section class="application-form">
-  <h2>Send Your Resume</h2>
-  <form onsubmit="handleApplication(event)">
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <input type="text" placeholder="Position Applying For" required>
-    <textarea rows="5" placeholder="Cover Letter / Message" required></textarea>
-    <button type="submit">Submit Application</button>
-  </form>
+<section class="apply">
+
+<h2>Submit Your Application</h2>
+
+<form onsubmit="submitForm(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="text" placeholder="Position Applying For" required>
+<textarea rows="5" placeholder="Cover Letter"></textarea>
+<button>Submit Application</button>
+</form>
+
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a>
-  </p>
+Leads Community School © 2026
 </footer>
 
 <script>
-function handleApplication(e){
-  e.preventDefault();
-  alert("Thank you! Your application has been submitted.");
+function submitForm(e){
+e.preventDefault();
+alert("Application submitted successfully!");
 }
 </script>
 
