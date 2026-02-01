@@ -4,388 +4,164 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parent Login - Leads Community School</title>
+
 <style>
-/* ===== General ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-}
+body,html{margin:0;padding:0;font-family:Arial;background:#f5f7fa}
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
-}
+/* Top Bar */
+.top-green{background:#004d26;color:#fff;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.top-green a{color:#fff;margin-right:15px;text-decoration:none;font-weight:bold}
 
-.top-green .top-links a {
-  color: #fff;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
+/* Header */
+header{background:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #004d26;flex-wrap:wrap}
+.logo-area{display:flex;align-items:center;gap:10px}
+.logo-area img{height:45px}
+.logo-area span{font-weight:bold;color:#004d26;font-size:20px}
+nav a{margin-left:12px;text-decoration:none;color:#004d26;font-weight:bold}
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
-}
+/* Login */
+#login-section{min-height:80vh;display:flex;justify-content:center;align-items:center}
+.login-box{background:#fff;padding:40px;border-radius:15px;box-shadow:0 10px 25px rgba(0,0,0,.2);width:350px;text-align:center}
+.login-box input{width:100%;padding:12px;margin:10px 0}
+.login-box button{width:100%;padding:12px;background:#004d26;color:white;border:none;border-radius:5px}
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #fdf9f0;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
-}
+/* Dashboard */
+#dashboard-section{display:none}
+.dashboard{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:25px}
+.card{background:#ffcc00;color:#004d26;width:220px;padding:20px;border-radius:10px;text-align:center;text-decoration:none}
+.card:hover{transform:translateY(-5px)}
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
-}
+.section{max-width:1000px;margin:25px auto;background:white;padding:20px;border-radius:10px}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #004d26;padding:8px;text-align:center}
+th{background:#ffcc00}
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
-}
+footer{background:#004d26;color:white;text-align:center;padding:20px;margin-top:40px}
 
-/* ===== Login Section ===== */
-#login-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  padding: 20px;
-}
-
-#login-section .login-box {
-  background: #fff;
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-}
-
-#login-section .login-box h2 {
-  margin-bottom: 20px;
-  color: #004d26;
-}
-
-#login-section .login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-#login-section .login-box button {
-  width: 100%;
-  padding: 12px;
-  background-color: #004d26;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-#login-section .login-box button:hover {
-  background-color: #006b39;
-}
-
-/* ===== Dashboard Sections ===== */
-#dashboard-section {
-  display: none; /* hidden until login */
-}
-
-.dashboard {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
-  padding: 30px 20px;
-}
-
-.dashboard .card {
-  background-color: #ffcc00; /* Rich yellow */
-  color: #004d26;
-  width: 220px;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration: none;
-}
-
-.dashboard .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.dashboard .card h3 {
-  margin-bottom: 10px;
-}
-
-.section-container {
-  max-width: 1000px;
-  margin: 20px auto 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.section-container table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-
-.section-container table th,
-.section-container table td {
-  border: 1px solid #004d26;
-  padding: 10px;
-  text-align: center;
-}
-
-.section-container table th {
-  background-color: #ffcc00;
-  color: #004d26;
-}
-
-.section-container table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-/* ===== Responsive ===== */
 @media(max-width:768px){
-  .dashboard {flex-direction: column; align-items: center;}
-  .dashboard .card {width: 80%;}
+.dashboard{flex-direction:column}
+.card{width:90%}
 }
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-  <a href="index.html" id="home-link" style="display:none;">Home</a>
-  <a href="student-login.html">Student Login</a>
-  <a href="parent-login.html">Parent Login</a>
-  <a href="staff-login.html">Staff Login</a>
-  <a href="email-login.html">Email Login</a>
-  <a href="careers.html">Careers</a>
+<div>
+<a href="index.html" id="home-link" style="display:none">Home</a>
+<a href="student-login.html">Student</a>
+<a href="parent-login.html">Parent</a>
+<a href="staff-login.html">Staff</a>
 </div>
-  <input type="text" placeholder="Search...">
 </div>
 
-<!-- Header -->
-<header class="main-header">
-  <div class="logo-area">
-   <a href="index.html">
-    <img src="IMG-20260129-WA0005.jpg" alt="Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="#">Dashboard</a>
-    <a href="#attendance-section">Attendance</a>
-    <a href="#timetable-section">Timetable</a>
-    <a href="#report-section">Report Cards</a>
-    <a href="#fees-section">Fees</a>
-    <a href="#messages-section">Messages</a>
-    <a href="#announcements-section">Announcements</a>
-  </nav>
+<header>
+<div class="logo-area">
+<img src="IMG-20260129-WA0005.jpg">
+<span>Leads Community School</span>
+</div>
+
+<nav>
+<a href="#attendance">Attendance</a>
+<a href="#timetable">Timetable</a>
+<a href="#report">Reports</a>
+<a href="#fees">Fees</a>
+<a href="#messages">Messages</a>
+</nav>
 </header>
 
-<!-- Login Section -->
+<!-- LOGIN -->
 <section id="login-section">
-  <div class="login-box">
-    <h2>Parent Login</h2>
-    <form onsubmit="handleLogin(event)">
-      <input type="text" id="parent-id" placeholder="Parent ID" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-    <p>Forgot your password? <a href="#">Reset here</a></p>
-  </div>
+<div class="login-box">
+<h2>Parent Login</h2>
+<form onsubmit="login(event)">
+<input id="pid" placeholder="Parent ID" required>
+<input id="pwd" type="password" placeholder="Password" required>
+<button>Login</button>
+</form>
+</div>
 </section>
 
-<!-- Dashboard Section -->
+<!-- DASHBOARD -->
 <section id="dashboard-section">
-  <!-- Dashboard Cards -->
-  <section class="dashboard">
-    <a href="#attendance-section" class="card"><h3>Attendance</h3><p>Track daily & monthly attendance</p></a>
-    <a href="#timetable-section" class="card"><h3>Timetable</h3><p>See weekly class schedule</p></a>
-    <a href="#report-section" class="card"><h3>Report Cards</h3><p>Check grades & progress</p></a>
-    <a href="#fees-section" class="card"><h3>Fees</h3><p>View balances & payments</p></a>
-    <a href="#messages-section" class="card"><h3>Messages</h3><p>Communicate with teachers</p></a>
-    <a href="#announcements-section" class="card"><h3>Announcements</h3><p>School news & updates</p></a>
-  </section>
 
-  <!-- Attendance Section -->
-  <section id="attendance-section" class="section-container">
-    <h2>Attendance</h2>
-    <table>
-      <thead>
-        <tr><th>Date</th><th>Day</th><th>Status</th><th>Remarks</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>2026-01-20</td><td>Monday</td><td>Present</td><td>-</td></tr>
-        <tr><td>2026-01-21</td><td>Tuesday</td><td>Absent</td><td>Sick</td></tr>
-      </tbody>
-    </table>
-  </section>
+<div class="dashboard">
+<a class="card" href="#attendance">Attendance</a>
+<a class="card" href="#timetable">Timetable</a>
+<a class="card" href="#report">Reports</a>
+<a class="card" href="#fees">Fees</a>
+<a class="card" href="#messages">Messages</a>
+</div>
 
-  <!-- Timetable Section -->
-  <section id="timetable-section" class="section-container">
-    <h2>Timetable</h2>
-    <p>Pick a date to see your child’s classes.</p>
-    <input type="date" id="date-picker">
-    <table class="timetable-table">
-      <thead>
-        <tr><th>Time</th><th>Subject</th><th>Teacher</th><th>Room</th></tr>
-      </thead>
-      <tbody id="timetable-body"></tbody>
-    </table>
-  </section>
+<div id="attendance" class="section">
+<h2>Attendance</h2>
+<table>
+<tr><th>Date</th><th>Status</th></tr>
+<tr><td>20 Jan</td><td>Present</td></tr>
+<tr><td>21 Jan</td><td>Absent</td></tr>
+</table>
+</div>
 
-  <!-- Report Cards Section -->
-  <section id="report-section" class="section-container">
-    <h2>Report Cards</h2>
-    <table>
-      <thead>
-        <tr><th>Subject</th><th>Grade</th><th>Teacher Remark</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Math</td><td>A</td><td>Excellent progress</td></tr>
-        <tr><td>English</td><td>B+</td><td>Good improvement</td></tr>
-        <tr><td>Science</td><td>A-</td><td>Very good</td></tr>
-        <tr><td>ICT</td><td>B</td><td>Can improve</td></tr>
-      </tbody>
-    </table>
-  </section>
+<div id="timetable" class="section">
+<h2>Timetable</h2>
+<input type="date" id="pick">
+<table>
+<thead><tr><th>Time</th><th>Subject</th></tr></thead>
+<tbody id="tt"></tbody>
+</table>
+</div>
 
-  <!-- Fees Section -->
-  <section id="fees-section" class="section-container">
-    <h2>Fees</h2>
-    <table>
-      <thead><tr><th>Term</th><th>Amount</th><th>Paid</th><th>Balance</th></tr></thead>
-      <tbody>
-        <tr><td>Term 1</td><td>₵1200</td><td>₵1200</td><td>₵0</td></tr>
-        <tr><td>Term 2</td><td>₵1200</td><td>₵600</td><td>₵600</td></tr>
-      </tbody>
-    </table>
-  </section>
+<div id="report" class="section">
+<h2>Report</h2>
+<table>
+<tr><th>Subject</th><th>Grade</th></tr>
+<tr><td>Math</td><td>A</td></tr>
+<tr><td>English</td><td>B+</td></tr>
+</table>
+</div>
 
-  <!-- Messages Section -->
-  <section id="messages-section" class="section-container">
-    <h2>Messages</h2>
-    <table>
-      <thead><tr><th>Date</th><th>From</th><th>Message</th></tr></thead>
-      <tbody>
-        <tr><td>2026-01-20</td><td>Mr. Mensah</td><td>Reminder: Math homework due tomorrow</td></tr>
-        <tr><td>2026-01-21</td><td>Mrs. Adjoa</td><td>Science project submission</td></tr>
-      </tbody>
-    </table>
-  </section>
+<div id="fees" class="section">
+<h2>Fees</h2>
+<table>
+<tr><th>Total</th><th>Paid</th><th>Balance</th></tr>
+<tr><td>₵1200</td><td>₵600</td><td>₵600</td></tr>
+</table>
+</div>
 
-  <!-- Announcements Section -->
-  <section id="announcements-section" class="section-container">
-    <h2>Announcements</h2>
-    <ul>
-      <li>Parent-Teacher meeting on 2026-02-15 at 10:00 AM</li>
-      <li>School sports day scheduled for 2026-03-01</li>
-      <li>New library books have arrived</li>
-    </ul>
-  </section>
+<div id="messages" class="section">
+<h2>Messages</h2>
+<ul>
+<li>Meeting next week</li>
+<li>Homework reminder</li>
+</ul>
+</div>
+
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  Leads Community School © 2026. All Rights Reserved.
-</footer>
+<footer>Leads Community School © 2026</footer>
 
-<!-- JS Login + Timetable -->
 <script>
-function handleLogin(e){
-  e.preventDefault();
-  const parentId = document.getElementById('parent-id').value.trim();
-  const password = document.getElementById('password').value.trim();
-  
-  if(parentId && password){
-    document.getElementById('login-section').style.display = 'none';
-    document.getElementById('dashboard-section').style.display = 'block';
-    document.getElementById('home-link').style.display = 'inline'; // show Home
-    alert("Login successful! Welcome to your Parent Dashboard.");
-  } else {
-    alert("Enter Parent ID and Password");
-  }
+function login(e){
+e.preventDefault();
+login-section.style.display="none";
+dashboard-section.style.display="block";
+home-link.style.display="inline";
 }
 
-// Timetable
-const weeklySchedule = {
-  Monday: [
-    {time:"08:00-09:00",subject:"Math",teacher:"Mr. Mensah",room:"101"},
-    {time:"09:00-10:00",subject:"English",teacher:"Mrs. Adjoa",room:"102"},
-    {time:"10:15-11:15",subject:"Science",teacher:"Mr. Kofi",room:"Lab1"},
-    {time:"11:15-12:15",subject:"ICT",teacher:"Mr. Yaw",room:"CompLab"}
-  ],
-  Tuesday: [
-    {time:"08:00-09:00",subject:"English",teacher:"Mrs. Adjoa",room:"102"},
-    {time:"09:00-10:00",subject:"Science",teacher:"Mr. Kofi",room:"Lab1"},
-    {time:"10:15-11:15",subject:"Math",teacher:"Mr. Mensah",room:"101"},
-    {time:"11:15-12:15",subject:"ICT",teacher:"Mr. Yaw",room:"CompLab"}
-  ]
-  // You can add other days...
-};
+const data=[
+{t:"8-9",s:"Math"},
+{t:"9-10",s:"English"},
+{t:"10-11",s:"Science"}
+];
 
-const datePicker = document.getElementById("date-picker");
-const tbody = document.getElementById("timetable-body");
-
-function renderDailyTimetable(dateStr){
-  tbody.innerHTML = "";
-  const dayName = new Date(dateStr).toLocaleDateString('en-US',{ weekday:'long'});
-  const classes = weeklySchedule[dayName] || [];
-  if(classes.length === 0){
-    tbody.innerHTML = "<tr><td colspan='4'>No classes scheduled for this day.</td></tr>";
-    return;
-  }
-  classes.forEach(cls=>{
-    const tr = document.createElement("tr");
-    tr.innerHTML = `<td>${cls.time}</td><td>${cls.subject}</td><td>${cls.teacher}</td><td>${cls.room}</td>`;
-    tbody.appendChild(tr);
-  });
+function load(){
+tt.innerHTML="";
+data.forEach(x=>{
+tt.innerHTML+=`<tr><td>${x.t}</td><td>${x.s}</td></tr>`;
+});
 }
-
-// Initialize today
-const today = new Date().toISOString().split('T')[0];
-datePicker.value = today;
-renderDailyTimetable(today);
-datePicker.addEventListener("change", e=> renderDailyTimetable(e.target.value));
+load();
 </script>
 
 </body>
