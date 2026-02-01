@@ -4,233 +4,225 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Email Login - Leads Community School</title>
+
 <style>
-/* ===== General ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
+
+body,html{
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:#f2f2f2;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+.top-green{
+background:#004d26;
+padding:10px 20px;
 }
 
-.top-green .top-links a {
-  color: #fff;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:15px;
+font-weight:bold;
+text-decoration:none;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+/* HEADER */
+.main-header{
+background:#004d26;
+border-bottom:5px solid #ffcc00;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
 }
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #fdf9f0;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+.logo-wrap img{
+width:70px;
+background:#fff;
+padding:5px;
+border-radius:10px;
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.school-name h1{
+margin:0;
+color:#ffcc00;
+font-size:22px;
 }
 
-/* ===== Login Section ===== */
-#login-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 80vh;
-  padding: 20px;
+.school-name p{
+margin:0;
+color:#fff;
+font-size:13px;
 }
 
-#login-section .login-box {
-  background: #fff;
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+.main-nav a{
+color:#ffcc00;
+margin-left:15px;
+font-weight:bold;
+text-decoration:none;
 }
 
-#login-section .login-box h2 {
-  margin-bottom: 20px;
-  color: #004d26;
+/* LOGIN */
+#login-section{
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:70vh;
 }
 
-#login-section .login-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.login-box{
+background:#fff;
+padding:40px;
+border-radius:15px;
+width:350px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
 }
 
-#login-section .login-box button {
-  width: 100%;
-  padding: 12px;
-  background-color: #004d26;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
+.login-box h2{
+color:#004d26;
 }
 
-#login-section .login-box button:hover {
-  background-color: #006b39;
+.login-box input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
-/* ===== Dashboard Section ===== */
-#dashboard-section {
-  display: none; /* hidden until login */
-  padding: 40px 20px;
+.login-box button{
+width:100%;
+padding:12px;
+background:#004d26;
+color:#ffcc00;
+border:2px solid #ffcc00;
+font-weight:bold;
+cursor:pointer;
 }
 
-.dashboard h3 {
-  text-align: center;
-  color: #004d26;
-  margin-bottom: 30px;
+/* DASHBOARD */
+#dashboard-section{display:none;}
+
+.dashboard{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+padding:30px;
 }
 
-.dashboard .cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
+.card{
+background:#ffcc00;
+color:#004d26;
+width:220px;
+padding:20px;
+border-radius:10px;
+border:2px solid #004d26;
+text-align:center;
+text-decoration:none;
+font-weight:bold;
 }
 
-.dashboard .card {
-  background-color: #ffcc00; /* rich yellow */
-  color: #004d26;
-  width: 220px;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration: none;
+/* FOOTER */
+.footer{
+background:#004d26;
+color:#ffcc00;
+text-align:center;
+padding:20px;
+border-top:5px solid #ffcc00;
 }
 
-.dashboard .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
+/* MOBILE */
 @media(max-width:768px){
-  .dashboard {flex-direction: column; align-items: center;}
-  .dashboard .card {width: 80%;}
+.logo-wrap{flex-direction:column;text-align:center;}
+.card{width:90%;}
 }
+
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-    <a href="index.html" id="home-link" style="display:none;">🏠 Home</a> <!-- Home link hidden initially -->
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html" id="homeLink" style="display:none;">Home</a>
+<a href="student-login.html">Student</a>
+<a href="parent-login.html">Parent</a>
+<a href="staff-login.html">Staff</a>
+<a href="#">Email</a>
+</div>
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <a href="index.html">
-      <img src="IMG-20260129-WA0005.jpg" alt="Logo" width="50">
-      <span>Leads Community School</span>
-    </a>
-  </div>
+
+<a href="index.html" class="logo-wrap">
+<img src="IMG-20260129-WA0005.jpg">
+<div class="school-name">
+<h1>Leads Community School</h1>
+<p>Training Tomorrow’s Leaders Today</p>
+</div>
+</a>
+
+<nav class="main-nav">
+<a href="#dashboard">Dashboard</a>
+<a href="#inbox">Inbox</a>
+<a href="#compose">Compose</a>
+<a href="#sent">Sent</a>
+</nav>
+
 </header>
 
-<!-- Login Section -->
 <section id="login-section">
-  <div class="login-box">
-    <h2>Email Login</h2>
-    <form class="login-form" onsubmit="handleLogin(event)">
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-    <p>Forgot your password? <a href="#">Reset here</a></p>
-  </div>
+
+<div class="login-box">
+<h2>Email Login</h2>
+
+<form onsubmit="login(event)">
+<input type="email" id="email" placeholder="Email Address" required>
+<input type="password" id="pass" placeholder="Password" required>
+<button>Login</button>
+</form>
+
+</div>
+
 </section>
 
-<!-- Dashboard Section -->
 <section id="dashboard-section">
-  <h3>Email Dashboard</h3>
-  <div class="cards">
-    <a href="inbox.html" class="card">📥 Inbox</a>
-    <a href="compose.html" class="card">✉️ Compose Email</a>
-    <a href="sent.html" class="card">📤 Sent Emails</a>
-    <a href="drafts.html" class="card">📝 Drafts</a>
-  </div>
+
+<div class="dashboard" id="dashboard">
+
+<a class="card">Inbox</a>
+<a class="card">Compose</a>
+<a class="card">Sent Mail</a>
+<a class="card">Drafts</a>
+<a class="card">Trash</a>
+<a class="card">Settings</a>
+
+</div>
+
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <p>Leads Community School © 2026. All Rights Reserved.</p>
+Leads Community School © 2026
 </footer>
 
-<!-- JS Login -->
 <script>
-function handleLogin(e) {
-  e.preventDefault();
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value.trim();
-
-  if(email && password){
-    // Hide login section
-    document.getElementById('login-section').style.display = 'none';
-    // Show dashboard
-    document.getElementById('dashboard-section').style.display = 'block';
-    // Show Home link
-    document.getElementById('home-link').style.display = 'inline';
-    alert("Login successful! Welcome to your Email Dashboard.");
-  } else {
-    alert("Please enter Email and Password.");
-  }
+function login(e){
+e.preventDefault();
+document.getElementById("login-section").style.display="none";
+document.getElementById("dashboard-section").style.display="block";
+document.getElementById("homeLink").style.display="inline";
+alert("Welcome to School Email!");
 }
 </script>
 
