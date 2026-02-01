@@ -1,99 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Email Login - Leads Community School</title>
+<title>Email Login</title>
 
 <style>
-body,html{margin:0;padding:0;font-family:Arial,sans-serif;background:#f2f2f2;}
+body{font-family:Arial;background:#eee;margin:0}
 
-.top-green{background:#004d26;padding:10px 20px;}
-.top-links a{color:#ffcc00;margin-right:15px;font-weight:bold;text-decoration:none;}
+#login{padding:50px;text-align:center}
+#dash{display:none;padding:40px;text-align:center}
 
-.main-header{
-background:#004d26;
-border-bottom:5px solid #ffcc00;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-}
+input{padding:10px;width:250px;margin:10px}
+button{padding:10px 30px;background:#004d26;color:#ffcc00;border:none}
 
-.logo-wrap{display:flex;align-items:center;gap:15px;text-decoration:none;}
-.logo-wrap img{width:70px;background:#fff;padding:5px;border-radius:10px;}
-
-.school-name h1{margin:0;color:#ffcc00;font-size:22px;}
-.school-name p{margin:0;color:#fff;font-size:13px;}
-
-.main-nav a{color:#ffcc00;margin-left:15px;font-weight:bold;text-decoration:none;}
-
-#login-section{display:flex;justify-content:center;align-items:center;min-height:70vh;}
-
-.login-box{
-background:#fff;
-padding:40px;
-border-radius:15px;
-width:350px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
-}
-
-.login-box h2{color:#004d26;}
-
-.login-box input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-.login-box button{
-width:100%;
-padding:12px;
-background:#004d26;
-color:#ffcc00;
-border:2px solid #ffcc00;
-font-weight:bold;
-cursor:pointer;
-}
-
-#dashboard-section{display:none;}
-
-.dashboard{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-padding:30px;
-}
-
-.card{
-background:#ffcc00;
-color:#004d26;
-width:220px;
-padding:20px;
-border-radius:10px;
-border:2px solid #004d26;
-text-align:center;
-font-weight:bold;
-}
-
-.footer{
-background:#004d26;
-color:#ffcc00;
-text-align:center;
-padding:20px;
-border-top:5px solid #ffcc00;
-}
 </style>
 
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
 const firebaseConfig = {
 apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
@@ -107,28 +31,21 @@ appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// LOGIN
-window.login = function(e){
-e.preventDefault();
+window.login = function(){
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("pass").value;
+const email=document.getElementById("email").value;
+const pass=document.getElementById("pass").value;
 
-signInWithEmailAndPassword(auth,email,password)
-.catch(err=>alert(err.message));
+signInWithEmailAndPassword(auth,email,pass)
+.then(()=>alert("Logged in"))
+.catch(e=>alert(e.message));
+
 };
 
-// LOGOUT
-window.logout = function(){
-signOut(auth).then(()=>location.reload());
-};
-
-// AUTH STATE
 onAuthStateChanged(auth,user=>{
 if(user){
-document.getElementById("login-section").style.display="none";
-document.getElementById("dashboard-section").style.display="block";
-document.getElementById("homeLink").style.display="inline";
+document.getElementById("login").style.display="none";
+document.getElementById("dash").style.display="block";
 }
 });
 
@@ -138,56 +55,17 @@ document.getElementById("homeLink").style.display="inline";
 
 <body>
 
-<div class="top-green">
-<div class="top-links">
-<a href="index.html" id="homeLink" style="display:none;">Home</a>
-<a href="student-login.html">Student</a>
-<a href="parent-login.html">Parent</a>
-<a href="staff-login.html">Staff</a>
-<a href="#">Email</a>
-</div>
-</div>
-
-<header class="main-header">
-<a href="index.html" class="logo-wrap">
-<img src="IMG-20260129-WA0005.jpg">
-<div class="school-name">
-<h1>Leads Community School</h1>
-<p>Training Tomorrow’s Leaders Today</p>
-</div>
-</a>
-
-<nav class="main-nav">
-<a href="#" onclick="logout()">Logout</a>
-</nav>
-</header>
-
-<section id="login-section">
-<div class="login-box">
+<div id="login">
 <h2>Email Login</h2>
-
-<form onsubmit="login(event)">
-<input type="email" id="email" placeholder="Email Address" required>
-<input type="password" id="pass" placeholder="Password" required>
-<button>Login</button>
-</form>
+<input id="email" placeholder="email"><br>
+<input id="pass" type="password" placeholder="password"><br>
+<button onclick="login()">Login</button>
 </div>
-</section>
 
-<section id="dashboard-section">
-<div class="dashboard">
-<div class="card">Inbox</div>
-<div class="card">Compose</div>
-<div class="card">Sent Mail</div>
-<div class="card">Drafts</div>
-<div class="card">Trash</div>
-<div class="card">Settings</div>
+<div id="dash">
+<h1>WELCOME 🎉</h1>
+<p>You are logged in.</p>
 </div>
-</section>
-
-<footer class="footer">
-Leads Community School © 2026
-</footer>
 
 </body>
 </html>
