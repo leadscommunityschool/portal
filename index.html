@@ -18,6 +18,7 @@ body {
   color: #333;
   background-color: #f2f7f5;
 }
+
 /* ---------- TOP GREEN BAR ---------- */
 .top-green {
   background-color: #004d26; 
@@ -29,7 +30,7 @@ body {
   font-size: 0.9rem;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 9999;
 }
 .top-green a {
   color: #ffcc00;
@@ -116,6 +117,7 @@ body {
   opacity: 0;
   transform: translateY(50px);
   transition: all 1s ease;
+  z-index: 1;
 }
 .hero.show {
   opacity: 1;
@@ -241,6 +243,8 @@ body {
   gap: 30px;
   border-top: 5px solid #ffcc00;
   border-radius: 12px 12px 0 0;
+  position: relative;
+  z-index: 1;
 }
 .footer h4 {
   margin-bottom: 20px;
@@ -285,7 +289,7 @@ body {
   gap: 10px;
   box-shadow: 0 5px 18px rgba(0,0,0,0.3);
   transition: transform 0.3s, background-color 0.3s;
-  z-index: 1000;
+  z-index: 9999;
   font-weight: bold;
 }
 .whatsapp-btn img {
@@ -308,7 +312,7 @@ body {
   display:flex;
   justify-content:center;
   align-items:center;
-  z-index:2000;
+  z-index: 10000;
   display:none;
 }
 .modal.active {display:flex;}
@@ -319,6 +323,7 @@ body {
   width:350px;
   text-align:center;
   color:#ffcc00;
+  z-index: 10001;
 }
 .modal-content input {
   width:90%;
@@ -339,6 +344,7 @@ body {
 }
 .modal-content button:hover {background:#e6b800;}
 .modal-content p a {cursor:pointer; color:#ffcc00;}
+
 /* ---------- RESPONSIVE ---------- */
 @media(max-width: 900px){
   .features{flex-direction:column;align-items:center;}
@@ -360,8 +366,8 @@ body {
 <!-- TOP GREEN BAR -->
 <div class="top-green">
   <div class="top-links">
-    <a id="studentLoginBtn">Student Login</a>
-    <a id="parentLoginBtn">\Parent Login</a>
+    <a id="studentLoginBtn" href="#">Student Login</a>
+    <a id="parentLoginBtn" href="#">Parent Login</a>
     <a href="#">Staff Login</a>
     <a href="#">Email Login</a>
     <a href="#">Careers</a>
@@ -389,7 +395,7 @@ body {
   </nav>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
   <h1>Training Tomorrow’s Leaders Today</h1>
   <a href="#admissions" class="btn">Schedule a Visit</a>
@@ -398,9 +404,7 @@ body {
 <!-- ABOUT -->
 <section class="about" id="about">
   <h2>An Educational Centre of Excellence</h2>
-  <p>
-    Leads Community School is dedicated to providing quality education that builds character, creativity, and confidence in every child.
-  </p>
+  <p>Leads Community School is dedicated to providing quality education that builds character, creativity, and confidence in every child.</p>
   <a href="about.html" class="btn">About Leads</a>
 </section>
 
@@ -421,27 +425,6 @@ body {
     <p>Stay updated with school activities.</p>
     <a href="news-events.html" class="btn-small">Read More</a>
   </div>
-</section>
-
-<!-- CAMPUS -->
-<section class="about" id="campus">
-  <h2>Our Campus</h2>
-  <p>Modern classrooms, safe playgrounds, and fully equipped labs ensure students get the best learning environment.</p>
-  <a href="campus.html" class="btn">Explore Campus</a>
-</section>
-
-<!-- COMMUNITY -->
-<section class="about" id="community">
-  <h2>Our Community</h2>
-  <p>We build strong bonds with parents, students, and teachers to create a nurturing school environment.</p>
-  <a href="community.html" class="btn">Learn More</a>
-</section>
-
-<!-- CONTACT -->
-<section class="about" id="contact">
-  <h2>Contact Us</h2>
-  <p>Want to learn more or visit our school? Reach out to us today!</p>
-  <a href="contact.html" class="btn">Get in Touch</a>
 </section>
 
 <!-- FOOTER -->
@@ -472,7 +455,7 @@ body {
   <img src="whatsapp-icon.png" alt="WhatsApp"> Chat with us
 </a>
 
-<!-- LOGIN MODAL -->
+<!-- LOGIN MODALS -->
 <div class="modal" id="loginModal">
   <div class="modal-content">
     <h2>Student Login</h2>
@@ -494,7 +477,7 @@ body {
   </div>
 </div>
 
-<!-- FIREBASE SDKS -->
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script>
@@ -509,12 +492,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// Show login modal
-document.getElementById('studentLoginBtn').addEventListener('click',()=>{
+document.getElementById('studentLoginBtn').addEventListener('click', ()=>{
   document.getElementById('loginModal').classList.add('active');
 });
+document.getElementById('parentLoginBtn').addEventListener('click', ()=>{
+  alert('Parent login modal will appear here.'); // later replace with parent modal
+});
 
-// Show register
 function showRegister(){
   document.getElementById('loginModal').classList.remove('active');
   document.getElementById('registerModal').classList.add('active');
@@ -557,17 +541,11 @@ function loginStudent(){
 
 // Scroll animations
 const scrollElements = document.querySelectorAll('.hero, .about, .features .box');
-const elementInView = (el, dividend = 1) => {
-  const elementTop = el.getBoundingClientRect().top;
-  return (
-    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-  );
-};
-const displayScrollElement = (element) => {element.classList.add('show');};
-const handleScrollAnimation = () => {scrollElements.forEach(el => {if(elementInView(el, 1.25)) displayScrollElement(el);});};
+const elementInView = (el, dividend = 1) => el.getBoundingClientRect().top <= (window.innerHeight || document.documentElement.clientHeight) / dividend;
+const displayScrollElement = el => el.classList.add('show');
+const handleScrollAnimation = () => scrollElements.forEach(el => {if(elementInView(el,1.25)) displayScrollElement(el);});
 window.addEventListener('scroll', handleScrollAnimation);
 window.addEventListener('load', handleScrollAnimation);
 </script>
-
 </body>
 </html>
