@@ -4,70 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Parent Login - Leads Community School</title>
-
-<style>
-
-/* GENERAL */
-body,html{margin:0;padding:0;font-family:Arial;background:#f5f7fa}
-
-/* TOP BAR */
-.top-green{background:#004d26;color:#fff;padding:10px 20px;display:flex;justify-content:space-between;flex-wrap:wrap}
-.top-green a{color:white;margin-right:15px;text-decoration:none;font-weight:bold}
-
-/* HEADER */
-header{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background:#fff;border-bottom:3px solid #004d26;flex-wrap:wrap}
-.logo-area{display:flex;align-items:center;gap:10px}
-.logo-area img{height:45px}
-.logo-area span{font-size:22px;font-weight:bold;color:#004d26}
-nav a{margin-left:15px;color:#004d26;text-decoration:none;font-weight:bold}
-
-/* LOGIN */
-#login-section{min-height:80vh;display:flex;justify-content:center;align-items:center}
-.login-box{background:white;padding:40px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,.3);width:380px;text-align:center}
-.login-box input{width:100%;padding:12px;margin:10px 0}
-.login-box button{width:100%;padding:12px;background:#004d26;color:white;border:none;border-radius:5px;font-weight:bold}
-
-/* DASHBOARD */
-#dashboard-section{display:none}
-.dashboard{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding:30px}
-
-.card{background:#ffcc00;color:#004d26;width:220px;padding:20px;border-radius:10px;text-align:center;text-decoration:none;font-weight:bold}
-.card:hover{transform:translateY(-8px)}
-
-.section{max-width:1000px;margin:25px auto;background:white;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1)}
-
-table{width:100%;border-collapse:collapse;margin-top:10px}
-th,td{border:1px solid #004d26;padding:8px;text-align:center}
-th{background:#ffcc00}
-
-footer{background:#004d26;color:white;text-align:center;padding:20px;margin-top:40px}
-
-@media(max-width:768px){
-.dashboard{flex-direction:column}
-.card{width:90%}
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- Top Bar -->
 <div class="top-green">
-<div>
-<a href="index.html" id="home" style="display:none">Home</a>
-<a href="student-login.html">Student</a>
-<a href="parent-login.html">Parent</a>
-<a href="staff-login.html">Staff</a>
+<div class="top-links">
+<a href="index.html" id="home-link" style="display:none">Home</a>
+<a href="student-login.html">Student Login</a>
+<a href="parent-login.html">Parent Login</a>
+<a href="staff-login.html">Staff Login</a>
+<a href="email-login.html">Email Login</a>
+<a href="careers.html">Careers</a>
 </div>
 </div>
 
-<header>
+<!-- Header -->
+<header class="main-header">
 <div class="logo-area">
 <img src="IMG-20260129-WA0005.jpg">
-<span>Leads Community School</span>
+<div class="school-name">
+<h1>Leads Community School</h1>
+<p>Training Tomorrow’s Leaders Today</p>
+</div>
 </div>
 
-<nav>
+<nav class="main-nav">
+<a href="#">Dashboard</a>
 <a href="#attendance">Attendance</a>
 <a href="#timetable">Timetable</a>
 <a href="#report">Reports</a>
@@ -77,31 +42,31 @@ footer{background:#004d26;color:white;text-align:center;padding:20px;margin-top:
 </nav>
 </header>
 
-<!-- LOGIN -->
+<!-- Login -->
 <section id="login-section">
 <div class="login-box">
 <h2>Parent Login</h2>
 <form onsubmit="login(event)">
 <input id="pid" placeholder="Parent ID" required>
 <input id="pwd" type="password" placeholder="Password" required>
-<button>Login</button>
+<button type="submit">Login</button>
 </form>
 </div>
 </section>
 
-<!-- DASHBOARD -->
-<section id="dashboard-section">
+<!-- Dashboard -->
+<section id="dashboard-section" style="display:none">
 
-<div class="dashboard">
-<a class="card" href="#attendance">Attendance</a>
-<a class="card" href="#timetable">Timetable</a>
-<a class="card" href="#report">Report Cards</a>
-<a class="card" href="#fees">Fees</a>
-<a class="card" href="#messages">Messages</a>
-<a class="card" href="#announcements">Announcements</a>
-</div>
+<section class="dashboard">
+<a href="#attendance" class="card">Attendance</a>
+<a href="#timetable" class="card">Timetable</a>
+<a href="#report" class="card">Report Cards</a>
+<a href="#fees" class="card">Fees</a>
+<a href="#messages" class="card">Messages</a>
+<a href="#announcements" class="card">Announcements</a>
+</section>
 
-<div id="attendance" class="section">
+<div id="attendance" class="section-container">
 <h2>Attendance</h2>
 <table>
 <tr><th>Date</th><th>Status</th></tr>
@@ -110,17 +75,13 @@ footer{background:#004d26;color:white;text-align:center;padding:20px;margin-top:
 </table>
 </div>
 
-<div id="timetable" class="section">
+<div id="timetable" class="section-container">
 <h2>Timetable</h2>
-<input type="date" id="pick">
-<table>
-<thead><tr><th>Time</th><th>Subject</th></tr></thead>
-<tbody id="tt"></tbody>
-</table>
+<input type="date">
 </div>
 
-<div id="report" class="section">
-<h2>Academic Report</h2>
+<div id="report" class="section-container">
+<h2>Report Cards</h2>
 <table>
 <tr><th>Subject</th><th>Grade</th></tr>
 <tr><td>Math</td><td>A</td></tr>
@@ -129,54 +90,43 @@ footer{background:#004d26;color:white;text-align:center;padding:20px;margin-top:
 </table>
 </div>
 
-<div id="fees" class="section">
+<div id="fees" class="section-container">
 <h2>Fees</h2>
-<table>
-<tr><th>Total</th><th>Paid</th><th>Balance</th></tr>
-<tr><td>₵1200</td><td>₵600</td><td>₵600</td></tr>
-</table>
+<p>Total: ₵1200</p>
+<p>Paid: ₵600</p>
+<p><strong>Balance: ₵600</strong></p>
 </div>
 
-<div id="messages" class="section">
+<div id="messages" class="section-container">
 <h2>Messages</h2>
 <ul>
 <li>Homework reminder</li>
-<li>PTA meeting next week</li>
+<li>PTA meeting Feb 15</li>
 </ul>
 </div>
 
-<div id="announcements" class="section">
+<div id="announcements" class="section-container">
 <h2>Announcements</h2>
 <ul>
-<li>Sports day March 1st</li>
-<li>Exam begins February</li>
+<li>Sports Day – March 1</li>
+<li>Library books available</li>
 </ul>
 </div>
 
 </section>
 
-<footer>Leads Community School © 2026</footer>
+<footer class="footer">
+Leads Community School © 2026. All Rights Reserved.
+</footer>
 
 <script>
-
 function login(e){
 e.preventDefault();
-login-section.style.display="none";
-dashboard-section.style.display="block";
-home.style.display="inline";
+document.getElementById("login-section").style.display="none";
+document.getElementById("dashboard-section").style.display="block";
+document.getElementById("home-link").style.display="inline";
+alert("Welcome to Parent Dashboard");
 }
-
-const schedule=[
-{t:"8–9",s:"Math"},
-{t:"9–10",s:"English"},
-{t:"10–11",s:"Science"},
-{t:"11–12",s:"ICT"}
-];
-
-schedule.forEach(x=>{
-tt.innerHTML+=`<tr><td>${x.t}</td><td>${x.s}</td></tr>`;
-});
-
 </script>
 
 </body>
