@@ -4,262 +4,333 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Academics - Leads Community School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-/* ===== General ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+
+*{box-sizing:border-box}
+
+body{
+margin:0;
+font-family:Poppins,Arial;
+background:#f5f7fa;
+color:#004d26;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26; /* dark green */
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+.top-green{
+background:#004d26;
+color:white;
+padding:10px 20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
-.top-green .top-links a {
-  color: #ffcc00; /* rich yellow */
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:12px;
+text-decoration:none;
+font-weight:600;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.top-green input{
+padding:6px 10px;
+border-radius:20px;
+border:none;
 }
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00; /* yellow header */
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+/* HEADER */
+.main-header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#ffcc00;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 25px;
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+flex-wrap:wrap;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+.logo-area{
+display:flex;
+align-items:center;
+gap:12px;
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26; /* dark green */
-  font-weight: bold;
+.logo-area img{
+width:55px;
+height:55px;
+border-radius:50%;
+border:3px solid #004d26;
+object-fit:cover;
 }
 
-.main-nav a:hover {
-  color: #002013; /* darker green on hover */
+.school-name{font-weight:600}
+.tagline{font-size:.75rem}
+
+/* NAV */
+.main-nav a{
+margin-left:15px;
+text-decoration:none;
+color:#004d26;
+font-weight:600;
 }
 
-/* ===== Hero Section with Animated Image ===== */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+/* HERO */
+.hero{
+max-width:1100px;
+margin:40px auto;
+background:white;
+border-radius:15px;
+padding:30px;
+display:flex;
+gap:30px;
+align-items:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+animation:slideUp 1s;
 }
 
-.hero .text {
-  flex: 1;
-  padding: 20px;
+.hero img{width:100%;border-radius:12px}
+
+@keyframes slideUp{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1}
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  color: #004d26;
+/* SECTION */
+.section-container{
+max-width:1100px;
+margin:25px auto;
+background:white;
+padding:25px;
+border-radius:12px;
+border-left:6px solid #ffcc00;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
 
-.hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #004d26;
+/* SUBJECTS */
+.subjects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
 }
 
-/* Animated image */
-.hero .image {
-  flex: 1;
-  text-align: center;
-  animation: slideIn 2s ease-in-out;
+.subject-card{
+background:#ffcc00;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-weight:600;
+transition:.3s;
 }
 
-.hero .image img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.subject-card:hover{
+transform:translateY(-6px);
 }
 
-/* Slide-in animation */
-@keyframes slideIn {
-  0% {opacity:0; transform: translateX(50px);}
-  100% {opacity:1; transform: translateX(0);}
+/* COUNTERS */
+.counters{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+text-align:center;
 }
 
-/* ===== Sections ===== */
-.section-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #ffcc00; /* rich yellow accent */
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.counter{
+background:#004d26;
+color:white;
+padding:20px;
+border-radius:10px;
 }
 
-.section-container h2 {
-  color: #004d26;
-  margin-bottom: 15px;
+/* LEVELS */
+.levels{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
 }
 
-.section-container p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #004d26;
+.level{
+background:#004d26;
+color:white;
+padding:20px;
+border-radius:12px;
+text-align:center;
 }
 
-/* Subject Cards */
-.subjects {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px;
 }
 
-.subject-card {
-  background-color: #ffcc00; /* rich yellow */
-  color: #004d26;
-  flex: 1 1 200px;
-  max-width: 250px;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
+.gallery img{
+width:100%;
+border-radius:10px;
 }
 
-.subject-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/* FOOTER */
+.footer{
+background:#004d26;
+color:white;
+padding:25px;
+text-align:center;
 }
 
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26; /* dark green */
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
 }
 
-.footer a {
-  color: #ffcc00; /* rich yellow */
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
+/* MOBILE */
 @media(max-width:768px){
-  .hero {flex-direction: column;}
-  .main-nav {margin-top: 10px;}
-  .subjects {flex-direction: column; align-items: center;}
+.hero{flex-direction:column}
 }
+
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="index.html">Home</a>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html">Home</a>
+<a href="student-login.html">Student Login</a>
+<a href="parent-login.html">Parent Login</a>
+<a href="staff-login.html">Staff Login</a>
+<a href="email-login.html">Email Login</a>
+<a href="careers.html">Careers</a>
+</div>
+<input placeholder="Search...">
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+
+<div class="logo-area">
+<img src="IMG-20260129-WA0005.jpg">
+<div>
+<div class="school-name">Leads Community School</div>
+<div class="tagline">Training Tomorrow’s Leaders Today</div>
+</div>
+</div>
+
+<nav class="main-nav">
+<a href="about.html">About</a>
+<a href="academics.html">Academics</a>
+<a href="admissions.html">Admissions</a>
+<a href="campus.html">Campus</a>
+<a href="community.html">Community</a>
+<a href="news-events.html">News</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 </header>
 
-<!-- Hero Section with Animated Image -->
 <section class="hero">
-  <div class="text">
-    <h1>Our Academic Programs</h1>
-    <p>At Leads Community School, we offer a wide range of academic programs that challenge and inspire students. Our curriculum aligns with the Ghana Education Service standards while emphasizing creativity, critical thinking, and problem-solving.</p>
-    <p>We believe that a strong academic foundation, coupled with extracurricular development, prepares students to excel in higher education and beyond.</p>
-  </div>
-  <div class="image">
-    <img src="classroom.jpg" alt="Students in Classroom">
-  </div>
-</section>
 
-<!-- Subjects Section -->
-<section class="section-container">
-  <h2>Core Subjects</h2>
-  <div class="subjects">
-    <div class="subject-card">Mathematics</div>
-    <div class="subject-card">English Language</div>
-    <div class="subject-card">Science</div>
-    <div class="subject-card">Social Studies</div>
-    <div class="subject-card">ICT</div>
-    <div class="subject-card">French</div>
-  </div>
+<div>
+<h1>Our Academic Programs</h1>
+<p>At Leads Community School, we offer a wide range of academic programs aligned with GES standards while nurturing creativity and leadership.</p>
+<p>We build strong foundations for lifelong success.</p>
+</div>
+
+<img src="classroom.jpg">
+
 </section>
 
 <section class="section-container">
-  <h2>Extracurricular Activities</h2>
-  <p>We encourage students to engage in sports, arts, music, robotics, and community service to develop well-rounded skills, teamwork, and leadership.</p>
+
+<h2>Academic Impact</h2>
+
+<div class="counters">
+<div class="counter"><h1 class="count" data-target="450">0</h1>Students</div>
+<div class="counter"><h1 class="count" data-target="35">0</h1>Teachers</div>
+<div class="counter"><h1 class="count" data-target="12">0</h1>Years</div>
+<div class="counter"><h1 class="count" data-target="20">0</h1>Awards</div>
+</div>
+
 </section>
 
-<!-- Footer -->
+<section class="section-container">
+<h2>Core Subjects</h2>
+
+<div class="subjects">
+<div class="subject-card">Mathematics</div>
+<div class="subject-card">English Language</div>
+<div class="subject-card">Science</div>
+<div class="subject-card">Social Studies</div>
+<div class="subject-card">ICT</div>
+<div class="subject-card">French</div>
+</div>
+
+</section>
+
+<section class="section-container">
+<h2>Program Levels</h2>
+
+<div class="levels">
+<div class="level">Kindergarten</div>
+<div class="level">Primary School</div>
+<div class="level">Junior High School</div>
+</div>
+
+</section>
+
+<section class="section-container">
+<h2>Extracurricular Activities</h2>
+<p>Sports, arts, robotics, music and leadership programs support holistic growth.</p>
+</section>
+
+<section class="section-container">
+<h2>Academic Gallery</h2>
+
+<div class="gallery">
+<img src="gallery1.jpg">
+<img src="gallery2.jpg">
+<img src="gallery3.jpg">
+<img src="gallery4.jpg">
+</div>
+
+</section>
+
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a>
-  </p>
+<p>© 2026 Leads Community School</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/233539566710">💬</a>
+
+<script>
+const counters=document.querySelectorAll('.count');
+
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.dataset.target;
+const current=+counter.innerText;
+const inc=target/80;
+
+if(current<target){
+counter.innerText=Math.ceil(current+inc);
+setTimeout(update,30);
+}else{
+counter.innerText=target;
+}
+}
+update();
+});
+</script>
 
 </body>
 </html>
