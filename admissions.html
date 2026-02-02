@@ -4,260 +4,299 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admissions - Leads Community School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
-/* ===== General ===== */
+
+*{box-sizing:border-box;}
+
 body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+margin:0;
+padding:0;
+font-family:Poppins,Arial;
+background:#f5f7fa;
+color:#004d26;
+scroll-behavior:smooth;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26; /* dark green */
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+.top-green{
+background:#004d26;
+color:white;
+padding:10px 20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
-.top-green .top-links a {
-  color: #ffcc00; /* rich yellow */
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:12px;
+text-decoration:none;
+font-weight:600;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.top-green input{
+padding:6px 10px;
+border-radius:20px;
+border:none;
 }
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00; /* yellow header */
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+/* HEADER */
+.main-header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#ffcc00;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 25px;
+box-shadow:0 3px 10px rgba(0,0,0,.15);
+flex-wrap:wrap;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+/* LOGO */
+.logo-area{
+display:flex;
+align-items:center;
+gap:10px;
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.logo-area img{
+width:50px;
+height:50px;
+border-radius:50%;
+border:3px solid #004d26;
 }
 
-.main-nav a:hover {
-  color: #002013;
+.logo-area span{
+font-weight:600;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+/* NAV */
+.main-nav a{
+margin-left:15px;
+text-decoration:none;
+color:#004d26;
+font-weight:600;
+position:relative;
 }
 
-.hero .text {
-  flex: 1;
-  padding: 20px;
+.main-nav a:after{
+content:'';
+height:2px;
+width:0;
+background:#004d26;
+position:absolute;
+bottom:-4px;
+left:0;
+transition:.3s;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  color: #004d26;
+.main-nav a:hover:after{
+width:100%;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #004d26;
+/* HERO */
+.hero{
+max-width:1000px;
+margin:40px auto;
+background:white;
+border-radius:15px;
+padding:25px;
+display:flex;
+gap:25px;
+align-items:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+animation:slideUp 1s;
 }
 
-.hero .image {
-  flex: 1;
-  text-align: center;
-  animation: fadeIn 2s ease-in-out;
+.hero img{
+width:100%;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
-.hero .image img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+@keyframes slideUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;}
 }
 
-/* Animation */
-@keyframes fadeIn {
-  0% {opacity:0; transform: scale(0.9);}
-  100% {opacity:1; transform: scale(1);}
+/* SECTIONS */
+.section-container{
+max-width:1000px;
+margin:25px auto;
+background:white;
+padding:25px;
+border-radius:12px;
+border-left:6px solid #ffcc00;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+animation:fade 1s;
 }
 
-/* ===== Sections ===== */
-.section-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #ffcc00;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
 }
 
-.section-container h2 {
-  color: #004d26;
-  margin-bottom: 15px;
+/* LISTS */
+ul,ol{
+line-height:1.8;
 }
 
-.section-container p {
-  font-size: 1rem;
-  line-height: 1.6;
+/* CTA */
+.cta-button{
+display:inline-block;
+margin-top:15px;
+padding:12px 25px;
+background:#004d26;
+color:#ffcc00;
+border-radius:8px;
+text-decoration:none;
+font-weight:600;
 }
 
-/* Call-to-Action Button */
-.cta-button {
-  display: inline-block;
-  padding: 12px 25px;
-  margin-top: 15px;
-  background-color: #004d26;
-  color: #ffcc00;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+.cta-button:hover{
+background:#002013;
 }
 
-.cta-button:hover {
-  background-color: #002013;
+/* FOOTER */
+.footer{
+margin-top:40px;
+background:#004d26;
+color:white;
+padding:25px;
+text-align:center;
 }
 
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+.footer a{
+color:#ffcc00;
+text-decoration:none;
 }
 
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  margin: 0 5px;
+/* WHATSAPP FLOAT */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:14px 18px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
-.footer a:hover {
-  text-decoration: underline;
+/* BACK TO TOP */
+#topBtn{
+position:fixed;
+bottom:80px;
+right:22px;
+background:#ffcc00;
+border:none;
+padding:10px 14px;
+border-radius:50%;
+font-size:18px;
+display:none;
+cursor:pointer;
 }
 
-/* ===== Responsive ===== */
+/* MOBILE */
 @media(max-width:768px){
-  .hero {flex-direction: column;}
-  .main-nav {margin-top: 10px;}
+.hero{flex-direction:column;}
+.main-nav{margin-top:10px;}
 }
+
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="index.html">Home</a>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html">Home</a>
+<a href="student-login.html">Student Login</a>
+<a href="parent-login.html">Parent Login</a>
+<a href="staff-login.html">Staff Login</a>
+<a href="email-login.html">Email Login</a>
+<a href="careers.html">Careers</a>
+</div>
+<input placeholder="Search...">
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+<div class="logo-area">
+<img src="IMG-20260129-WA0005.jpg">
+<span>Leads Community School</span>
+</div>
+
+<nav class="main-nav">
+<a href="about.html">About Us</a>
+<a href="academics.html">Academics</a>
+<a href="admissions.html">Admissions</a>
+<a href="campus.html">Our Campus</a>
+<a href="community.html">Community</a>
+<a href="news-events.html">News</a>
+<a href="contact.html">Contact</a>
+</nav>
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
-  <div class="text">
-    <h1>Join Leads Community School</h1>
-    <p>We welcome students from all backgrounds to apply to Leads Community School. Our admission process is transparent, fair, and designed to identify students with a passion for learning and growth.</p>
-    <p>Explore our requirements, submission process, and key dates to secure your child's place in our vibrant academic community.</p>
-  </div>
-  <div class="image">
-    <img src="admission.jpg" alt="Admissions">
-  </div>
+<div>
+<h1>Join Leads Community School</h1>
+<p>We welcome students from all backgrounds to apply to Leads Community School.</p>
+<p>Explore our requirements and secure your child’s place.</p>
+</div>
+
+<img src="admission.jpg">
 </section>
 
-<!-- Admission Requirements -->
 <section class="section-container">
-  <h2>Admission Requirements</h2>
-  <p>Applicants must provide the following documents:</p>
-  <ul>
-    <li>Completed application form</li>
-    <li>Birth certificate or proof of age</li>
-    <li>Previous school reports (if applicable)</li>
-    <li>Passport-sized photographs</li>
-    <li>Medical clearance certificate</li>
-  </ul>
+<h2>Admission Requirements</h2>
+<ul>
+<li>Completed application form</li>
+<li>Birth certificate</li>
+<li>Previous school reports</li>
+<li>Passport photographs</li>
+<li>Medical certificate</li>
+</ul>
 </section>
 
-<!-- Admission Process -->
 <section class="section-container">
-  <h2>Admission Process</h2>
-  <p>The admission process includes the following steps:</p>
-  <ol>
-    <li>Submit completed application form and documents.</li>
-    <li>Entrance assessment (for certain grades).</li>
-    <li>Interview with student and parent/guardian.</li>
-    <li>Admission decision and notification.</li>
-    <li>Fee payment and enrollment confirmation.</li>
-  </ol>
-  <a href="admission-form.html" class="cta-button">Apply Now</a>
+<h2>Admission Process</h2>
+<ol>
+<li>Submit application</li>
+<li>Entrance assessment</li>
+<li>Interview</li>
+<li>Decision</li>
+<li>Enrollment</li>
+</ol>
+
+<a href="admission-form.html" class="cta-button">Apply Now</a>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a>
-  </p>
+<p>© 2026 Leads Community School</p>
+<p>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a>
+</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/233539566710">💬</a>
+
+<button id="topBtn" onclick="window.scrollTo(0,0)">↑</button>
+
+<script>
+window.onscroll=function(){
+document.getElementById("topBtn").style.display =
+document.documentElement.scrollTop>300?"block":"none";
+};
+</script>
 
 </body>
 </html>
