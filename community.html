@@ -5,301 +5,295 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Community - Leads Community School</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-
-*{box-sizing:border-box}
-
-body,html{
-margin:0;
-padding:0;
-font-family:Arial, sans-serif;
-background:#f5f7fa;
-color:#004d26;
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Poppins,Arial;
+  background:#f5f7fa;
+  color:#004d26;
 }
 
 /* TOP BAR */
-
 .top-green{
-background:#004d26;
-padding:10px 20px;
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-align-items:center;
+  background:#004d26;
+  color:white;
+  padding:10px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
 }
-
 .top-links a{
-color:#ffcc00;
-margin-right:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-right:12px;
+  text-decoration:none;
+  font-weight:600;
 }
-
 .top-green input{
-padding:6px;
-border-radius:5px;
-border:none;
+  padding:6px 10px;
+  border-radius:20px;
+  border:none;
 }
 
 /* HEADER */
-
 .main-header{
-background:#ffcc00;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-border-bottom:4px solid #004d26;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffcc00;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 25px;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+  flex-wrap:wrap;
 }
-
-/* LOGO BOX */
-
 .logo-area{
-display:flex;
-align-items:center;
-gap:10px;
-background:#fff;
-padding:10px 15px;
-border-radius:10px;
-box-shadow:0 4px 10px rgba(0,0,0,.2);
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-
 .logo-area img{
-width:60px;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:3px solid #004d26;
+  object-fit:cover;
 }
-
-.logo-area span{
-font-weight:bold;
-font-size:18px;
+.school-name{
+  font-size:1.3rem;
+  font-weight:600;
 }
-
+.tagline{
+  font-size:.75rem;
+}
 .main-nav a{
-margin-left:15px;
-font-weight:bold;
-color:#004d26;
-text-decoration:none;
+  margin-left:15px;
+  text-decoration:none;
+  color:#004d26;
+  font-weight:600;
+  position:relative;
 }
+.main-nav a:after{
+  content:''; height:2px; width:0; background:#004d26; position:absolute; bottom:-4px; left:0; transition:.3s;
+}
+.main-nav a:hover:after{width:100%;}
 
 /* HERO */
-
 .hero{
-max-width:1100px;
-margin:40px auto;
-background:#fff;
-padding:30px;
-display:flex;
-gap:30px;
-flex-wrap:wrap;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.15);
+  max-width:1100px;
+  margin:40px auto;
+  background:white;
+  border-radius:15px;
+  padding:30px;
+  display:flex;
+  gap:30px;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  animation:slideUp 1s;
+  flex-wrap:wrap;
 }
-
-.hero .text{flex:1}
-.hero .image{flex:1;text-align:center}
-
-.hero img{
-max-width:100%;
-border-radius:12px;
-}
+.hero .text{flex:1;}
+.hero .image{flex:1;text-align:center;}
+.hero img{width:100%; border-radius:12px;}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px);} to{opacity:1;}}
 
 /* SECTIONS */
-
 .section-container{
-max-width:1100px;
-margin:30px auto;
-background:#fff;
-padding:25px;
-border-left:6px solid #ffcc00;
-border-radius:10px;
-box-shadow:0 4px 15px rgba(0,0,0,.1);
+  max-width:1100px;
+  margin:25px auto;
+  background:white;
+  padding:25px;
+  border-left:6px solid #ffcc00;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
+.section-container h2{color:#004d26; margin-bottom:15px;}
+.section-container p, .section-container ul{line-height:1.6; font-size:1rem;}
+.section-container ul{padding-left:20px;}
 
-.section-container ul{
-line-height:1.8;
-}
-
-/* HIGHLIGHTS */
-
+/* HIGHLIGHTS CARDS */
 .highlights{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-max-width:1100px;
-margin:30px auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  max-width:1100px;
+  margin:30px auto;
+  text-align:center;
 }
-
 .highlight{
-background:#ffcc00;
-padding:20px;
-border-radius:12px;
-text-align:center;
-font-weight:bold;
-border:2px solid #004d26;
+  background:#004d26;
+  color:white;
+  padding:20px;
+  border-radius:12px;
+  font-weight:600;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.highlight:hover{
+  transform:translateY(-6px);
+  box-shadow:0 6px 20px rgba(0,0,0,.2);
 }
 
 /* GALLERY */
-
 .gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-max-width:1100px;
-margin:40px auto;
-padding:0 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  max-width:1100px;
+  margin:40px auto;
 }
-
 .gallery img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:12px;
-box-shadow:0 4px 12px rgba(0,0,0,.2);
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
 /* CTA */
-
 .cta{
-background:#004d26;
-color:#fff;
-text-align:center;
-padding:40px 20px;
-margin-top:50px;
+  background:#004d26;
+  color:white;
+  text-align:center;
+  padding:40px 20px;
+  margin-top:50px;
+  border-radius:12px;
+}
+.cta button{
+  margin-top:15px;
+  padding:12px 25px;
+  background:#ffcc00;
+  border:none;
+  font-weight:bold;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-.cta button{
-margin-top:15px;
-padding:12px 25px;
-background:#ffcc00;
-border:none;
-font-weight:bold;
-border-radius:8px;
-cursor:pointer;
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
 /* FOOTER */
-
 .footer{
-background:#002b16;
-color:#ffcc00;
-padding:25px;
-text-align:center;
+  margin-top:40px;
+  background:#004d26;
+  color:white;
+  padding:25px;
+  text-align:center;
 }
-
 .footer a{
-color:#ffcc00;
-text-decoration:none;
+  color:#ffcc00;
+  text-decoration:none;
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
-.hero{flex-direction:column}
-.main-nav{margin-top:15px}
+  .hero{flex-direction:column;}
+  .main-nav{margin-top:10px;}
+  .gallery img{height:150px;}
 }
-
 </style>
 </head>
-
 <body>
 
 <div class="top-green">
-<div class="top-links">
-<a href="index.html">Home</a>
-<a href="student-login.html">Student Login</a>
-<a href="parent-login.html">Parent Login</a>
-<a href="staff-login.html">Staff Login</a>
-<a href="email-login.html">Email Login</a>
-<a href="careers.html">Careers</a>
-</div>
-<input type="text" placeholder="Search...">
+  <div class="top-links">
+    <a href="index.html">Home</a>
+    <a href="student-login.html">Student Login</a>
+    <a href="parent-login.html">Parent Login</a>
+    <a href="staff-login.html">Staff Login</a>
+    <a href="email-login.html">Email Login</a>
+    <a href="careers.html">Careers</a>
+  </div>
+  <input placeholder="Search...">
 </div>
 
 <header class="main-header">
-
-<div class="logo-area">
-<img src="IMG-20260129-WA0005.jpg">
-<span>Leads Community School</span>
-</div>
-
-<nav class="main-nav">
-<a href="about.html">About</a>
-<a href="academics.html">Academics</a>
-<a href="admissions.html">Admissions</a>
-<a href="campus.html">Campus</a>
-<a href="community.html">Community</a>
-<a href="news-events.html">News</a>
-<a href="contact.html">Contact</a>
-</nav>
-
+  <div class="logo-area">
+    <img src="IMG-20260129-WA0005.jpg">
+    <div>
+      <div class="school-name">Leads Community School</div>
+      <div class="tagline">Training Tomorrow’s Leaders Today</div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="campus.html">Campus</a>
+    <a href="community.html">Community</a>
+    <a href="news-events.html">News</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-
-<div class="text">
-<h1>Our School Community</h1>
-<p>Leads Community School believes education grows stronger through partnership. Our community connects students, parents, teachers, alumni and neighbors.</p>
-
-<p>We organize programs that develop leadership, discipline, teamwork and creativity.</p>
-</div>
-
-<div class="image">
-<img src="community-hero.jpg">
-</div>
-
+  <div class="text">
+    <h1>Our School Community</h1>
+    <p>Leads Community School believes education grows stronger through partnership. Our community connects students, parents, teachers, alumni, and neighbors.</p>
+    <p>We organize programs that develop leadership, discipline, teamwork, and creativity.</p>
+  </div>
+  <div class="image">
+    <img src="community-hero.jpg" alt="School Community">
+  </div>
 </section>
 
 <section class="section-container">
-
-<h2>Community Activities</h2>
-
-<ul>
-<li>Cultural & Sports Festivals</li>
-<li>Student Clubs</li>
-<li>Parent Workshops</li>
-<li>Volunteer Programs</li>
-<li>Leadership Training</li>
-<li>Career Guidance</li>
-<li>Alumni Engagement</li>
-</ul>
-
+  <h2>Community Activities</h2>
+  <ul>
+    <li>Cultural & Sports Festivals</li>
+    <li>Student Clubs</li>
+    <li>Parent Workshops</li>
+    <li>Volunteer Programs</li>
+    <li>Leadership Training</li>
+    <li>Career Guidance</li>
+    <li>Alumni Engagement</li>
+  </ul>
 </section>
 
 <div class="highlights">
-
-<div class="highlight">Student Leadership</div>
-<div class="highlight">Parent Engagement</div>
-<div class="highlight">Community Service</div>
-<div class="highlight">Academic Excellence</div>
-
+  <div class="highlight">Student Leadership</div>
+  <div class="highlight">Parent Engagement</div>
+  <div class="highlight">Community Service</div>
+  <div class="highlight">Academic Excellence</div>
 </div>
 
 <section class="gallery">
-
-<img src="community1.jpg">
-<img src="community2.jpg">
-<img src="community3.jpg">
-<img src="community4.jpg">
-
+  <img src="community1.jpg" alt="">
+  <img src="community2.jpg" alt="">
+  <img src="community3.jpg" alt="">
+  <img src="community4.jpg" alt="">
 </section>
 
 <div class="cta">
-<h2>Join Our Growing Community</h2>
-<p>Be part of a school that shapes tomorrow’s leaders.</p>
-<button onclick="location.href='admissions.html'">Apply Now</button>
+  <h2>Join Our Growing Community</h2>
+  <p>Be part of a school that shapes tomorrow’s leaders.</p>
+  <button onclick="location.href='admissions.html'">Apply Now</button>
 </div>
 
 <footer class="footer">
-
-<p>© 2026 Leads Community School</p>
-
-<p>
-<a href="index.html">Home</a> |
-<a href="about.html">About</a> |
-<a href="contact.html">Contact</a>
-</p>
-
+  <p>© 2026 Leads Community School</p>
+  <p>
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
+    <a href="contact.html">Contact</a>
+  </p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/233539566710">💬</a>
 
 </body>
 </html>
