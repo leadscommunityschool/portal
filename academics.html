@@ -112,6 +112,27 @@ border-left:6px solid #ffcc00;
 box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
 
+/* HIGHLIGHTS */
+.highlights{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.highlight-card{
+background:#004d26;
+color:white;
+padding:25px;
+border-radius:12px;
+font-weight:600;
+transition:.3s;
+}
+
+.highlight-card:hover{
+transform:translateY(-6px);
+}
+
 /* SUBJECTS */
 .subjects{
 display:grid;
@@ -130,21 +151,6 @@ transition:.3s;
 
 .subject-card:hover{
 transform:translateY(-6px);
-}
-
-/* COUNTERS */
-.counters{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-text-align:center;
-}
-
-.counter{
-background:#004d26;
-color:white;
-padding:20px;
-border-radius:10px;
 }
 
 /* LEVELS */
@@ -199,7 +205,6 @@ text-decoration:none;
 @media(max-width:768px){
 .hero{flex-direction:column}
 }
-
 </style>
 </head>
 
@@ -243,8 +248,8 @@ text-decoration:none;
 
 <div>
 <h1>Our Academic Programs</h1>
-<p>At Leads Community School, we offer a wide range of academic programs aligned with GES standards while nurturing creativity and leadership.</p>
-<p>We build strong foundations for lifelong success.</p>
+<p>At Leads Community School, we offer a wide range of academic programs aligned with GES standards while nurturing creativity, leadership, and critical thinking.</p>
+<p>We focus on quality education and holistic student growth in small, personalized classes.</p>
 </div>
 
 <img src="classroom.jpg">
@@ -253,13 +258,13 @@ text-decoration:none;
 
 <section class="section-container">
 
-<h2>Academic Impact</h2>
+<h2>Academic Highlights</h2>
 
-<div class="counters">
-<div class="counter"><h1 class="count" data-target="450">0</h1>Students</div>
-<div class="counter"><h1 class="count" data-target="35">0</h1>Teachers</div>
-<div class="counter"><h1 class="count" data-target="12">0</h1>Years</div>
-<div class="counter"><h1 class="count" data-target="20">0</h1>Awards</div>
+<div class="highlights">
+<div class="highlight-card">Small, Personalized Classes</div>
+<div class="highlight-card">Dedicated & Caring Staff</div>
+<div class="highlight-card">Modern Learning Environment</div>
+<div class="highlight-card">Holistic & Creative Programs</div>
 </div>
 
 </section>
@@ -291,7 +296,7 @@ text-decoration:none;
 
 <section class="section-container">
 <h2>Extracurricular Activities</h2>
-<p>Sports, arts, robotics, music and leadership programs support holistic growth.</p>
+<p>Sports, arts, robotics, music, and leadership programs support holistic growth and skill development for every student.</p>
 </section>
 
 <section class="section-container">
@@ -311,26 +316,6 @@ text-decoration:none;
 </footer>
 
 <a class="whatsapp" href="https://wa.me/233539566710">💬</a>
-
-<script>
-const counters=document.querySelectorAll('.count');
-
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.dataset.target;
-const current=+counter.innerText;
-const inc=target/80;
-
-if(current<target){
-counter.innerText=Math.ceil(current+inc);
-setTimeout(update,30);
-}else{
-counter.innerText=target;
-}
-}
-update();
-});
-</script>
 
 </body>
 </html>
