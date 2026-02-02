@@ -8,9 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{box-sizing:border-box;}
-
 body{
 margin:0;
 font-family:Poppins,Arial;
@@ -19,7 +17,6 @@ color:#004d26;
 }
 
 /* TOP BAR */
-
 .top-green{
 background:#004d26;
 color:white;
@@ -28,14 +25,12 @@ display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
 }
-
 .top-links a{
 color:#ffcc00;
 margin-right:12px;
 text-decoration:none;
 font-weight:600;
 }
-
 .top-green input{
 padding:6px 10px;
 border-radius:20px;
@@ -43,7 +38,6 @@ border:none;
 }
 
 /* HEADER */
-
 .main-header{
 position:sticky;
 top:0;
@@ -56,15 +50,11 @@ padding:12px 25px;
 box-shadow:0 3px 10px rgba(0,0,0,.15);
 flex-wrap:wrap;
 }
-
-/* LOGO AREA */
-
 .logo-area{
 display:flex;
 align-items:center;
 gap:12px;
 }
-
 .logo-area img{
 width:55px;
 height:55px;
@@ -72,18 +62,13 @@ border-radius:50%;
 border:3px solid #004d26;
 object-fit:cover;
 }
-
 .school-name{
 font-size:1.3rem;
 font-weight:600;
 }
-
 .tagline{
 font-size:.75rem;
 }
-
-/* NAV */
-
 .main-nav a{
 margin-left:15px;
 text-decoration:none;
@@ -91,24 +76,12 @@ color:#004d26;
 font-weight:600;
 position:relative;
 }
-
 .main-nav a:after{
-content:'';
-height:2px;
-width:0;
-background:#004d26;
-position:absolute;
-bottom:-4px;
-left:0;
-transition:.3s;
+content:''; height:2px; width:0; background:#004d26; position:absolute; bottom:-4px; left:0; transition:.3s;
 }
-
-.main-nav a:hover:after{
-width:100%;
-}
+.main-nav a:hover:after{width:100%;}
 
 /* HERO */
-
 .hero{
 max-width:1100px;
 margin:40px auto;
@@ -121,23 +94,11 @@ align-items:center;
 box-shadow:0 10px 25px rgba(0,0,0,.1);
 animation:slideUp 1s;
 }
-
-.hero img{
-width:100%;
-border-radius:12px;
-}
-
-.hero h1{
-margin-top:0;
-}
-
-@keyframes slideUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;}
-}
+.hero img{width:100%; border-radius:12px;}
+.hero h1{margin-top:0;}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px);} to{opacity:1;}}
 
 /* SECTIONS */
-
 .section-container{
 max-width:1100px;
 margin:25px auto;
@@ -147,15 +108,39 @@ border-radius:12px;
 border-left:6px solid #ffcc00;
 box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
+.section-container h2{color:#004d26; margin-bottom:15px;}
+.section-container p{font-size:1rem; line-height:1.6;}
+
+/* HIGHLIGHTS CARDS */
+.highlights{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+text-align:center;
+}
+.highlight-card{
+background:#004d26;
+color:white;
+padding:20px;
+border-radius:12px;
+transition:transform 0.3s, box-shadow 0.3s;
+}
+.highlight-card:hover{
+transform:translateY(-8px);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+.highlight-card i{
+font-size:28px;
+margin-bottom:10px;
+color:#ffcc00;
+}
 
 /* VALUES GRID */
-
 .values{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
 gap:15px;
 }
-
 .value-box{
 background:#004d26;
 color:white;
@@ -165,51 +150,30 @@ text-align:center;
 font-size:.85rem;
 }
 
-/* COUNTERS */
-
-.counters{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:20px;
-text-align:center;
-}
-
-.counter{
-background:#004d26;
-color:white;
-padding:20px;
-border-radius:10px;
-}
-
 /* PRINCIPAL */
-
 .principal{
 display:flex;
 gap:25px;
 align-items:center;
 flex-wrap:wrap;
 }
-
 .principal img{
 width:200px;
 border-radius:12px;
 }
 
 /* GALLERY */
-
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:12px;
 }
-
 .gallery img{
 width:100%;
 border-radius:10px;
 }
 
 /* WHATSAPP */
-
 .whatsapp{
 position:fixed;
 right:20px;
@@ -224,7 +188,6 @@ box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
 /* FOOTER */
-
 .footer{
 margin-top:40px;
 background:#004d26;
@@ -232,21 +195,20 @@ color:white;
 padding:25px;
 text-align:center;
 }
-
 .footer a{
 color:#ffcc00;
 text-decoration:none;
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
 .hero{flex-direction:column;}
 .main-nav{margin-top:10px;}
 .principal{flex-direction:column;text-align:center;}
 }
-
 </style>
+<!-- FONT AWESOME FOR ICONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -264,7 +226,6 @@ text-decoration:none;
 </div>
 
 <header class="main-header">
-
 <div class="logo-area">
 <img src="IMG-20260129-WA0005.jpg">
 <div>
@@ -272,7 +233,6 @@ text-decoration:none;
 <div class="tagline">Training Tomorrow’s Leaders Today</div>
 </div>
 </div>
-
 <nav class="main-nav">
 <a href="about.html">About</a>
 <a href="academics.html">Academics</a>
@@ -282,46 +242,41 @@ text-decoration:none;
 <a href="news-events.html">News</a>
 <a href="contact.html">Contact</a>
 </nav>
-
 </header>
 
+<!-- HERO -->
 <section class="hero">
-
 <div>
 <h1>About Leads Community School</h1>
 <p>Leads Community School is committed to providing quality education while nurturing future leaders through discipline, creativity and excellence.</p>
-
 <p>We believe in holistic development combining academics, morals, arts and sports to prepare learners for tomorrow.</p>
 </div>
-
 <img src="school-building.jpg">
-
 </section>
 
+<!-- HIGHLIGHTS REPLACING COUNTERS -->
 <section class="section-container">
-<h2>Our Impact</h2>
-
-<div class="counters">
-<div class="counter"><h1 class="count" data-target="450">0</h1>Students</div>
-<div class="counter"><h1 class="count" data-target="35">0</h1>Teachers</div>
-<div class="counter"><h1 class="count" data-target="12">0</h1>Years</div>
-<div class="counter"><h1 class="count" data-target="20">0</h1>Awards</div>
+<h2>Our Achievements</h2>
+<div class="highlights">
+<div class="highlight-card"><i class="fas fa-user-graduate"></i><h3>450+ Students</h3></div>
+<div class="highlight-card"><i class="fas fa-chalkboard-teacher"></i><h3>35+ Teachers</h3></div>
+<div class="highlight-card"><i class="fas fa-award"></i><h3>20 Awards</h3></div>
+<div class="highlight-card"><i class="fas fa-school"></i><h3>12 Years of Excellence</h3></div>
 </div>
 </section>
 
 <section class="section-container">
 <h2>Our Vision</h2>
-<p>To play a leading role in the educational sector in Ghana modeling quality, inculsive and holistic education.</p>
+<p>To play a leading role in the educational sector in Ghana modeling quality, inclusive and holistic education.</p>
 </section>
 
 <section class="section-container">
 <h2>Our Mission</h2>
-<p>To provide quality, inclusive and holistic education that meets the required standard. We are a community of learners commited to raising a new generation of leaders who are productive members of their communities and the world at large. We add value and provide a positive experience for all stakeholders.</p>
+<p>To provide quality, inclusive and holistic education that meets the required standard. We are a community of learners committed to raising a new generation of leaders who are productive members of their communities and the world at large. We add value and provide a positive experience for all stakeholders.</p>
 </section>
 
 <section class="section-container">
 <h2>Principal’s Message</h2>
-
 <div class="principal">
 <img src="principal.jpg">
 <p>Welcome to Leads Community School. We nurture confident learners who become responsible leaders.</p>
@@ -330,7 +285,6 @@ text-decoration:none;
 
 <section class="section-container">
 <h2>Core Values</h2>
-
 <div class="values">
 <div class="value-box">Integrity</div>
 <div class="value-box">Excellence</div>
@@ -343,19 +297,16 @@ text-decoration:none;
 <div class="value-box">Compassion</div>
 <div class="value-box">Humility</div>
 </div>
-
 </section>
 
 <section class="section-container">
 <h2>School Gallery</h2>
-
 <div class="gallery">
 <img src="gallery1.jpg">
 <img src="gallery2.jpg">
 <img src="gallery3.jpg">
 <img src="gallery4.jpg">
 </div>
-
 </section>
 
 <section class="section-container">
@@ -373,26 +324,6 @@ text-decoration:none;
 </footer>
 
 <a class="whatsapp" href="https://wa.me/233539566710">💬</a>
-
-<script>
-const counters=document.querySelectorAll('.count');
-
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.dataset.target;
-const current=+counter.innerText;
-const inc=target/80;
-
-if(current<target){
-counter.innerText=Math.ceil(current+inc);
-setTimeout(update,30);
-}else{
-counter.innerText=target;
-}
-}
-update();
-});
-</script>
 
 </body>
 </html>
