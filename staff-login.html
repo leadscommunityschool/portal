@@ -7,133 +7,151 @@
 
 <style>
 body,html{
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
-background:#f2f2f2;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;
 }
 
 /* TOP BAR */
 .top-green{
-background:#004d26;
-padding:10px 20px;
+  background:#004d26;
+  padding:10px 20px;
 }
 
 .top-links a{
-color:#ffcc00;
-margin-right:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-right:15px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /* HEADER */
 .main-header{
-background:#004d26;
-border-bottom:5px solid #ffcc00;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
+  background:#004d26;
+  border-bottom:5px solid #ffcc00;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
 
 .logo-wrap{
-display:flex;
-align-items:center;
-gap:15px;
-text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  text-decoration:none;
 }
 
 .logo-wrap img{
-width:70px;
-background:#fff;
-padding:5px;
-border-radius:10px;
+  width:70px;
+  background:#fff;
+  padding:5px;
+  border-radius:10px;
 }
 
 .school-name h1{
-margin:0;
-color:#ffcc00;
-font-size:22px;
+  margin:0;
+  color:#ffcc00;
+  font-size:22px;
 }
 
 .school-name p{
-margin:0;
-color:#fff;
-font-size:13px;
+  margin:0;
+  color:#fff;
+  font-size:13px;
 }
 
 .main-nav a{
-color:#ffcc00;
-margin-left:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-left:15px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-/* LOGIN */
+/* LOGIN WITH BACKGROUND IMAGE */
 #login-section{
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:70vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:70vh;
+  background-image: url('TLCS.jpeg'); /* <-- ADD YOUR IMAGE HERE */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#login-section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.5); /* Dark overlay for better contrast */
+  z-index:0;
 }
 
 .login-box{
-background:#fff;
-padding:40px;
-border-radius:15px;
-width:350px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
+  background:#fff;
+  padding:40px;
+  border-radius:15px;
+  width:350px;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,.3);
+  position: relative;
+  z-index:1;
 }
 
 .login-box h2{color:#004d26;}
 
 .login-box input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:5px;
+  border:1px solid #ccc;
 }
 
 .login-box button{
-width:100%;
-padding:12px;
-background:#004d26;
-color:#ffcc00;
-border:2px solid #ffcc00;
-font-weight:bold;
-cursor:pointer;
+  width:100%;
+  padding:12px;
+  background:#004d26;
+  color:#ffcc00;
+  border:2px solid #ffcc00;
+  font-weight:bold;
+  cursor:pointer;
 }
 
 /* DASHBOARD */
 #dashboard-section{display:none;}
 
 .dashboard{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-padding:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  padding:30px;
 }
 
 .card{
-background:#ffcc00;
-color:#004d26;
-width:220px;
-padding:20px;
-border-radius:10px;
-border:2px solid #004d26;
-text-align:center;
-font-weight:bold;
+  background:#ffcc00;
+  color:#004d26;
+  width:220px;
+  padding:20px;
+  border-radius:10px;
+  border:2px solid #004d26;
+  text-align:center;
+  font-weight:bold;
 }
 
 .section-container{
-background:#fff;
-margin:20px;
-padding:20px;
-border-radius:10px;
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:10px;
 }
 
 table{width:100%;border-collapse:collapse;}
@@ -142,56 +160,55 @@ td{border:1px solid #004d26;padding:10px;}
 
 /* FOOTER */
 .footer{
-background:#004d26;
-color:#ffcc00;
-text-align:center;
-padding:20px;
-border-top:5px solid #ffcc00;
+  background:#004d26;
+  color:#ffcc00;
+  text-align:center;
+  padding:20px;
+  border-top:5px solid #ffcc00;
 }
 
 /* ABOUT SECTION */
 #about-section{
-position:relative;
-min-height:60vh;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#fff;
-text-align:center;
-overflow:hidden;
-margin-top:40px;
-border-radius:15px;
+  position:relative;
+  min-height:60vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+  margin-top:40px;
+  border-radius:15px;
 }
 #about-section video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:0;
-filter:brightness(0.5);
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+  filter:brightness(0.5);
 }
 #about-section .about-content{
-position:relative;
-z-index:1;
-max-width:800px;
-padding:20px;
+  position:relative;
+  z-index:1;
+  max-width:800px;
+  padding:20px;
 }
 #about-section h2{
-font-size:2.5rem;
-margin-bottom:20px;
-color:#ffcc00;
+  font-size:2.5rem;
+  margin-bottom:20px;
+  color:#ffcc00;
 }
 #about-section p{
-font-size:1.2rem;
-line-height:1.8;
+  font-size:1.2rem;
+  line-height:1.8;
 }
 </style>
 
 <!-- ===== FIREBASE ===== -->
 <script type="module">
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
@@ -210,10 +227,8 @@ const auth = getAuth(app);
 // STAFF LOGIN
 window.login = function(e){
 e.preventDefault();
-
 const email = document.getElementById("staff").value;
 const password = document.getElementById("pass").value;
-
 signInWithEmailAndPassword(auth, email, password)
 .then(()=>{
 document.getElementById("login-section").style.display="none";
@@ -239,7 +254,6 @@ document.getElementById("dashboard-section").style.display="block";
 document.getElementById("homeLink").style.display="inline";
 }
 });
-
 </script>
 
 </head>
@@ -274,10 +288,10 @@ document.getElementById("homeLink").style.display="inline";
 </nav>
 </header>
 
+<!-- LOGIN SECTION WITH IMAGE BACKGROUND -->
 <section id="login-section">
 <div class="login-box">
 <h2>Staff Login</h2>
-
 <form onsubmit="login(event)">
 <input type="email" id="staff" placeholder="Staff Email" required>
 <input type="password" id="pass" placeholder="Password" required>
@@ -299,7 +313,6 @@ Your browser does not support the video tag.
 </section>
 
 <section id="dashboard-section">
-
 <div class="dashboard">
 <div class="card">Manage Classes</div>
 <div class="card">Attendance</div>
@@ -308,7 +321,6 @@ Your browser does not support the video tag.
 <div class="card">Reports</div>
 <div class="card">Announcements</div>
 </div>
-
 </section>
 
 <footer class="footer">
