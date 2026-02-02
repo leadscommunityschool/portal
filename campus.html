@@ -4,262 +4,265 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Campus - Leads Community School</title>
+
 <style>
-/* ===== General ===== */
 body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:#f5f7fa;
+color:#004d26;
+scroll-behavior:smooth;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+.top-green{
+background:linear-gradient(90deg,#004d26,#006633);
+padding:10px 20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
 }
 
-.top-green .top-links a {
-  color: #ffcc00;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:15px;
+font-weight:bold;
+text-decoration:none;
+transition:.3s;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.top-links a:hover{color:#fff;}
+
+.top-green input{
+padding:6px 12px;
+border-radius:20px;
+border:none;
+outline:none;
 }
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+/* HEADER */
+.main-header{
+position:sticky;
+top:0;
+z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 20px;
+background:#ffcc00;
+border-bottom:3px solid #004d26;
+flex-wrap:wrap;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+/* LOGO BOX */
+.logo-area{
+display:flex;
+align-items:center;
+gap:12px;
+background:#fff;
+padding:8px 15px;
+border-radius:12px;
+border:3px solid #004d26;
+box-shadow:0 5px 12px rgba(0,0,0,.2);
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.logo-area img{
+width:55px;
+padding:5px;
+border-radius:8px;
+border:2px solid #ffcc00;
 }
 
-.main-nav a:hover {
-  color: #002013;
+.logo-area span{
+font-weight:bold;
+font-size:18px;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+/* NAV */
+.main-nav a{
+margin-left:15px;
+text-decoration:none;
+color:#004d26;
+font-weight:bold;
+transition:.3s;
 }
 
-.hero .text {
-  flex: 1;
-  padding: 20px;
+.main-nav a:hover{
+color:#000;
+border-bottom:2px solid #004d26;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  color: #004d26;
+/* HERO */
+.hero{
+display:flex;
+flex-wrap:wrap;
+max-width:1000px;
+margin:40px auto;
+padding:20px;
+background:#fff;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
-.hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #004d26;
+.hero .text{flex:1;padding:20px;}
+.hero .image{flex:1;text-align:center;}
+
+.hero img{
+max-width:100%;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+animation:fadeIn 1.5s;
 }
 
-.hero .image {
-  flex: 1;
-  text-align: center;
-  animation: fadeIn 2s ease-in-out;
+/* BUTTON ADDED */
+.hero-btn{
+display:inline-block;
+margin-top:15px;
+padding:10px 20px;
+background:#004d26;
+color:#ffcc00;
+border-radius:20px;
+text-decoration:none;
+font-weight:bold;
 }
 
-.hero .image img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/* SECTION */
+.section-container{
+max-width:1000px;
+margin:30px auto;
+background:#fff;
+padding:25px;
+border-left:6px solid #ffcc00;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+transition:.3s;
 }
 
-/* ===== Animation ===== */
-@keyframes fadeIn {
-  0% {opacity:0; transform: scale(0.9);}
-  100% {opacity:1; transform: scale(1);}
+.section-container:hover{transform:translateY(-4px);}
+
+/* GALLERY */
+.gallery{
+max-width:1000px;
+margin:30px auto;
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
-/* ===== Campus Gallery ===== */
-.gallery {
-  max-width: 1000px;
-  margin: 30px auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.gallery img{
+width:300px;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+transition:.3s;
 }
 
-.gallery img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+.gallery img:hover{
+transform:scale(1.08);
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+/* FOOTER */
+.footer{
+background:#004d26;
+color:#fff;
+padding:25px;
+text-align:center;
+margin-top:40px;
 }
 
-/* ===== Sections ===== */
-.section-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #ffcc00;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+.footer a{color:#ffcc00;text-decoration:none;}
 
-.section-container h2 {
-  color: #004d26;
-  margin-bottom: 15px;
-}
+.footer a:hover{text-decoration:underline;}
 
-.section-container p {
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
+/* MOBILE */
 @media(max-width:768px){
-  .hero {flex-direction: column;}
-  .gallery img {width: 80%; height: auto;}
-  .main-nav {margin-top: 10px;}
+.hero{flex-direction:column;}
+.gallery img{width:90%;}
+.main-nav{margin-top:10px;}
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;transform:scale(.9);}
+to{opacity:1;transform:scale(1);}
 }
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="index.html">Home</a>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html">Home</a>
+<a href="student-login.html">Student Login</a>
+<a href="parent-login.html">Parent Login</a>
+<a href="staff-login.html">Staff Login</a>
+<a href="email-login.html">Email Login</a>
+<a href="careers.html">Careers</a>
+</div>
+<input type="text" placeholder="Search...">
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+<div class="logo-area">
+<img src="IMG-20260129-WA0005.jpg">
+<span>Leads Community School</span>
+</div>
+
+<nav class="main-nav">
+<a href="about.html">About Us</a>
+<a href="academics.html">Academics</a>
+<a href="admissions.html">Admissions</a>
+<a href="campus.html">Our Campus</a>
+<a href="community.html">Community</a>
+<a href="news-events.html">News & Events</a>
+<a href="contact.html">Contact Us</a>
+</nav>
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
-  <div class="text">
-    <h1>Our Vibrant Campus</h1>
-    <p>Leads Community School prides itself on providing state-of-the-art facilities, safe learning spaces, and an environment that nurtures creativity, innovation, and academic excellence.</p>
-    <p>Explore our campus galleries and see the world-class classrooms, playgrounds, laboratories, and libraries where students thrive.</p>
-  </div>
-  <div class="image">
-    <img src="campus-hero.jpg" alt="Our Campus">
-  </div>
+<div class="text">
+<h1>Our Vibrant Campus</h1>
+<p>Leads Community School prides itself on providing state-of-the-art facilities, safe learning spaces, and an environment that nurtures creativity, innovation, and academic excellence.</p>
+<p>Explore our campus galleries and see the world-class classrooms, playgrounds, laboratories, and libraries where students thrive.</p>
+<a class="hero-btn" href="admissions.html">Enroll Now</a>
+</div>
+
+<div class="image">
+<img src="campus-hero.jpg">
+</div>
 </section>
 
-<!-- Campus Facilities Section -->
 <section class="section-container">
-  <h2>Campus Facilities</h2>
-  <p>Our campuses offer a wide range of facilities to support student learning and extracurricular activities, including:</p>
-  <ul>
-    <li>Modern classrooms with smart boards</li>
-    <li>Science and computer laboratories</li>
-    <li>Library with extensive learning resources</li>
-    <li>Sports grounds and playgrounds</li>
-    <li>Art and music studios</li>
-    <li>Secure transportation and medical facilities</li>
-  </ul>
+<h2>Campus Facilities</h2>
+<p>Our campuses offer a wide range of facilities to support student learning and extracurricular activities, including:</p>
+<ul>
+<li>Modern classrooms with smart boards</li>
+<li>Science and computer laboratories</li>
+<li>Library with extensive learning resources</li>
+<li>Sports grounds and playgrounds</li>
+<li>Art and music studios</li>
+<li>Secure transportation and medical facilities</li>
+</ul>
 </section>
 
-<!-- Campus Gallery -->
 <section class="gallery">
-  <img src="campus1.jpg" alt="Campus View 1">
-  <img src="campus2.jpg" alt="Campus View 2">
-  <img src="campus3.jpg" alt="Campus View 3">
-  <img src="campus4.jpg" alt="Campus View 4">
+<img src="campus1.jpg">
+<img src="campus2.jpg">
+<img src="campus3.jpg">
+<img src="campus4.jpg">
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a>
-  </p>
+<p>© 2026 Leads Community School. All Rights Reserved.</p>
+<p>
+<a href="index.html">Home</a> |
+<a href="about.html">About Us</a> |
+<a href="contact.html">Contact</a>
+</p>
 </footer>
 
 </body>
