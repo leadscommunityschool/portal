@@ -4,208 +4,206 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us - Leads Community School</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-/* ===== General ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Poppins,Arial;
+  background:#f5f7fa;
+  color:#004d26;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+.top-green{
+  background:#004d26;
+  color:white;
+  padding:10px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+}
+.top-links a{
+  color:#ffcc00;
+  margin-right:12px;
+  text-decoration:none;
+  font-weight:600;
+}
+.top-green input{
+  padding:6px 10px;
+  border-radius:20px;
+  border:none;
 }
 
-.top-green .top-links a {
-  color: #ffcc00;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+/* HEADER */
+.main-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#ffcc00;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 25px;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
+  flex-wrap:wrap;
 }
-
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+.logo-area img{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  border:3px solid #004d26;
+  object-fit:cover;
 }
-
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+.school-name{
+  font-size:1.3rem;
+  font-weight:600;
 }
-
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.tagline{
+  font-size:.75rem;
 }
-
-.main-nav a:hover {
-  color: #002013;
+.main-nav a{
+  margin-left:15px;
+  text-decoration:none;
+  color:#004d26;
+  font-weight:600;
+  position:relative;
 }
-
-/* ===== Hero Section ===== */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  text-align: center;
+.main-nav a:after{
+  content:''; height:2px; width:0; background:#004d26; position:absolute; bottom:-4px; left:0; transition:.3s;
 }
+.main-nav a:hover:after{width:100%;}
 
-.hero h1 {
-  font-size: 2.2rem;
-  color: #004d26;
-  margin-bottom: 15px;
+/* HERO */
+.hero{
+  max-width:1100px;
+  margin:40px auto;
+  background:white;
+  border-radius:15px;
+  padding:30px;
+  display:flex;
+  gap:30px;
+  align-items:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+  animation:slideUp 1s;
+  text-align:center;
+  flex-direction:column;
 }
+.hero h1{margin-top:0;}
+.hero p{line-height:1.6;}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px);} to{opacity:1;}}
 
-.hero p {
-  font-size: 1.1rem;
-  color: #004d26;
-  line-height: 1.6;
+/* CONTACT SECTION */
+.contact-container{
+  max-width:1100px;
+  margin:25px auto;
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  border-left:6px solid #ffcc00;
+  box-shadow:0 6px 15px rgba(0,0,0,.08);
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
 }
-
-/* ===== Contact Section ===== */
-.contact-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #ffcc00;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+.contact-form{
+  flex:1;
+  min-width:300px;
 }
-
-/* Contact Form */
-.contact-form {
-  flex: 1;
-  min-width: 300px;
+.contact-form h2{
+  color:#004d26;
+  margin-bottom:15px;
 }
-
-.contact-form h2 {
-  color: #004d26;
-  margin-bottom: 15px;
-}
-
 .contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 1rem;
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:1rem;
+}
+.contact-form button{
+  width:100%;
+  padding:12px;
+  background-color:#004d26;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  margin-top:10px;
+}
+.contact-form button:hover{
+  background-color:#006b39;
+}
+.contact-info{
+  flex:1;
+  min-width:250px;
+  background:#f9f9f9;
+  border-left:4px solid #004d26;
+  border-radius:8px;
+  padding:20px;
+}
+.contact-info h2{color:#004d26; margin-bottom:10px;}
+.contact-info p{margin:8px 0; line-height:1.5;}
+.map-placeholder{
+  width:100%;
+  height:250px;
+  background-color:#e1e1e1;
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#004d26;
+  margin-top:15px;
+  font-weight:bold;
 }
 
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  background-color: #004d26;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  border-radius:50%;
+  font-size:22px;
+  text-decoration:none;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
 }
 
-.contact-form button:hover {
-  background-color: #006b39;
+/* FOOTER */
+.footer{
+  margin-top:40px;
+  background:#004d26;
+  color:white;
+  padding:25px;
+  text-align:center;
+}
+.footer a{
+  color:#ffcc00;
+  text-decoration:none;
 }
 
-/* School Info */
-.contact-info {
-  flex: 1;
-  min-width: 250px;
-  background-color: #f9f9f9;
-  border-left: 4px solid #004d26;
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.contact-info h2 {
-  color: #004d26;
-  margin-bottom: 10px;
-}
-
-.contact-info p {
-  margin: 8px 0;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-/* Map Placeholder */
-.map-placeholder {
-  width: 100%;
-  height: 250px;
-  background-color: #e1e1e1;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #004d26;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
+/* MOBILE */
 @media(max-width:768px){
-  .contact-container {flex-direction: column;}
+  .contact-container{flex-direction:column;}
+  .main-nav{margin-top:10px;}
 }
 </style>
 </head>
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
   <div class="top-links">
     <a href="index.html">Home</a>
@@ -215,35 +213,36 @@ body, html {
     <a href="email-login.html">Email Login</a>
     <a href="careers.html">Careers</a>
   </div>
-  <input type="text" placeholder="Search...">
+  <input placeholder="Search...">
 </div>
 
-<!-- Header -->
 <header class="main-header">
   <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
+    <img src="IMG-20260129-WA0005.jpg">
+    <div>
+      <div class="school-name">Leads Community School</div>
+      <div class="tagline">Training Tomorrow’s Leaders Today</div>
+    </div>
   </div>
   <nav class="main-nav">
-    <a href="about.html">About Us</a>
+    <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
     <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
+    <a href="campus.html">Campus</a>
     <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="news-events.html">News</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<!-- Hero Section -->
+<!-- HERO -->
 <section class="hero">
   <h1>Contact Us</h1>
   <p>Have questions or need assistance? Reach out to Leads Community School. We are here to support students, parents, and the community.</p>
 </section>
 
-<!-- Contact Section -->
+<!-- CONTACT SECTION -->
 <section class="contact-container">
-  <!-- Form -->
   <div class="contact-form">
     <h2>Send a Message</h2>
     <form onsubmit="handleContactForm(event)">
@@ -255,7 +254,6 @@ body, html {
     </form>
   </div>
 
-  <!-- School Info & Map -->
   <div class="contact-info">
     <h2>Our Address</h2>
     <p>Leads Community School</p>
@@ -266,15 +264,16 @@ body, html {
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
+  <p>© 2026 Leads Community School</p>
   <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
+    <a href="index.html">Home</a> |
+    <a href="about.html">About</a> |
     <a href="contact.html">Contact</a>
   </p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/233539566710">💬</a>
 
 <script>
 function handleContactForm(e){
