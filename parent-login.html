@@ -78,15 +78,37 @@ body,html{
 
 .main-nav a:hover{ color:#fff; }
 
-/* LOGIN */
+/* LOGIN SECTION */
 #login-section{
   display:flex;
   justify-content:center;
   align-items:center;
-  min-height:70vh;
+  min-height:80vh;
+  position:relative;
+  overflow:hidden;
+}
+
+#login-section .background{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: url('YOUR-IMAGE-HERE.jpg') center/cover no-repeat;
+  filter: brightness(0.5);
+  animation: zoom 20s infinite alternate;
+  z-index:0;
+}
+
+@keyframes zoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .login-box{
+  position:relative;
+  z-index:1;
   background:#fff;
   padding:40px;
   border-radius:15px;
@@ -242,17 +264,20 @@ td{border:1px solid #004d26;padding:10px;}
 </nav>
 </header>
 
+<!-- LOGIN SECTION -->
 <section id="login-section">
-<div class="login-box">
-<h2>Parent Login</h2>
-<form onsubmit="login(event)">
-<input type="email" id="parent" placeholder="Parent Email" required>
-<input type="password" id="pass" placeholder="Password" required>
-<button>Login</button>
-</form>
-</div>
+  <div class="background"></div> <!-- Replace image here -->
+  <div class="login-box">
+    <h2>Parent Login</h2>
+    <form onsubmit="login(event)">
+      <input type="email" id="parent" placeholder="Parent Email" required>
+      <input type="password" id="pass" placeholder="Password" required>
+      <button>Login</button>
+    </form>
+  </div>
 </section>
 
+<!-- DASHBOARD SECTION -->
 <section id="dashboard-section">
 <div class="dashboard" id="dashboard">
 <div class="card">Attendance</div>
