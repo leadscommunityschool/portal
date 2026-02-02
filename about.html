@@ -165,6 +165,64 @@ text-align:center;
 font-size:.85rem;
 }
 
+/* COUNTERS */
+
+.counters{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:20px;
+text-align:center;
+}
+
+.counter{
+background:#004d26;
+color:white;
+padding:20px;
+border-radius:10px;
+}
+
+/* PRINCIPAL */
+
+.principal{
+display:flex;
+gap:25px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.principal img{
+width:200px;
+border-radius:12px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:12px;
+}
+
+.gallery img{
+width:100%;
+border-radius:10px;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+}
+
 /* FOOTER */
 
 .footer{
@@ -185,6 +243,7 @@ text-decoration:none;
 @media(max-width:768px){
 .hero{flex-direction:column;}
 .main-nav{margin-top:10px;}
+.principal{flex-direction:column;text-align:center;}
 }
 
 </style>
@@ -240,13 +299,33 @@ text-decoration:none;
 </section>
 
 <section class="section-container">
+<h2>Our Impact</h2>
+
+<div class="counters">
+<div class="counter"><h1 class="count" data-target="450">0</h1>Students</div>
+<div class="counter"><h1 class="count" data-target="35">0</h1>Teachers</div>
+<div class="counter"><h1 class="count" data-target="12">0</h1>Years</div>
+<div class="counter"><h1 class="count" data-target="20">0</h1>Awards</div>
+</div>
+</section>
+
+<section class="section-container">
 <h2>Our Vision</h2>
-<p>To play a leading role in the educational sector in Ghana modeling quality, inculsive and holistic education.</p>
+<p>To play a leading role in Ghana’s educational sector by modeling quality, inclusive and holistic education.</p>
 </section>
 
 <section class="section-container">
 <h2>Our Mission</h2>
-<p>To provide quality, inclusive and holistic education that meets the required standard. We are a community of learners commited to raising a new generation of leaders who are productive members of their communities and the world at large. We add value and provide a positive experience for all stakeholders.</p>
+<p>To provide quality and inclusive education while raising productive leaders who positively impact society.</p>
+</section>
+
+<section class="section-container">
+<h2>Principal’s Message</h2>
+
+<div class="principal">
+<img src="principal.jpg">
+<p>Welcome to Leads Community School. We nurture confident learners who become responsible leaders.</p>
+</div>
 </section>
 
 <section class="section-container">
@@ -268,8 +347,20 @@ text-decoration:none;
 </section>
 
 <section class="section-container">
+<h2>School Gallery</h2>
+
+<div class="gallery">
+<img src="gallery1.jpg">
+<img src="gallery2.jpg">
+<img src="gallery3.jpg">
+<img src="gallery4.jpg">
+</div>
+
+</section>
+
+<section class="section-container">
 <h2>Why Choose Us</h2>
-<p>Experienced teachers, modern facilities, holistic curriculum, extracurricular programs, and a supportive learning environment make Leads Community School the top choice for parents and students.</p>
+<p>Experienced teachers, modern facilities, holistic curriculum and supportive learning environment.</p>
 </section>
 
 <footer class="footer">
@@ -280,6 +371,28 @@ text-decoration:none;
 <a href="contact.html">Contact</a>
 </p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/233539566710">💬</a>
+
+<script>
+const counters=document.querySelectorAll('.count');
+
+counters.forEach(counter=>{
+const update=()=>{
+const target=+counter.dataset.target;
+const current=+counter.innerText;
+const inc=target/80;
+
+if(current<target){
+counter.innerText=Math.ceil(current+inc);
+setTimeout(update,30);
+}else{
+counter.innerText=target;
+}
+}
+update();
+});
+</script>
 
 </body>
 </html>
