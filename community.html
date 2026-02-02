@@ -4,260 +4,301 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Community - Leads Community School</title>
+
 <style>
-/* ===== General ===== */
-body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+
+*{box-sizing:border-box}
+
+body,html{
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+background:#f5f7fa;
+color:#004d26;
 }
 
-/* ===== Top Green Bar ===== */
-.top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+/* TOP BAR */
+
+.top-green{
+background:#004d26;
+padding:10px 20px;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+align-items:center;
 }
 
-.top-green .top-links a {
-  color: #ffcc00;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:15px;
+font-weight:bold;
+text-decoration:none;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.top-green input{
+padding:6px;
+border-radius:5px;
+border:none;
 }
 
-/* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+/* HEADER */
+
+.main-header{
+background:#ffcc00;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+border-bottom:4px solid #004d26;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+/* LOGO BOX */
+
+.logo-area{
+display:flex;
+align-items:center;
+gap:10px;
+background:#fff;
+padding:10px 15px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.logo-area img{
+width:60px;
 }
 
-.main-nav a:hover {
-  color: #002013;
+.logo-area span{
+font-weight:bold;
+font-size:18px;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+.main-nav a{
+margin-left:15px;
+font-weight:bold;
+color:#004d26;
+text-decoration:none;
 }
 
-.hero .text {
-  flex: 1;
-  padding: 20px;
+/* HERO */
+
+.hero{
+max-width:1100px;
+margin:40px auto;
+background:#fff;
+padding:30px;
+display:flex;
+gap:30px;
+flex-wrap:wrap;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  color: #004d26;
+.hero .text{flex:1}
+.hero .image{flex:1;text-align:center}
+
+.hero img{
+max-width:100%;
+border-radius:12px;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #004d26;
+/* SECTIONS */
+
+.section-container{
+max-width:1100px;
+margin:30px auto;
+background:#fff;
+padding:25px;
+border-left:6px solid #ffcc00;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.1);
 }
 
-.hero .image {
-  flex: 1;
-  text-align: center;
-  animation: fadeIn 2s ease-in-out;
+.section-container ul{
+line-height:1.8;
 }
 
-.hero .image img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/* HIGHLIGHTS */
+
+.highlights{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+max-width:1100px;
+margin:30px auto;
 }
 
-/* ===== Animation ===== */
-@keyframes fadeIn {
-  0% {opacity:0; transform: scale(0.9);}
-  100% {opacity:1; transform: scale(1);}
+.highlight{
+background:#ffcc00;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-weight:bold;
+border:2px solid #004d26;
 }
 
-/* ===== Community Events ===== */
-.section-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #ffcc00;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+max-width:1100px;
+margin:40px auto;
+padding:0 20px;
 }
 
-.section-container h2 {
-  color: #004d26;
-  margin-bottom: 15px;
+.gallery img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 
-.section-container p {
-  font-size: 1rem;
-  line-height: 1.6;
+/* CTA */
+
+.cta{
+background:#004d26;
+color:#fff;
+text-align:center;
+padding:40px 20px;
+margin-top:50px;
 }
 
-/* ===== Gallery ===== */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
+.cta button{
+margin-top:15px;
+padding:12px 25px;
+background:#ffcc00;
+border:none;
+font-weight:bold;
+border-radius:8px;
+cursor:pointer;
 }
 
-.gallery img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
+/* FOOTER */
+
+.footer{
+background:#002b16;
+color:#ffcc00;
+padding:25px;
+text-align:center;
 }
 
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.footer a{
+color:#ffcc00;
+text-decoration:none;
 }
 
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
+/* MOBILE */
 
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-}
-
-/* ===== Responsive ===== */
 @media(max-width:768px){
-  .hero {flex-direction: column;}
-  .gallery img {width: 80%; height: auto;}
-  .main-nav {margin-top: 10px;}
+.hero{flex-direction:column}
+.main-nav{margin-top:15px}
 }
+
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="index.html">Home</a>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html">Home</a>
+<a href="student-login.html">Student Login</a>
+<a href="parent-login.html">Parent Login</a>
+<a href="staff-login.html">Staff Login</a>
+<a href="email-login.html">Email Login</a>
+<a href="careers.html">Careers</a>
+</div>
+<input type="text" placeholder="Search...">
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+
+<div class="logo-area">
+<img src="IMG-20260129-WA0005.jpg">
+<span>Leads Community School</span>
+</div>
+
+<nav class="main-nav">
+<a href="about.html">About</a>
+<a href="academics.html">Academics</a>
+<a href="admissions.html">Admissions</a>
+<a href="campus.html">Campus</a>
+<a href="community.html">Community</a>
+<a href="news-events.html">News</a>
+<a href="contact.html">Contact</a>
+</nav>
+
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
-  <div class="text">
-    <h1>Our School Community</h1>
-    <p>At Leads Community School, we value a strong, vibrant community that supports students, parents, and staff. We regularly organize events, workshops, and social activities to foster collaboration and growth.</p>
-    <p>Through partnerships, student clubs, and volunteer programs, our students experience a holistic education that extends beyond the classroom.</p>
-  </div>
-  <div class="image">
-    <img src="community-hero.jpg" alt="Community Events">
-  </div>
+
+<div class="text">
+<h1>Our School Community</h1>
+<p>Leads Community School believes education grows stronger through partnership. Our community connects students, parents, teachers, alumni and neighbors.</p>
+
+<p>We organize programs that develop leadership, discipline, teamwork and creativity.</p>
+</div>
+
+<div class="image">
+<img src="community-hero.jpg">
+</div>
+
 </section>
 
-<!-- Community Activities Section -->
 <section class="section-container">
-  <h2>Community Activities</h2>
-  <p>We organize a variety of community-focused activities, including:</p>
-  <ul>
-    <li>Annual cultural and sports festivals</li>
-    <li>Student clubs and societies</li>
-    <li>Parent-teacher workshops and meetings</li>
-    <li>Environmental and social volunteer programs</li>
-    <li>Alumni networking events</li>
-  </ul>
+
+<h2>Community Activities</h2>
+
+<ul>
+<li>Cultural & Sports Festivals</li>
+<li>Student Clubs</li>
+<li>Parent Workshops</li>
+<li>Volunteer Programs</li>
+<li>Leadership Training</li>
+<li>Career Guidance</li>
+<li>Alumni Engagement</li>
+</ul>
+
 </section>
 
-<!-- Community Gallery -->
+<div class="highlights">
+
+<div class="highlight">Student Leadership</div>
+<div class="highlight">Parent Engagement</div>
+<div class="highlight">Community Service</div>
+<div class="highlight">Academic Excellence</div>
+
+</div>
+
 <section class="gallery">
-  <img src="community1.jpg" alt="Event 1">
-  <img src="community2.jpg" alt="Event 2">
-  <img src="community3.jpg" alt="Event 3">
-  <img src="community4.jpg" alt="Event 4">
+
+<img src="community1.jpg">
+<img src="community2.jpg">
+<img src="community3.jpg">
+<img src="community4.jpg">
+
 </section>
 
-<!-- Footer -->
+<div class="cta">
+<h2>Join Our Growing Community</h2>
+<p>Be part of a school that shapes tomorrow’s leaders.</p>
+<button onclick="location.href='admissions.html'">Apply Now</button>
+</div>
+
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a>
-  </p>
+
+<p>© 2026 Leads Community School</p>
+
+<p>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a>
+</p>
+
 </footer>
 
 </body>
