@@ -4,261 +4,296 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>News & Events - Leads Community School</title>
+
 <style>
+
+/* ===== RESET ===== */
+*{box-sizing:border-box}
+
 /* ===== General ===== */
 body, html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f7fa;
-  color: #004d26;
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+background:#f5f7fa;
+color:#004d26;
 }
 
 /* ===== Top Green Bar ===== */
 .top-green {
-  background: #004d26;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
+background:#004d26;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+flex-wrap:wrap;
 }
 
-.top-green .top-links a {
-  color: #ffcc00;
-  margin-right: 15px;
-  text-decoration: none;
-  font-weight: bold;
+.top-links a{
+color:#ffcc00;
+margin-right:15px;
+font-weight:bold;
+text-decoration:none;
 }
 
-.top-green input[type="text"] {
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: none;
+.top-green input{
+padding:7px 12px;
+border-radius:6px;
+border:none;
+outline:none;
 }
 
 /* ===== Header ===== */
-.main-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #ffcc00;
-  border-bottom: 2px solid #004d26;
-  flex-wrap: wrap;
+.main-header{
+background:#ffcc00;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+border-bottom:4px solid #004d26;
 }
 
-.main-header .logo-area span {
-  font-weight: bold;
-  color: #004d26;
-  margin-left: 10px;
+/* LOGO BOX */
+
+.logo-area{
+display:flex;
+align-items:center;
+gap:12px;
+background:#fff;
+padding:10px 15px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,.2);
 }
 
-.main-nav a {
-  margin-left: 15px;
-  text-decoration: none;
-  color: #004d26;
-  font-weight: bold;
+.logo-area img{
+width:55px;
 }
 
-.main-nav a:hover {
-  color: #002013;
+.logo-area span{
+font-weight:bold;
+font-size:18px;
 }
 
-/* ===== Hero Section ===== */
-.hero {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 30px 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  text-align: center;
+/* NAV */
+
+.main-nav a{
+margin-left:15px;
+text-decoration:none;
+font-weight:bold;
+color:#004d26;
 }
 
-.hero h1 {
-  font-size: 2.2rem;
-  color: #004d26;
-  margin-bottom: 15px;
+.main-nav a:hover{color:#002013}
+
+/* HERO */
+
+.hero{
+max-width:1100px;
+margin:40px auto;
+padding:40px 25px;
+background:url("news-hero.jpg") center/cover no-repeat;
+border-radius:15px;
+text-align:center;
+box-shadow:0 6px 25px rgba(0,0,0,.2);
+animation:fade 2s;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  color: #004d26;
-  line-height: 1.6;
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1}
 }
 
-/* ===== News & Events Section ===== */
-.section-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  padding: 20px;
-  background: #fff;
-  border-left: 6px solid #ffcc00;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.hero h1{
+font-size:2.3rem;
+background:rgba(255,255,255,.9);
+display:inline-block;
+padding:10px 20px;
+border-radius:8px;
 }
 
-.section-container h2 {
-  color: #004d26;
-  margin-bottom: 15px;
+.hero p{
+background:rgba(255,255,255,.9);
+padding:10px;
+border-radius:8px;
+margin-top:10px;
 }
 
-/* ===== News List ===== */
-.news-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* SECTION */
+
+.section-container{
+max-width:1100px;
+margin:30px auto;
+padding:25px;
+background:#fff;
+border-left:6px solid #ffcc00;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
 }
 
-.news-item {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: #f9f9f9;
-  border-left: 4px solid #ffcc00;
-  border-radius: 8px;
-  padding: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* NEWS */
+
+.news-list{
+display:flex;
+flex-direction:column;
+gap:25px;
 }
 
-.news-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.news-item{
+display:flex;
+gap:20px;
+background:#fafafa;
+padding:18px;
+border-radius:12px;
+border-left:5px solid #ffcc00;
+transition:.3s;
 }
 
-.news-item img {
-  width: 250px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
+.news-item:hover{
+transform:translateY(-5px);
+box-shadow:0 8px 25px rgba(0,0,0,.2);
 }
 
-.news-content {
-  flex: 1;
+.news-item img{
+width:260px;
+height:160px;
+object-fit:cover;
+border-radius:10px;
+transition:.3s;
 }
 
-.news-content h3 {
-  margin: 0 0 10px 0;
-  color: #004d26;
+.news-item:hover img{transform:scale(1.05)}
+
+.news-content h3{margin-top:0}
+
+.date{
+font-size:13px;
+color:#888;
+margin-bottom:6px;
 }
 
-.news-content p {
-  margin: 0;
-  line-height: 1.5;
-  font-size: 1rem;
+.read-more{
+display:inline-block;
+margin-top:10px;
+background:#004d26;
+color:#ffcc00;
+padding:6px 15px;
+border-radius:6px;
+text-decoration:none;
+font-size:14px;
 }
 
-/* ===== Footer ===== */
-.footer {
-  background-color: #004d26;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+/* FOOTER */
+
+.footer{
+background:#002b16;
+color:#ffcc00;
+text-align:center;
+padding:30px 15px;
+margin-top:40px;
 }
 
-.footer a {
-  color: #ffcc00;
-  text-decoration: none;
-  margin: 0 5px;
+.footer a{
+color:#ffcc00;
+text-decoration:none;
+margin:0 6px;
 }
 
-.footer a:hover {
-  text-decoration: underline;
-}
+/* MOBILE */
 
-/* ===== Responsive ===== */
 @media(max-width:768px){
-  .news-item {
-    flex-direction: column;
-    align-items: center;
-  }
-  .news-item img {
-    width: 90%;
-    height: auto;
-  }
+.news-item{flex-direction:column;align-items:center}
+.news-item img{width:100%;height:auto}
+.main-nav{margin-top:15px}
 }
+
 </style>
 </head>
+
 <body>
 
-<!-- Top Green Bar -->
 <div class="top-green">
-  <div class="top-links">
-    <a href="index.html">Home</a>
-    <a href="student-login.html">Student Login</a>
-    <a href="parent-login.html">Parent Login</a>
-    <a href="staff-login.html">Staff Login</a>
-    <a href="email-login.html">Email Login</a>
-    <a href="careers.html">Careers</a>
-  </div>
-  <input type="text" placeholder="Search...">
+<div class="top-links">
+<a href="index.html">Home</a>
+<a href="student-login.html">Student Login</a>
+<a href="parent-login.html">Parent Login</a>
+<a href="staff-login.html">Staff Login</a>
+<a href="email-login.html">Email Login</a>
+<a href="careers.html">Careers</a>
+</div>
+<input type="text" placeholder="Search...">
 </div>
 
-<!-- Header -->
 <header class="main-header">
-  <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="Leads Community School Logo" width="50">
-    <span>Leads Community School</span>
-  </div>
-  <nav class="main-nav">
-    <a href="about.html">About Us</a>
-    <a href="academics.html">Academics</a>
-    <a href="admissions.html">Admissions</a>
-    <a href="campus.html">Our Campus</a>
-    <a href="community.html">Community</a>
-    <a href="news-events.html">News & Events</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
+
+<div class="logo-area">
+<img src="IMG-20260129-WA0005.jpg">
+<span>Leads Community School</span>
+</div>
+
+<nav class="main-nav">
+<a href="about.html">About Us</a>
+<a href="academics.html">Academics</a>
+<a href="admissions.html">Admissions</a>
+<a href="campus.html">Our Campus</a>
+<a href="community.html">Community</a>
+<a href="news-events.html">News & Events</a>
+<a href="contact.html">Contact Us</a>
+</nav>
+
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
-  <h1>Latest News & Upcoming Events</h1>
-  <p>Stay updated with all the latest happenings at Leads Community School. From academic achievements to social events, we keep you informed.</p>
+<h1>Latest News & Events</h1>
+<p>Discover school achievements, programs and upcoming activities.</p>
 </section>
 
-<!-- News Section -->
 <section class="section-container">
-  <h2>News & Events</h2>
-  <div class="news-list">
-    <div class="news-item">
-      <img src="news1.jpg" alt="Science Fair">
-      <div class="news-content">
-        <h3>Annual Science Fair</h3>
-        <p>Our students showcased their innovative science projects at the Annual Science Fair held on 2026-02-10. Parents and community members attended and applauded their creativity.</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="news2.jpg" alt="Sports Day">
-      <div class="news-content">
-        <h3>Sports Day 2026</h3>
-        <p>Leads Community School Sports Day was held on 2026-03-01. Students competed in various sports and demonstrated teamwork, perseverance, and school spirit.</p>
-      </div>
-    </div>
-    <div class="news-item">
-      <img src="news3.jpg" alt="Library Opening">
-      <div class="news-content">
-        <h3>New Library Opening</h3>
-        <p>We inaugurated our new library with modern facilities to encourage reading and research. Students now have access to a wide range of books and digital resources.</p>
-      </div>
-    </div>
-  </div>
+
+<h2>School Updates</h2>
+
+<div class="news-list">
+
+<div class="news-item">
+<img src="news1.jpg">
+<div class="news-content">
+<div class="date">10 Feb 2026</div>
+<h3>Annual Science Fair</h3>
+<p>Students presented innovative science projects with creativity and teamwork.</p>
+<a class="read-more" href="#">Read More</a>
+</div>
+</div>
+
+<div class="news-item">
+<img src="news2.jpg">
+<div class="news-content">
+<div class="date">01 Mar 2026</div>
+<h3>Sports Day 2026</h3>
+<p>A colorful sports celebration promoting fitness, unity and leadership.</p>
+<a class="read-more" href="#">Read More</a>
+</div>
+</div>
+
+<div class="news-item">
+<img src="news3.jpg">
+<div class="news-content">
+<div class="date">18 Jan 2026</div>
+<h3>New Library Opening</h3>
+<p>Modern library launched to improve reading culture and academic excellence.</p>
+<a class="read-more" href="#">Read More</a>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
-  <p>&copy; 2026 Leads Community School. All Rights Reserved.</p>
-  <p>
-    <a href="index.html">Home</a> | 
-    <a href="about.html">About Us</a> | 
-    <a href="contact.html">Contact</a>
-  </p>
+<p>© 2026 Leads Community School</p>
+<p>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a>
+</p>
 </footer>
 
 </body>
