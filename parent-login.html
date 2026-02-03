@@ -7,165 +7,159 @@
 
 <style>
 body,html{
-  margin:0;
-  padding:0;
-  font-family:Arial,sans-serif;
-  background:#f2f2f2;
+margin:0;
+padding:0;
+font-family:Arial,sans-serif;
+background:#f2f2f2;
 }
 
 /* TOP BAR */
 .top-green{
-  background:#004d26;
-  color:#fff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:10px 20px;
+background:#004d26;
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
 }
 
 .top-links a{
-  color:#ffcc00;
-  margin-right:15px;
-  font-weight:bold;
-  text-decoration:none;
+color:#ffcc00;
+margin-right:15px;
+font-weight:bold;
+text-decoration:none;
 }
-
-.top-links a:hover{ color:#fff; }
 
 /* HEADER */
 .main-header{
-  background:#004d26;
-  border-bottom:5px solid #ffcc00;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
+background:#004d26;
+border-bottom:5px solid #ffcc00;
+padding:15px 20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
 }
 
 .logo-wrap{
-  display:flex;
-  align-items:center;
-  gap:15px;
-  text-decoration:none;
+display:flex;
+align-items:center;
+gap:15px;
+text-decoration:none;
 }
 
 .logo-wrap img{
-  width:70px;
-  background:#fff;
-  padding:5px;
-  border-radius:10px;
+width:70px;
+background:#fff;
+padding:5px;
+border-radius:10px;
 }
 
 .school-name h1{
-  margin:0;
-  color:#ffcc00;
-  font-size:22px;
+margin:0;
+color:#ffcc00;
+font-size:22px;
 }
 
 .school-name p{
-  margin:0;
-  color:#fff;
-  font-size:13px;
+margin:0;
+color:#fff;
+font-size:13px;
 }
 
 .main-nav a{
-  color:#ffcc00;
-  margin-left:15px;
-  font-weight:bold;
-  text-decoration:none;
+color:#ffcc00;
+margin-left:15px;
+font-weight:bold;
+text-decoration:none;
 }
-
-.main-nav a:hover{ color:#fff; }
 
 /* LOGIN SECTION */
 #login-section{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:80vh;
-  position:relative;
-  overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:80vh;
+position:relative;
+overflow:hidden;
 }
 
 #login-section .background{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: url('YOUR-IMAGE-HERE.jpg') center/cover no-repeat;
-  filter: brightness(0.5);
-  animation: zoom 20s infinite alternate;
-  z-index:0;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('IMG_1606.JPG') center/cover no-repeat;
+filter:brightness(0.5);
+animation:zoom 20s infinite alternate;
+z-index:0;
 }
 
-@keyframes zoom {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
+@keyframes zoom{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
 }
 
 .login-box{
-  position:relative;
-  z-index:1;
-  background:#fff;
-  padding:40px;
-  border-radius:15px;
-  width:350px;
-  text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
+position:relative;
+z-index:1;
+background:#fff;
+padding:40px;
+border-radius:15px;
+width:350px;
+text-align:center;
+box-shadow:0 10px 20px rgba(0,0,0,.3);
 }
 
-.login-box h2{
-  color:#004d26;
-}
+.login-box h2{color:#004d26;}
 
 .login-box input{
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border-radius:5px;
-  border:1px solid #ccc;
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
 .login-box button{
-  width:100%;
-  padding:12px;
-  background:#004d26;
-  color:#ffcc00;
-  border:2px solid #ffcc00;
-  font-weight:bold;
-  cursor:pointer;
+width:100%;
+padding:12px;
+background:#004d26;
+color:#ffcc00;
+border:2px solid #ffcc00;
+font-weight:bold;
+cursor:pointer;
 }
 
 /* DASHBOARD */
 #dashboard-section{display:none;}
 
 .dashboard{
-  display:flex;
-  flex-wrap:wrap;
-  gap:20px;
-  justify-content:center;
-  padding:30px;
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+padding:30px;
 }
 
 .card{
-  background:#ffcc00;
-  color:#004d26;
-  width:220px;
-  padding:20px;
-  border-radius:10px;
-  border:2px solid #004d26;
-  text-align:center;
-  font-weight:bold;
+background:#ffcc00;
+color:#004d26;
+width:220px;
+padding:20px;
+border-radius:10px;
+border:2px solid #004d26;
+text-align:center;
+font-weight:bold;
 }
 
 .section-container{
-  background:#fff;
-  margin:20px;
-  padding:20px;
-  border-radius:10px;
+background:#fff;
+margin:20px;
+padding:20px;
+border-radius:10px;
 }
 
 /* TABLE */
@@ -175,64 +169,61 @@ td{border:1px solid #004d26;padding:10px;}
 
 /* FOOTER */
 .footer{
-  background:#004d26;
-  color:#ffcc00;
-  text-align:center;
-  padding:20px;
-  border-top:5px solid #ffcc00;
+background:#004d26;
+color:#ffcc00;
+text-align:center;
+padding:20px;
+border-top:5px solid #ffcc00;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .logo-wrap{flex-direction:column;text-align:center;}
-  .card{width:90%;}
+.logo-wrap{flex-direction:column;text-align:center;}
+.card{width:90%;}
 }
 </style>
 
-<!-- FIREBASE -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
-  import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
-    authDomain: "leads-community-school.firebaseapp.com",
-    projectId: "leads-community-school",
-    storageBucket: "leads-community-school.appspot.com",
-    messagingSenderId: "862968562597",
-    appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
-  };
+const firebaseConfig={
+apiKey:"AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+authDomain:"leads-community-school.firebaseapp.com",
+projectId:"leads-community-school",
+storageBucket:"leads-community-school.appspot.com",
+messagingSenderId:"862968562597",
+appId:"1:862968562597:web:1cf258466bb299a5cc1e4c"
+};
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
 
-  window.login = function(e){
-    e.preventDefault();
-    const email = document.getElementById("parent").value;
-    const password = document.getElementById("pass").value;
+window.login=function(e){
+e.preventDefault();
+signInWithEmailAndPassword(auth,parent.value,pass.value)
+.then(()=>{
+login-section.style.display="none";
+dashboard-section.style.display="block";
+homeLink.style.display="inline";
+alert("Welcome Parent!");
+})
+.catch(err=>alert(err.message));
+}
 
-    signInWithEmailAndPassword(auth,email,password)
-    .then(userCredential=>{
-      document.getElementById("login-section").style.display="none";
-      document.getElementById("dashboard-section").style.display="block";
-      document.getElementById("homeLink").style.display="inline";
-      alert("Welcome Parent!");
-    })
-    .catch(error=>{ alert("Login failed: " + error.message); });
-  }
+window.logout=function(){signOut(auth).then(()=>location.reload());}
 
-  window.logout = function(){ signOut(auth).then(()=>location.reload()); }
-
-  onAuthStateChanged(auth,(user)=>{
-    if(user){
-      document.getElementById("login-section").style.display="none";
-      document.getElementById("dashboard-section").style.display="block";
-      document.getElementById("homeLink").style.display="inline";
-    }
-  });
+onAuthStateChanged(auth,user=>{
+if(user){
+login-section.style.display="none";
+dashboard-section.style.display="block";
+homeLink.style.display="inline";
+}
+});
 </script>
 
 </head>
+
 <body>
 
 <div class="top-green">
@@ -264,21 +255,21 @@ td{border:1px solid #004d26;padding:10px;}
 </nav>
 </header>
 
-<!-- LOGIN SECTION -->
 <section id="login-section">
-  <div class="background"></div> <!-- Replace image here -->
-  <div class="login-box">
-    <h2>Parent Login</h2>
-    <form onsubmit="login(event)">
-      <input type="email" id="parent" placeholder="Parent Email" required>
-      <input type="password" id="pass" placeholder="Password" required>
-      <button>Login</button>
-    </form>
-  </div>
+<div class="background"></div>
+
+<div class="login-box">
+<h2>Parent Login</h2>
+<form onsubmit="login(event)">
+<input id="parent" type="email" placeholder="Parent Email" required>
+<input id="pass" type="password" placeholder="Password" required>
+<button>Login</button>
+</form>
+</div>
 </section>
 
-<!-- DASHBOARD SECTION -->
 <section id="dashboard-section">
+
 <div class="dashboard" id="dashboard">
 <div class="card">Attendance</div>
 <div class="card">Timetable</div>
@@ -314,6 +305,7 @@ td{border:1px solid #004d26;padding:10px;}
 <tr><td>Science</td><td>A-</td></tr>
 </table>
 </div>
+
 </section>
 
 <footer class="footer">
