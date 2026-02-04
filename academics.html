@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academics - Leads Community School</title>
+<title>Leads Community School | Home</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{box-sizing:border-box}
 
 body{
@@ -26,6 +25,7 @@ padding:10px 20px;
 display:flex;
 justify-content:space-between;
 flex-wrap:wrap;
+align-items:center;
 }
 
 .top-links a{
@@ -33,10 +33,11 @@ color:#ffcc00;
 margin-right:12px;
 text-decoration:none;
 font-weight:600;
+font-size:.9rem;
 }
 
 .top-green input{
-padding:6px 10px;
+padding:6px 12px;
 border-radius:20px;
 border:none;
 }
@@ -82,102 +83,111 @@ font-weight:600;
 
 /* HERO */
 .hero{
-max-width:1100px;
-margin:40px auto;
-background:white;
-border-radius:15px;
-padding:30px;
-display:flex;
-gap:30px;
-align-items:center;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
-animation:slideUp 1s;
+position:relative;
+height:75vh;
+overflow:hidden;
 }
 
-.hero img{width:100%;border-radius:12px}
+.hero-slide{
+position:absolute;
+top:0;left:0;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:opacity 1.5s;
+}
 
-@keyframes slideUp{
+.hero-slide.active{opacity:1}
+
+.hero-overlay{
+position:absolute;
+top:0;left:0;
+width:100%;
+height:100%;
+background:rgba(0,77,38,.65);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+padding:20px;
+}
+
+.hero-content{
+max-width:800px;
+animation:fadeUp 1.5s;
+}
+
+.hero-content h1{
+font-size:2.6rem;
+margin-bottom:15px;
+color:#ffcc00;
+}
+
+.hero-content p{
+font-size:1.1rem;
+line-height:1.7;
+}
+
+.hero-content a{
+display:inline-block;
+margin-top:25px;
+background:#ffcc00;
+color:#004d26;
+padding:14px 30px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+}
+
+@keyframes fadeUp{
 from{opacity:0;transform:translateY(40px)}
 to{opacity:1}
 }
 
 /* SECTION */
-.section-container{
+.section{
 max-width:1100px;
-margin:25px auto;
+margin:50px auto;
 background:white;
-padding:25px;
-border-radius:12px;
-border-left:6px solid #ffcc00;
-box-shadow:0 6px 15px rgba(0,0,0,.08);
+padding:30px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
 }
 
-/* HIGHLIGHTS */
-.highlights{
+/* WHY US */
+.features{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:20px;
-text-align:center;
 }
 
-.highlight-card{
+.feature{
 background:#004d26;
 color:white;
 padding:25px;
 border-radius:12px;
-font-weight:600;
-transition:.3s;
-}
-
-.highlight-card:hover{
-transform:translateY(-6px);
-}
-
-/* SUBJECTS */
-.subjects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:15px;
-}
-
-.subject-card{
-background:#ffcc00;
-padding:20px;
-border-radius:12px;
 text-align:center;
 font-weight:600;
-transition:.3s;
 }
 
-.subject-card:hover{
-transform:translateY(-6px);
+/* CTA */
+.cta{
+background:#ffcc00;
+padding:50px 20px;
+text-align:center;
 }
 
-/* LEVELS */
-.levels{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-}
-
-.level{
+.cta h2{margin-bottom:10px}
+.cta a{
 background:#004d26;
 color:white;
-padding:20px;
-border-radius:12px;
-text-align:center;
-}
-
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:12px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
 }
 
 /* FOOTER */
@@ -203,27 +213,27 @@ text-decoration:none;
 
 /* MOBILE */
 @media(max-width:768px){
-.hero{flex-direction:column}
+.hero-content h1{font-size:1.8rem}
 }
 </style>
 </head>
 
 <body>
 
+<!-- TOP BAR -->
 <div class="top-green">
 <div class="top-links">
-<a href="index.html">Home</a>
 <a href="student-login.html">Student Login</a>
 <a href="parent-login.html">Parent Login</a>
 <a href="staff-login.html">Staff Login</a>
-<a href="email-login.html">Email Login</a>
+<a href="email-login.html">Email</a>
 <a href="careers.html">Careers</a>
 </div>
 <input placeholder="Search...">
 </div>
 
+<!-- HEADER -->
 <header class="main-header">
-
 <div class="logo-area">
 <img src="IMG-20260129-WA0005.jpg">
 <div>
@@ -233,82 +243,52 @@ text-decoration:none;
 </div>
 
 <nav class="main-nav">
+<a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="academics.html">Academics</a>
 <a href="admissions.html">Admissions</a>
 <a href="campus.html">Campus</a>
-<a href="community.html">Community</a>
 <a href="news-events.html">News</a>
 <a href="contact.html">Contact</a>
 </nav>
-
 </header>
 
+<!-- HERO SLIDER -->
 <section class="hero">
+<div class="hero-slide active" style="background-image:url('slide1.jpg')"></div>
+<div class="hero-slide" style="background-image:url('slide2.jpg')"></div>
+<div class="hero-slide" style="background-image:url('slide3.jpg')"></div>
+<div class="hero-slide" style="background-image:url('slide4.jpg')"></div>
 
-<div>
-<h1>Our Academic Programs</h1>
-<p>At Leads Community School, we offer a wide range of academic programs aligned with GES standards while nurturing creativity, leadership, and critical thinking.</p>
-<p>We focus on quality education and holistic student growth in small, personalized classes.</p>
+<div class="hero-overlay">
+<div class="hero-content">
+<h1>Raising Confident Minds. Shaping Future Leaders.</h1>
+<p>
+At Leads Community School, we do more than teach lessons.  
+We nurture discipline, confidence, creativity, and excellence —  
+preparing every child for a future filled with purpose and success.
+</p>
+<a href="admissions.html">Begin Your Child’s Journey</a>
 </div>
-
-<img src="classroom.jpg">
-
+</div>
 </section>
 
-<section class="section-container">
-
-<h2>Academic Highlights</h2>
-
-<div class="highlights">
-<div class="highlight-card">Small, Personalized Classes</div>
-<div class="highlight-card">Dedicated & Caring Staff</div>
-<div class="highlight-card">Modern Learning Environment</div>
-<div class="highlight-card">Holistic & Creative Programs</div>
+<!-- WHY CHOOSE US -->
+<section class="section">
+<h2 style="text-align:center">Why Parents Trust Leads Community School</h2>
+<div class="features">
+<div class="feature">Safe & Disciplined Learning Environment</div>
+<div class="feature">Qualified & Caring Teachers</div>
+<div class="feature">Strong Academic Foundation</div>
+<div class="feature">Moral Values & Leadership Training</div>
 </div>
-
 </section>
 
-<section class="section-container">
-<h2>Core Subjects</h2>
-
-<div class="subjects">
-<div class="subject-card">Mathematics</div>
-<div class="subject-card">English Language</div>
-<div class="subject-card">Science</div>
-<div class="subject-card">Social Studies</div>
-<div class="subject-card">ICT</div>
-<div class="subject-card">French</div>
-</div>
-
-</section>
-
-<section class="section-container">
-<h2>Program Levels</h2>
-
-<div class="levels">
-<div class="level">Kindergarten</div>
-<div class="level">Primary School</div>
-<div class="level">Junior High School</div>
-</div>
-
-</section>
-
-<section class="section-container">
-<h2>Extracurricular Activities</h2>
-<p>Sports, arts, robotics, music, and leadership programs support holistic growth and skill development for every student.</p>
-</section>
-
-<section class="section-container">
-<h2>Academic Gallery</h2>
-
-<div class="gallery">
-<img src="gallery1.jpg">
-<img src="gallery2.jpg">
-<img src="gallery3.jpg">
-<img src="gallery4.jpg">
-</div>
-
+<!-- CTA -->
+<section class="cta">
+<h2>Your Child’s Future Starts Here</h2>
+<p>Give your child quality education, strong values, and a supportive community.</p>
+<a href="contact.html">Talk to Us Today</a>
 </section>
 
 <footer class="footer">
@@ -316,6 +296,16 @@ text-decoration:none;
 </footer>
 
 <a class="whatsapp" href="https://wa.me/233539566710">💬</a>
+
+<script>
+let slides=document.querySelectorAll('.hero-slide');
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},4000);
+</script>
 
 </body>
 </html>
