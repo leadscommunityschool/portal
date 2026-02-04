@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Staff Login - Leads Community School</title>
+<title>Staff Portal | Leads Community School</title>
 
 <style>
 body,html{
@@ -18,7 +18,6 @@ body,html{
   background:#004d26;
   padding:10px 20px;
 }
-
 .top-links a{
   color:#ffcc00;
   margin-right:15px;
@@ -36,33 +35,30 @@ body,html{
   align-items:center;
   flex-wrap:wrap;
 }
-
 .logo-wrap{
   display:flex;
   align-items:center;
   gap:15px;
   text-decoration:none;
 }
-
 .logo-wrap img{
-  width:70px;
+  width:65px;
   background:#fff;
   padding:5px;
   border-radius:10px;
 }
-
 .school-name h1{
   margin:0;
   color:#ffcc00;
-  font-size:22px;
 }
-
 .school-name p{
   margin:0;
   color:#fff;
   font-size:13px;
 }
-
+.main-nav{
+  display:none;
+}
 .main-nav a{
   color:#ffcc00;
   margin-left:15px;
@@ -70,51 +66,47 @@ body,html{
   text-decoration:none;
 }
 
-/* LOGIN WITH BACKGROUND IMAGE */
+/* LOGIN */
 #login-section{
+  min-height:75vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  min-height:70vh;
-  background-image: url('TLCS.jpeg'); /* <-- ADD YOUR IMAGE HERE */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
+  background:url('TLCS.jpeg') center/cover no-repeat;
+  position:relative;
 }
-
 #login-section::before{
   content:"";
   position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.5); /* Dark overlay for better contrast */
-  z-index:0;
+  inset:0;
+  background:rgba(0,0,0,.55);
 }
-
 .login-box{
+  position:relative;
+  z-index:2;
   background:#fff;
-  padding:40px;
+  padding:45px;
+  width:370px;
   border-radius:15px;
-  width:350px;
   text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,.3);
-  position: relative;
-  z-index:1;
+  box-shadow:0 15px 30px rgba(0,0,0,.4);
 }
-
-.login-box h2{color:#004d26;}
-
+.login-box h2{
+  color:#004d26;
+  margin-bottom:5px;
+}
+.login-box p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:20px;
+}
 .login-box input{
   width:100%;
   padding:12px;
-  margin:10px 0;
-  border-radius:5px;
+  margin:12px 0;
+  border-radius:6px;
   border:1px solid #ccc;
 }
-
 .login-box button{
   width:100%;
   padding:12px;
@@ -124,39 +116,70 @@ body,html{
   font-weight:bold;
   cursor:pointer;
 }
+.login-box small{
+  display:block;
+  margin-top:10px;
+  color:#004d26;
+}
 
 /* DASHBOARD */
 #dashboard-section{display:none;}
-
 .dashboard{
   display:flex;
   flex-wrap:wrap;
   gap:20px;
   justify-content:center;
-  padding:30px;
+  padding:40px;
 }
-
 .card{
+  width:220px;
   background:#ffcc00;
   color:#004d26;
-  width:220px;
-  padding:20px;
-  border-radius:10px;
-  border:2px solid #004d26;
-  text-align:center;
+  padding:22px;
+  border-radius:12px;
   font-weight:bold;
+  text-align:center;
+  border:2px solid #004d26;
+  cursor:pointer;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
 }
 
-.section-container{
-  background:#fff;
-  margin:20px;
-  padding:20px;
-  border-radius:10px;
+/* ABOUT */
+#about-section{
+  position:relative;
+  min-height:60vh;
+  margin:40px;
+  border-radius:15px;
+  overflow:hidden;
 }
-
-table{width:100%;border-collapse:collapse;}
-th{background:#004d26;color:#ffcc00;padding:10px;}
-td{border:1px solid #004d26;padding:10px;}
+#about-section video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.4);
+}
+.about-content{
+  position:relative;
+  z-index:2;
+  color:#fff;
+  max-width:800px;
+  padding:40px;
+  text-align:center;
+}
+.about-content h2{
+  color:#ffcc00;
+  font-size:2.4rem;
+}
+.about-content p{
+  font-size:1.15rem;
+  line-height:1.8;
+}
 
 /* FOOTER */
 .footer{
@@ -164,109 +187,53 @@ td{border:1px solid #004d26;padding:10px;}
   color:#ffcc00;
   text-align:center;
   padding:20px;
-  border-top:5px solid #ffcc00;
-}
-
-/* ABOUT SECTION */
-#about-section{
-  position:relative;
-  min-height:60vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#fff;
-  text-align:center;
-  overflow:hidden;
-  margin-top:40px;
-  border-radius:15px;
-}
-#about-section video{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  z-index:0;
-  filter:brightness(0.5);
-}
-#about-section .about-content{
-  position:relative;
-  z-index:1;
-  max-width:800px;
-  padding:20px;
-}
-#about-section h2{
-  font-size:2.5rem;
-  margin-bottom:20px;
-  color:#ffcc00;
-}
-#about-section p{
-  font-size:1.2rem;
-  line-height:1.8;
 }
 </style>
 
-<!-- ===== FIREBASE ===== -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
 const firebaseConfig = {
-apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
-authDomain: "leads-community-school.firebaseapp.com",
-projectId: "leads-community-school",
-storageBucket: "leads-community-school.appspot.com",
-messagingSenderId: "862968562597",
-appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
+  apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+  authDomain: "leads-community-school.firebaseapp.com",
+  projectId: "leads-community-school",
+  storageBucket: "leads-community-school.appspot.com",
+  messagingSenderId: "862968562597",
+  appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// STAFF LOGIN
 window.login = function(e){
-e.preventDefault();
-const email = document.getElementById("staff").value;
-const password = document.getElementById("pass").value;
-signInWithEmailAndPassword(auth, email, password)
-.then(()=>{
-document.getElementById("login-section").style.display="none";
-document.getElementById("dashboard-section").style.display="block";
-document.getElementById("homeLink").style.display="inline";
-alert("Welcome Staff!");
-})
-.catch(err=>{
-alert("Login failed: "+err.message);
-});
+  e.preventDefault();
+  signInWithEmailAndPassword(auth, staff.value, pass.value)
+  .catch(err=>alert(err.message));
 };
 
-// LOGOUT
 window.logout = function(){
-signOut(auth).then(()=>location.reload());
+  signOut(auth).then(()=>location.reload());
 };
 
-// AUTO LOGIN
 onAuthStateChanged(auth,user=>{
-if(user){
-document.getElementById("login-section").style.display="none";
-document.getElementById("dashboard-section").style.display="block";
-document.getElementById("homeLink").style.display="inline";
-}
+  if(user){
+    loginSection.style.display="none";
+    dashboardSection.style.display="block";
+    document.querySelector(".main-nav").style.display="block";
+  }
 });
 </script>
-
 </head>
 
 <body>
 
 <div class="top-green">
 <div class="top-links">
-<a href="index.html" id="homeLink" style="display:none;">Home</a>
+<a href="index.html">Home</a>
 <a href="student-login.html">Student</a>
 <a href="parent-login.html">Parent</a>
 <a href="#">Staff</a>
-<a href="email-login.html">Email</a>
 </div>
 </div>
 
@@ -278,37 +245,38 @@ document.getElementById("homeLink").style.display="inline";
 <p>Training Tomorrow’s Leaders Today</p>
 </div>
 </a>
-
 <nav class="main-nav">
 <a href="#dashboard">Dashboard</a>
-<a href="#classes">Classes</a>
-<a href="#attendance">Attendance</a>
-<a href="#reports">Reports</a>
+<a href="#">Classes</a>
+<a href="#">Attendance</a>
+<a href="#">Reports</a>
 <a href="#" onclick="logout()">Logout</a>
 </nav>
 </header>
 
-<!-- LOGIN SECTION WITH IMAGE BACKGROUND -->
 <section id="login-section">
 <div class="login-box">
-<h2>Staff Login</h2>
+<h2>Staff Portal</h2>
+<p>Empowering educators to inspire, guide, and shape tomorrow’s leaders.</p>
 <form onsubmit="login(event)">
-<input type="email" id="staff" placeholder="Staff Email" required>
-<input type="password" id="pass" placeholder="Password" required>
+<input id="staff" type="email" placeholder="Staff Email" required>
+<input id="pass" type="password" placeholder="Password" required>
 <button>Login</button>
 </form>
+<small>For access issues, contact the school ICT office</small>
 </div>
 </section>
 
-<!-- ABOUT SECTION WITH VIDEO BACKGROUND -->
 <section id="about-section">
 <video autoplay muted loop playsinline>
 <source src="tcs video.mp4" type="video/mp4">
-Your browser does not support the video tag.
 </video>
 <div class="about-content">
-<h2>About Leads Community School</h2>
-<p>Leads Community School is dedicated to providing quality education that develops character, creativity, and confidence in every student. Our staff work tirelessly to ensure that learning is fun, engaging, and impactful.</p>
+<h2>Our Mission</h2>
+<p>
+At Leads Community School, our staff are mentors, innovators, and leaders.
+Together, we build confident learners, strong character, and a future driven by purpose.
+</p>
 </div>
 </section>
 
