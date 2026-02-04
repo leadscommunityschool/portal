@@ -61,7 +61,6 @@ body{
   height:55px;
   border-radius:50%;
   border:3px solid #004d26;
-  object-fit:cover;
 }
 .school-name{
   font-size:1.3rem;
@@ -88,7 +87,7 @@ body{
   margin:40px auto;
   background:white;
   border-radius:15px;
-  padding:30px;
+  padding:35px;
   display:flex;
   gap:30px;
   align-items:center;
@@ -99,7 +98,10 @@ body{
 .hero .text{flex:1;}
 .hero .image{flex:1;text-align:center;}
 .hero img{width:100%; border-radius:12px;}
-@keyframes slideUp{from{opacity:0;transform:translateY(40px);} to{opacity:1;}}
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(40px);}
+  to{opacity:1;}
+}
 
 /* SECTIONS */
 .section-container{
@@ -111,26 +113,29 @@ body{
   border-radius:12px;
   box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
-.section-container h2{color:#004d26; margin-bottom:15px;}
-.section-container p, .section-container ul{line-height:1.6; font-size:1rem;}
+.section-container h2{margin-bottom:15px;}
+.section-container p, .section-container ul{
+  line-height:1.7;
+  font-size:1rem;
+}
 .section-container ul{padding-left:20px;}
 
-/* HIGHLIGHTS CARDS */
+/* HIGHLIGHTS */
 .highlights{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:20px;
   max-width:1100px;
-  margin:30px auto;
+  margin:35px auto;
   text-align:center;
 }
 .highlight{
   background:#004d26;
   color:white;
-  padding:20px;
+  padding:22px;
   border-radius:12px;
   font-weight:600;
-  transition:transform 0.3s, box-shadow 0.3s;
+  transition:.3s;
 }
 .highlight:hover{
   transform:translateY(-6px);
@@ -158,17 +163,19 @@ body{
   background:#004d26;
   color:white;
   text-align:center;
-  padding:40px 20px;
+  padding:45px 20px;
   margin-top:50px;
   border-radius:12px;
 }
+.cta h2{margin-top:0;}
+.cta p{max-width:700px;margin:0 auto;}
 .cta button{
-  margin-top:15px;
-  padding:12px 25px;
+  margin-top:18px;
+  padding:14px 30px;
   background:#ffcc00;
   border:none;
-  font-weight:bold;
-  border-radius:8px;
+  font-weight:700;
+  border-radius:30px;
   cursor:pointer;
 }
 
@@ -203,7 +210,6 @@ body{
 @media(max-width:768px){
   .hero{flex-direction:column;}
   .main-nav{margin-top:10px;}
-  .gallery img{height:150px;}
 }
 </style>
 </head>
@@ -243,9 +249,16 @@ body{
 <!-- HERO -->
 <section class="hero">
   <div class="text">
-    <h1>Our School Community</h1>
-    <p>Leads Community School believes education grows stronger through partnership. Our community connects students, parents, teachers, alumni, and neighbors.</p>
-    <p>We organize programs that develop leadership, discipline, teamwork, and creativity.</p>
+    <h1>A Community That Cares, Supports, and Inspires</h1>
+    <p>
+      At Leads Community School, education goes beyond textbooks and classrooms.
+      We believe strong partnerships between students, parents, teachers, and the wider
+      community create confident learners and responsible leaders.
+    </p>
+    <p>
+      Together, we build character, nurture talents, and prepare our learners
+      to make meaningful contributions to society.
+    </p>
   </div>
   <div class="image">
     <img src="community-hero.jpg" alt="School Community">
@@ -254,42 +267,47 @@ body{
 
 <!-- COMMUNITY ACTIVITIES -->
 <section class="section-container">
-  <h2>Community Activities</h2>
+  <h2>Life Beyond the Classroom</h2>
+  <p>
+    Our community programs are designed to develop leadership, teamwork,
+    creativity, and social responsibility in every learner.
+  </p>
   <ul>
-    <li>Cultural & Sports Festivals</li>
-    <li>Student Clubs</li>
-    <li>Parent Workshops</li>
-    <li>Volunteer Programs</li>
-    <li>Leadership Training</li>
-    <li>Career Guidance</li>
-    <li>Alumni Engagement</li>
+    <li>Cultural Celebrations & Sports Festivals</li>
+    <li>Student Clubs & Leadership Groups</li>
+    <li>Parent Engagement & Educational Workshops</li>
+    <li>Community Outreach & Volunteer Programs</li>
+    <li>Career Guidance & Mentorship</li>
+    <li>Alumni Networking & Inspiration Talks</li>
   </ul>
 </section>
 
 <!-- HIGHLIGHTS -->
 <div class="highlights">
-  <div class="highlight">Student Leadership</div>
-  <div class="highlight">Parent Engagement</div>
-  <div class="highlight">Community Service</div>
-  <div class="highlight">Academic Excellence</div>
+  <div class="highlight">Leadership Development</div>
+  <div class="highlight">Strong Parent Partnership</div>
+  <div class="highlight">Service to the Community</div>
+  <div class="highlight">A Culture of Excellence</div>
 </div>
 
 <!-- GALLERY -->
 <section class="gallery">
-  <img src="community1.jpg" alt="">
-  <img src="community2.jpg" alt="">
-  <img src="community3.jpg" alt="">
-  <img src="community4.jpg" alt="">
+  <img src="community1.jpg" alt="Community Activity">
+  <img src="community2.jpg" alt="School Event">
+  <img src="community3.jpg" alt="Student Engagement">
+  <img src="community4.jpg" alt="Parent Involvement">
 </section>
 
 <!-- CTA -->
 <div class="cta">
-  <h2>Join Our Growing Community</h2>
-  <p>Be part of a school that shapes tomorrow’s leaders.</p>
-  <button onclick="location.href='admissions.html'">Apply Now</button>
+  <h2>Become Part of the Leads Family</h2>
+  <p>
+    When you join Leads Community School, you join a family that believes in
+    your child’s potential and walks every step of the journey with you.
+  </p>
+  <button onclick="location.href='admissions.html'">Join Our Community</button>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 Leads Community School</p>
   <p>
