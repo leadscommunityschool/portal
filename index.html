@@ -14,7 +14,12 @@
       --white:#ffffff;
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
 
     body { color:#333; }
 
@@ -36,17 +41,13 @@
       gap:10px;
     }
 
-    .logo img {
-      height:45px;
-    }
+    .logo img { height:45px; }
 
     .logo span {
       color:var(--rich-yellow);
       font-weight:700;
       font-size:18px;
     }
-
-    nav { display:flex; align-items:center; }
 
     nav a {
       color:#fff;
@@ -64,6 +65,7 @@
       border-radius:20px;
       margin-left:20px;
       font-weight:600;
+      text-decoration:none;
     }
 
     /* LOGIN DROPDOWN */
@@ -72,8 +74,8 @@
     .dropdown-content {
       display:none;
       position:absolute;
-      background:#fff;
       right:0;
+      background:#fff;
       min-width:180px;
       box-shadow:0 10px 30px rgba(0,0,0,.1);
     }
@@ -88,12 +90,15 @@
     .dropdown:hover .dropdown-content { display:block; }
 
     /* HERO */
-    .hero { height:90vh; position:relative; overflow:hidden; }
+    .hero {
+      height:90vh;
+      position:relative;
+      overflow:hidden;
+    }
 
     .slide {
       position:absolute;
-      width:100%;
-      height:100%;
+      inset:0;
       background-size:cover;
       background-position:center;
       opacity:0;
@@ -113,7 +118,7 @@
     }
 
     .overlay {
-      background:rgba(11,61,46,.75);
+      background:rgba(11,61,46,.78);
       position:absolute;
       inset:0;
       display:flex;
@@ -123,30 +128,31 @@
       padding:20px;
     }
 
-    .hero-text { color:#fff; max-width:850px; }
+    .hero-text {
+      color:#fff;
+      max-width:900px;
+    }
 
     .hero-text h2 {
-      font-size:48px;
+      font-size:50px;
       margin-bottom:20px;
     }
 
     .hero-text p {
-      font-size:18px;
+      font-size:19px;
       margin-bottom:30px;
     }
 
-    /* SECTIONS */
     section { padding:80px 60px; }
 
     .center { text-align:center; }
 
     h3 {
       color:var(--dark-green);
-      font-size:34px;
+      font-size:36px;
       margin-bottom:15px;
     }
 
-    /* CARDS */
     .cards {
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -157,8 +163,21 @@
     .card {
       background:#fff;
       padding:30px;
-      border-left:5px solid var(--rich-yellow);
+      border-left:6px solid var(--rich-yellow);
       box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    /* PORTALS */
+    .portals {
+      background:#f9f9f9;
+    }
+
+    .portal-box {
+      text-align:center;
+      padding:30px;
+      border-radius:10px;
+      background:#fff;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
     }
 
     /* CTA */
@@ -247,13 +266,13 @@
 
   <div class="overlay">
     <div class="hero-text">
-      <h2>Educating Today. Leading Tomorrow.</h2>
+      <h2>Building Bright Minds. Shaping Strong Futures.</h2>
       <p>
-        We nurture confident learners, strong character,
-        and future leaders through quality education,
-        discipline, and care.
+        At Leads Community School, we do more than teach.
+        We inspire confidence, nurture discipline, and prepare every child
+        to rise, lead, and succeed in a changing world.
       </p>
-      <a href="admissions.html" class="btn">Apply for Admission</a>
+      <a href="admissions.html" class="btn">Begin Your Child’s Journey</a>
     </div>
   </div>
 </section>
@@ -261,40 +280,65 @@
 <!-- WHY US -->
 <section>
   <div class="center">
-    <h3>Why Parents Trust Us</h3>
+    <h3>Why Families Choose Leads</h3>
+    <p>Because your child deserves more than just education.</p>
   </div>
 
   <div class="cards">
     <div class="card">
-      <h4>Quality Education</h4>
-      <p>Strong academic foundation delivered by passionate and qualified teachers.</p>
+      <h4>Academic Excellence</h4>
+      <p>Strong foundations built through modern teaching, dedication, and consistent support.</p>
     </div>
 
     <div class="card">
-      <h4>Safe & Caring Environment</h4>
-      <p>A disciplined and supportive atmosphere where every child is valued.</p>
+      <h4>Values & Discipline</h4>
+      <p>We instill respect, integrity, responsibility, and confidence in every learner.</p>
     </div>
 
     <div class="card">
-      <h4>Character & Leadership</h4>
-      <p>We develop confidence, responsibility, and leadership from an early age.</p>
+      <h4>Leadership Development</h4>
+      <p>Our students grow into confident speakers, thinkers, and future leaders.</p>
     </div>
 
     <div class="card">
-      <h4>Individual Attention</h4>
-      <p>Every child is guided and encouraged to reach full potential.</p>
+      <h4>Personal Attention</h4>
+      <p>No child is left behind. Every learner is seen, guided, and encouraged.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTALS -->
+<section class="portals">
+  <div class="center">
+    <h3>Quick Access Portals</h3>
+  </div>
+
+  <div class="cards">
+    <div class="portal-box">
+      <h4>Student Portal</h4>
+      <a href="login-student.html" class="btn">Login</a>
+    </div>
+
+    <div class="portal-box">
+      <h4>Parent Portal</h4>
+      <a href="login-parent.html" class="btn">Login</a>
+    </div>
+
+    <div class="portal-box">
+      <h4>Staff Portal</h4>
+      <a href="login-staff.html" class="btn">Login</a>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta">
-  <h3>Your Child’s Future Starts Here</h3>
+  <h3>Your Child’s Future Starts Today</h3>
   <p>
-    Give your child the gift of knowledge, values,
-    and confidence in a community that believes in success.
+    Join a community committed to excellence, values,
+    and lifelong success.
   </p>
-  <a href="admissions.html" class="btn">Start Admission</a>
+  <a href="admissions.html" class="btn">Apply for Admission</a>
 </section>
 
 <!-- FOOTER -->
