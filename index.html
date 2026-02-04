@@ -87,8 +87,9 @@
       margin:0;
     }
 
-    .dropdown:hover .dropdown-content { display:block; }
-
+.dropdown-content.show {
+  display:block;
+}
     /* HERO */
     .hero {
       height:90vh;
@@ -245,7 +246,7 @@
     <a href="contact.html">Contact</a>
 
     <div class="dropdown">
-      <a href="#">Login ▾</a>
+      <a href="#" onclick="toggleDropdown(event)">Login ▾</a>
       <div class="dropdown-content">
         <a href="login-student.html">Student Login</a>
         <a href="login-parent.html">Parent Login</a>
@@ -375,6 +376,20 @@
     © 2026 Leads Community School. All Rights Reserved.
   </div>
 </footer>
+<script>
+  function toggleDropdown(e){
+    e.preventDefault();
+    document.querySelector('.dropdown-content').classList.toggle('show');
+  }
+
+  // close when clicking outside
+  document.addEventListener('click', function(e){
+    const dropdown = document.querySelector('.dropdown');
+    if (!dropdown.contains(e.target)) {
+      document.querySelector('.dropdown-content').classList.remove('show');
+    }
+  });
+</script>
 
 </body>
 </html>
