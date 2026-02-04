@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enquire Online | Leads Community School</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --dark-green:#0b3d2e;
+      --rich-yellow:#f4c430;
+      --white:#ffffff;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{background:#f7f7f7;color:#333;}
+
+    /* HEADER */
+    header{
+      background:var(--dark-green);
+      padding:15px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo img{height:45px;}
+    .logo span{color:var(--rich-yellow);font-weight:700;}
+
+    nav a{
+      color:#fff;
+      margin-left:20px;
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    nav a:hover{color:var(--rich-yellow);}
+
+    /* HERO */
+    .hero{
+      background:
+        linear-gradient(rgba(11,61,46,.85),rgba(11,61,46,.85)),
+        url("images/slide2.jpg") center/cover no-repeat;
+      color:#fff;
+      text-align:center;
+      padding:100px 20px;
+    }
+
+    .hero h1{
+      font-size:42px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:0 auto;
+      font-size:18px;
+    }
+
+    /* FORM */
+    .form-section{
+      max-width:900px;
+      background:#fff;
+      margin:-60px auto 80px;
+      padding:50px;
+      border-radius:15px;
+      box-shadow:0 15px 40px rgba(0,0,0,.1);
+    }
+
+    .form-section h2{
+      text-align:center;
+      color:var(--dark-green);
+      margin-bottom:10px;
+    }
+
+    .form-section p{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    form{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    input, select, textarea{
+      padding:14px;
+      border-radius:6px;
+      border:1px solid #ccc;
+      width:100%;
+      font-size:14px;
+    }
+
+    textarea{
+      grid-column:1/-1;
+      resize:none;
+      height:120px;
+    }
+
+    button{
+      grid-column:1/-1;
+      background:var(--rich-yellow);
+      color:var(--dark-green);
+      padding:14px;
+      font-weight:700;
+      border:none;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      opacity:.9;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#06271e;
+      color:#ccc;
+      text-align:center;
+      padding:30px 20px;
+      font-size:14px;
+    }
+
+    @media(max-width:768px){
+      header{padding:15px 20px;}
+      .hero h1{font-size:30px;}
+      .form-section{padding:30px;margin:-40px 15px 60px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="Leads Community School Logo">
+    <span>Leads Community School</span>
+  </div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Let’s Begin Your Child’s Journey</h1>
+  <p>
+    Take the first step toward a brighter future.
+    Share your details and our admissions team will reach out to guide you.
+  </p>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <h2>Online Enquiry Form</h2>
+  <p>We are excited to welcome you to the Leads Community School family.</p>
+
+  <form>
+    <input type="text" placeholder="Parent / Guardian Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <input type="tel" placeholder="Phone Number" required>
+
+    <input type="text" placeholder="Student Name">
+    <select required>
+      <option value="">Select Class / Level</option>
+      <option>Creche</option>
+      <option>Kindergarten</option>
+      <option>Primary</option>
+      <option>Junior High</option>
+    </select>
+
+    <textarea placeholder="Your Message or Questions"></textarea>
+
+    <button type="submit">Submit Enquiry</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 Leads Community School • Educating Today, Leading Tomorrow
+</footer>
+
+</body>
+</html>
