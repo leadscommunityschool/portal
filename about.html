@@ -3,47 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us - Leads Community School</title>
+<title>About Us | Leads Community School</title>
 
 <!-- GOOGLE FONT -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
+:root{
+  --dark-green:#004d26;
+  --rich-yellow:#ffcc00;
+}
+
 *{box-sizing:border-box;}
-body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
+body{
+  margin:0;
+  font-family:Poppins,Arial;
+  background:#f5f7fa;
+  color:var(--dark-green);
+}
 
 /* ---------- TOP BAR ---------- */
 .top-green{
-  background:#004d26;
+  background:var(--dark-green);
   color:white;
   padding:10px 20px;
   display:flex;
   justify-content:space-between;
-  flex-wrap:wrap;
   align-items:center;
+  flex-wrap:wrap;
 }
 .top-links a{
-  color:#ffcc00;
-  margin-right:12px;
+  color:var(--rich-yellow);
+  margin-right:14px;
   text-decoration:none;
   font-weight:600;
-  cursor:pointer;
 }
+.top-links a:hover{opacity:.85;}
 .top-green input{
-  padding:6px 10px;
+  padding:6px 12px;
   border-radius:20px;
   border:none;
 }
+
+/* ---------- STAFF DROPDOWN ---------- */
+.staff-dropdown{
+  display:inline-block;
+  position:relative;
+  cursor:pointer;
+  color:var(--rich-yellow);
+  font-weight:600;
+}
+.staff-menu{
+  display:none;
+  position:absolute;
+  background:white;
+  right:0;
+  top:22px;
+  min-width:160px;
+  border-radius:8px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  z-index:99;
+}
+.staff-menu a{
+  display:block;
+  padding:10px;
+  color:var(--dark-green);
+  text-decoration:none;
+}
+.staff-menu a:hover{background:#f0f0f0;}
 
 /* ---------- HEADER ---------- */
 .main-header{
   position:sticky;
   top:0;
   z-index:1000;
-  background:#ffcc00;
+  background:var(--rich-yellow);
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -60,35 +97,23 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
   width:55px;
   height:55px;
   border-radius:50%;
-  border:3px solid #004d26;
+  border:3px solid var(--dark-green);
   object-fit:cover;
 }
 .school-name{
   font-size:1.3rem;
-  font-weight:600;
+  font-weight:700;
 }
 .tagline{
   font-size:.75rem;
-  color:#004d26;
 }
 .main-nav a{
-  margin-left:15px;
+  margin-left:16px;
   text-decoration:none;
-  color:#004d26;
+  color:var(--dark-green);
   font-weight:600;
-  position:relative;
 }
-.main-nav a:after{
-  content:'';
-  height:2px;
-  width:0;
-  background:#004d26;
-  position:absolute;
-  bottom:-4px;
-  left:0;
-  transition:.3s;
-}
-.main-nav a:hover:after{width:100%;}
+.main-nav a:hover{text-decoration:underline;}
 
 /* ---------- HERO ---------- */
 .hero{
@@ -101,59 +126,53 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
   gap:30px;
   align-items:center;
   box-shadow:0 10px 25px rgba(0,0,0,.1);
-  animation:slideUp 1s;
   flex-wrap:wrap;
 }
-.hero img{width:100%; border-radius:12px; max-width:400px;}
+.hero img{
+  width:100%;
+  max-width:400px;
+  border-radius:12px;
+}
 .hero h1{margin-top:0;}
-.hero p{margin:10px 0;}
 
-/* ---------- SECTIONS ---------- */
+/* ---------- SECTION ---------- */
 .section-container{
   max-width:1100px;
   margin:25px auto;
   background:white;
   padding:25px;
   border-radius:12px;
-  border-left:6px solid #ffcc00;
+  border-left:6px solid var(--rich-yellow);
   box-shadow:0 6px 15px rgba(0,0,0,.08);
 }
-.section-container h2{color:#004d26; margin-bottom:15px;}
-.section-container p{font-size:1rem; line-height:1.6;}
+.section-container h2{margin-bottom:12px;}
 
 /* ---------- HIGHLIGHTS ---------- */
 .highlights{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:20px;
-  text-align:center;
-  margin-top:15px;
 }
 .highlight-card{
-  background:#004d26;
+  background:var(--dark-green);
   color:white;
   padding:20px;
   border-radius:12px;
-  transition:transform 0.3s, box-shadow 0.3s;
-}
-.highlight-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+  text-align:center;
 }
 .highlight-card i{
   font-size:28px;
-  margin-bottom:10px;
-  color:#ffcc00;
+  color:var(--rich-yellow);
 }
 
 /* ---------- VALUES ---------- */
 .values{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:15px;
+  gap:12px;
 }
 .value-box{
-  background:#004d26;
+  background:var(--dark-green);
   color:white;
   padding:12px;
   border-radius:10px;
@@ -187,12 +206,16 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 /* ---------- FOOTER ---------- */
 .footer{
   margin-top:40px;
-  background:#004d26;
+  background:var(--dark-green);
   color:white;
   padding:25px;
   text-align:center;
 }
-.footer a{color:#ffcc00; text-decoration:none; margin:0 5px;}
+.footer a{
+  color:var(--rich-yellow);
+  text-decoration:none;
+  margin:0 6px;
+}
 
 /* ---------- WHATSAPP ---------- */
 .whatsapp{
@@ -206,9 +229,6 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
   font-size:22px;
   text-decoration:none;
   box-shadow:0 5px 15px rgba(0,0,0,.3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -221,19 +241,21 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 </head>
 <body>
 
-<!-- TOP GREEN BAR -->
+<!-- TOP BAR -->
 <div class="top-green">
   <div class="top-links">
     <a href="index.html">Home</a>
-    <a onclick="openModal('student')">Student Login</a>
-    <a onclick="openModal('parent')">Parent Login</a>
+    <a href="login-student.html">Student Login</a>
+    <a href="login-parent.html">Parent Login</a>
+
     <div class="staff-dropdown">
-      <span>Staff ▼</span>
+      Staff ▾
       <div class="staff-menu">
-        <a href="staff-login.html">Staff Login</a>
+        <a href="login-staff.html">Staff Login</a>
         <a href="admin-login.html">Admin Login</a>
       </div>
     </div>
+
     <a href="careers.html">Careers</a>
   </div>
   <input placeholder="Search...">
@@ -242,19 +264,19 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 <!-- HEADER -->
 <header class="main-header">
   <div class="logo-area">
-    <img src="IMG-20260129-WA0005.jpg" alt="School Logo">
+    <img src="images/logo.png" alt="School Logo">
     <div>
       <div class="school-name">Leads Community School</div>
       <div class="tagline">Training Tomorrow’s Leaders Today</div>
     </div>
   </div>
+
   <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
     <a href="admissions.html">Admissions</a>
     <a href="campus.html">Campus</a>
-    <a href="community.html">Community</a>
     <a href="news-events.html">News</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -264,68 +286,65 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 <section class="hero">
   <div>
     <h1>About Leads Community School</h1>
-    <p>Leads Community School is committed to providing quality education while nurturing future leaders through discipline, creativity, and excellence.</p>
-    <p>We believe in holistic development combining academics, morals, arts, and sports to prepare learners for tomorrow.</p>
+    <p>We are committed to quality education, strong values, and leadership development.</p>
+    <p>Our holistic approach prepares learners for academic excellence and responsible citizenship.</p>
   </div>
-  <img src="school-building.jpg" alt="School Building">
+  <img src="images/school-building.jpg" alt="School Building">
 </section>
 
 <!-- HIGHLIGHTS -->
 <section class="section-container">
 <h2>Our Highlights</h2>
 <div class="highlights">
-  <div class="highlight-card"><i class="fas fa-users"></i><h3>Small, Personalized Classes</h3></div>
-  <div class="highlight-card"><i class="fas fa-chalkboard-teacher"></i><h3>Dedicated & Caring Staff</h3></div>
-  <div class="highlight-card"><i class="fas fa-school"></i><h3>Modern Learning Environment</h3></div>
-  <div class="highlight-card"><i class="fas fa-lightbulb"></i><h3>Holistic Education</h3></div>
+  <div class="highlight-card"><i class="fas fa-users"></i><h3>Personalized Classes</h3></div>
+  <div class="highlight-card"><i class="fas fa-chalkboard-teacher"></i><h3>Dedicated Teachers</h3></div>
+  <div class="highlight-card"><i class="fas fa-school"></i><h3>Modern Facilities</h3></div>
+  <div class="highlight-card"><i class="fas fa-lightbulb"></i><h3>Holistic Learning</h3></div>
 </div>
 </section>
 
-<!-- VISION & MISSION -->
+<!-- VISION -->
 <section class="section-container">
 <h2>Our Vision</h2>
-<p>To play a leading role in the educational sector in Ghana modeling quality, inclusive, and holistic education.</p>
+<p>To be a leading educational institution in Ghana, modeling quality and holistic learning.</p>
 </section>
 
+<!-- MISSION -->
 <section class="section-container">
 <h2>Our Mission</h2>
-<p>To provide quality, inclusive, and holistic education that meets the required standard. We are a community of learners committed to raising a new generation of leaders who are productive members of their communities and the world at large.</p>
+<p>To provide inclusive, high-quality education that nurtures confident, disciplined, and responsible future leaders.</p>
 </section>
 
-<!-- PRINCIPAL MESSAGE -->
+<!-- PRINCIPAL -->
 <section class="section-container">
 <h2>Principal’s Message</h2>
 <div class="principal">
-<img src="principal.jpg" alt="Principal">
-<p>Welcome to Leads Community School. We nurture confident learners who become responsible leaders.</p>
+<img src="images/principal.jpg" alt="Principal">
+<p>At Leads Community School, we believe every child can succeed with the right guidance and care.</p>
 </div>
 </section>
 
-<!-- CORE VALUES -->
+<!-- VALUES -->
 <section class="section-container">
 <h2>Core Values</h2>
 <div class="values">
 <div class="value-box">Integrity</div>
 <div class="value-box">Excellence</div>
-<div class="value-box">Child Friendly</div>
+<div class="value-box">Respect</div>
 <div class="value-box">Empathy</div>
 <div class="value-box">Team Spirit</div>
-<div class="value-box">Professionalism</div>
-<div class="value-box">Respect</div>
 <div class="value-box">Service</div>
-<div class="value-box">Compassion</div>
-<div class="value-box">Humility</div>
 </div>
 </section>
 
-<!-- SCHOOL GALLERY -->
+<!-- GALLERY -->
 <section class="section-container">
 <h2>School Gallery</h2>
 <div class="gallery">
-<img src="gallery1.jpg" alt="Gallery Image 1">
-<img src="gallery2.jpg" alt="Gallery Image 2">
-<img src="gallery3.jpg" alt="Gallery Image 3">
-<img src="gallery4.jpg" alt="Gallery Image 4">
+<img src="images/gallery1.jpg">
+<img src="images/gallery2.jpg">
+<img src="images/gallery3.jpg">
+<img src="images/gallery4.jpg">
 </div>
 </section>
 
@@ -339,19 +358,17 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 </p>
 </footer>
 
-<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/233539566710">💬</a>
 
 <script>
-// Staff Dropdown toggle
-const staffDropdown = document.querySelector('.staff-dropdown');
-const staffMenu = staffDropdown.querySelector('.staff-menu');
-staffDropdown.addEventListener('click', () => { staffMenu.style.display = (staffMenu.style.display==='block')?'none':'block'; });
-window.addEventListener('click', e=>{ if(!staffDropdown.contains(e.target)) staffMenu.style.display='none'; });
-
-// Modals placeholder
-function openModal(type){document.getElementById(type+'-login')?.classList.add('active');}
-function closeModal(type){document.getElementById(type+'-login')?.classList.remove('active');}
+const staffDropdown=document.querySelector('.staff-dropdown');
+const staffMenu=document.querySelector('.staff-menu');
+staffDropdown.onclick=()=>staffMenu.style.display=
+staffMenu.style.display==='block'?'none':'block';
+window.onclick=e=>{
+if(!staffDropdown.contains(e.target)) staffMenu.style.display='none';
+}
 </script>
+
 </body>
 </html>
