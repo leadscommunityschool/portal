@@ -1,285 +1,310 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leads Community School</title>
+  <meta charset="UTF-8">
+  <title>Leads Community School | Educating Today, Leading Tomorrow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{color:#333;line-height:1.6}
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-/* TOP BAR */
-.top-bar{
-  background:#2f8f46;
-  color:#fff;
-  padding:8px 20px;
-  font-size:14px;
-  display:flex;
-  justify-content:space-between;
-}
-.top-bar a{color:#fff;text-decoration:none;margin-left:15px}
+  <style>
+    :root {
+      --dark-green: #0b3d2e;
+      --rich-yellow: #f4c430;
+      --white: #ffffff;
+      --light-gray: #f8f8f8;
+    }
 
-/* HEADER */
-header{
-  background:#fff;
-  border-bottom:1px solid #e5e5e5;
-  position:sticky;
-  top:0;
-  z-index:1000;
-}
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{display:flex;align-items:center;gap:10px}
-.logo img{width:55px}
-nav a{
-  margin-left:20px;
-  text-decoration:none;
-  color:#333;
-  font-weight:600;
-}
-nav a:hover{color:#2f8f46}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-/* HERO */
-.hero{
-  height:75vh;
-  background:url("IMG_1599.JPG") center/cover no-repeat;
-  position:relative;
-  display:flex;
-  align-items:center;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
-}
-.hero-content{
-  position:relative;
-  max-width:1200px;
-  margin:auto;
-  padding:20px;
-  color:#fff;
-}
-.hero h1{font-size:42px;max-width:600px}
-.hero a{
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 25px;
-  background:#2f8f46;
-  color:#fff;
-  text-decoration:none;
-}
+    body {
+      background: var(--white);
+      color: #333;
+      line-height: 1.7;
+    }
 
-/* SECTIONS */
-.section{padding:70px 20px}
-.container{max-width:1000px;margin:auto}
-.section h2{text-align:center;color:#2f8f46;margin-bottom:20px}
+    /* ================= HEADER ================= */
+    header {
+      background: var(--dark-green);
+      padding: 15px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* ENQUIRY FORM */
-.form-wrapper{
-  max-width:600px;
-  margin:40px auto 0;
-}
-.form-group{margin-bottom:20px}
-label{display:block;margin-bottom:5px;font-weight:600}
-input,select,textarea{
-  width:100%;
-  padding:10px;
-  border:1px solid #ccc;
-}
-button{
-  background:#000;
-  color:#fff;
-  border:none;
-  padding:12px 25px;
-  cursor:pointer;
-}
+    header h1 {
+      color: var(--rich-yellow);
+      font-size: 22px;
+      font-weight: 700;
+    }
 
-/* FOOTER */
-.footer-hero{
-  background:url("IMG_2409.JPG") center/cover no-repeat;
-  height:250px;
-  position:relative;
-}
-.footer-hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.5);
-}
-.footer-hero h2{
-  position:relative;
-  color:#fff;
-  text-align:center;
-  padding-top:100px;
-  font-size:36px;
-}
+    nav a {
+      color: var(--white);
+      margin-left: 25px;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-footer{
-  background:#2b2b2b;
-  color:#ccc;
-  padding:50px 20px;
-}
-.footer-inner{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-}
-footer h4{color:#fff;margin-bottom:15px}
-footer a{color:#ccc;text-decoration:none;display:block;margin-bottom:8px}
-footer a:hover{color:#fff}
-.footer-logos img{max-width:80px;margin:10px}
+    nav a:hover {
+      color: var(--rich-yellow);
+    }
 
-.copyright{
-  background:#1f1f1f;
-  color:#aaa;
-  text-align:center;
-  padding:15px;
-  font-size:14px;
-}
+    /* ================= HERO SLIDER ================= */
+    .hero {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+    }
 
-/* MOBILE */
-@media(max-width:768px){
-  nav{display:none}
-  .hero h1{font-size:28px}
-}
-</style>
+    .slides {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: slideShow 24s infinite;
+    }
+
+    .slide:nth-child(1) { animation-delay: 0s; }
+    .slide:nth-child(2) { animation-delay: 6s; }
+    .slide:nth-child(3) { animation-delay: 12s; }
+    .slide:nth-child(4) { animation-delay: 18s; }
+
+    @keyframes slideShow {
+      0% { opacity: 0; }
+      8% { opacity: 1; }
+      25% { opacity: 1; }
+      33% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 61, 46, 0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-content {
+      color: var(--white);
+      max-width: 900px;
+      animation: fadeUp 2s ease;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content h2 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 35px;
+    }
+
+    .hero-content a {
+      background: var(--rich-yellow);
+      color: var(--dark-green);
+      padding: 14px 35px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover {
+      background: #ffd84d;
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+      padding: 80px 60px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    section h3 {
+      font-size: 34px;
+      color: var(--dark-green);
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 900px;
+      margin: auto;
+      font-size: 17px;
+    }
+
+    /* ================= WHY US ================= */
+    .why-us {
+      background: var(--light-gray);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-left: 5px solid var(--rich-yellow);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .card h4 {
+      color: var(--dark-green);
+      margin-bottom: 10px;
+    }
+
+    /* ================= CTA ================= */
+    .cta {
+      background: var(--dark-green);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta a {
+      display: inline-block;
+      margin-top: 25px;
+      background: var(--rich-yellow);
+      color: var(--dark-green);
+      padding: 14px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: #06271e;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-  <div>Email: leadscommunityschool35@gmail.com</div>
-  <div>
-    <a href="#">Student Login</a>
-    <a href="#">Parent Login</a>
-    <a href="#">Staff Login</a>
-  </div>
-</div>
-
-<!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <div class="logo">
-      <img src="IMG-20260129-WA0005.jpg" alt="Logo">
-      <strong>Leads Community School</strong>
-    </div>
-    <nav>
-      <a href="#">About Us</a>
-      <a href="#">Academics</a>
-      <a href="#">Admissions</a>
-      <a href="#">Our Campus</a>
-      <a href="#">Community</a>
-      <a href="#">News & Events</a>
-      <a href="#">Contact</a>
-    </nav>
-  </div>
+  <h1>Leads Community School</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Academics</a>
+    <a href="#">Admissions</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <h1>Training Tomorrow’s Leaders Today</h1>
-    <a href="#enquire">Enquire Online</a>
+  <div class="slides">
+    <div class="slide" style="background-image:url('images/slide1.jpg')"></div>
+    <div class="slide" style="background-image:url('images/slide2.jpg')"></div>
+    <div class="slide" style="background-image:url('images/slide3.jpg')"></div>
+    <div class="slide" style="background-image:url('images/slide4.jpg')"></div>
   </div>
-</section>
 
-<!-- ENQUIRE ONLINE -->
-<section class="section" id="enquire">
-  <div class="container">
-    <h2>ENQUIRE ONLINE</h2>
-    <p style="text-align:center;color:#2f8f46">
-      To enquire about enrolling your child at Leads Community School,
-      please fill out the form below.
-    </p>
-
-    <div class="form-wrapper">
-      <form>
-        <div class="form-group">
-          <label>Your Name (required)</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Your Email (required)</label>
-          <input type="email" required>
-        </div>
-        <div class="form-group">
-          <label>Your Phone Number (required)</label>
-          <input type="tel" required>
-        </div>
-        <div class="form-group">
-          <label>Programme of Interest</label>
-          <select>
-            <option>Pre-School</option>
-            <option>Primary</option>
-            <option>Junior High</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Your Message</label>
-          <textarea rows="5"></textarea>
-        </div>
-        <button type="submit">SEND</button>
-      </form>
+  <div class="overlay">
+    <div class="hero-content">
+      <h2>Educating Today. Leading Tomorrow.</h2>
+      <p>
+        At Leads Community School, we raise confident minds, strong character,
+        and future leaders through quality education, discipline, and care.
+      </p>
+      <a href="#">Begin Your Child’s Journey</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER IMAGE -->
-<div class="footer-hero">
-  <h2>Play.</h2>
-</div>
+<!-- MOTIVATION -->
+<section class="center">
+  <h3>Building Minds. Shaping Futures.</h3>
+  <p>
+    Education is not just preparation for life — it is life itself.
+    We nurture every child’s potential, instill strong values,
+    and guide learners to succeed with confidence and pride.
+  </p>
+</section>
 
-<!-- FOOTER -->
+<!-- WHY US -->
+<section class="why-us">
+  <div class="center">
+    <h3>Why Parents Trust Us</h3>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h4>Quality Education</h4>
+      <p>Strong academic foundation delivered by passionate and qualified teachers.</p>
+    </div>
+
+    <div class="card">
+      <h4>Safe & Caring Environment</h4>
+      <p>A disciplined and supportive atmosphere where every child is valued.</p>
+    </div>
+
+    <div class="card">
+      <h4>Character & Leadership</h4>
+      <p>We develop confidence, responsibility, and leadership from an early age.</p>
+    </div>
+
+    <div class="card">
+      <h4>Individual Attention</h4>
+      <p>Every child is guided, supported, and encouraged to reach their full potential.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h3>Your Child’s Future Starts Here</h3>
+  <p>
+    Give your child the gift of knowledge, values, and confidence
+    in a community that believes in their success.
+  </p>
+  <a href="#">Apply for Admission</a>
+</section>
+
 <footer>
-  <div class="footer-inner">
-
-    <div class="footer-logos">
-      <h4>Accreditations</h4>
-      <img src="cambridge.png">
-      <img src="ipc.png">
-      <img src="cis.png">
-      <img src="roundsquare.png">
-    </div>
-
-    <div>
-      <h4>Contact Us</h4>
-      <p>Leads Community School</p>
-      <p>Tel: +233 243 952 644</p>
-      <p>Email: leadscommunityschool35@gmail.com</p>
-    </div>
-
-    <div>
-      <h4>Important Links</h4>
-      <a href="#">Student Login</a>
-      <a href="#">Parent Login</a>
-      <a href="#">Staff Login</a>
-      <a href="#">Careers</a>
-    </div>
-
-    <div>
-      <h4>Connect With Us</h4>
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-    </div>
-
-  </div>
-</footer>
-
-<div class="copyright">
   © 2026 Leads Community School. All Rights Reserved.
-</div>
+</footer>
 
 </body>
 </html>
