@@ -3,183 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parent Login - Leads Community School</title>
+<title>Parent Portal | Leads Community School</title>
 
 <style>
 body,html{
-margin:0;
-padding:0;
-font-family:Arial,sans-serif;
-background:#f2f2f2;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;
 }
 
 /* TOP BAR */
 .top-green{
-background:#004d26;
-color:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 20px;
+  background:#004d26;
+  padding:10px 20px;
 }
-
 .top-links a{
-color:#ffcc00;
-margin-right:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-right:15px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
 /* HEADER */
 .main-header{
-background:#004d26;
-border-bottom:5px solid #ffcc00;
-padding:15px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
+  background:#004d26;
+  border-bottom:5px solid #ffcc00;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
 }
-
 .logo-wrap{
-display:flex;
-align-items:center;
-gap:15px;
-text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  text-decoration:none;
 }
-
 .logo-wrap img{
-width:70px;
-background:#fff;
-padding:5px;
-border-radius:10px;
+  width:65px;
+  background:#fff;
+  padding:5px;
+  border-radius:10px;
 }
-
 .school-name h1{
-margin:0;
-color:#ffcc00;
-font-size:22px;
+  margin:0;
+  color:#ffcc00;
+  font-size:22px;
 }
-
 .school-name p{
-margin:0;
-color:#fff;
-font-size:13px;
+  margin:0;
+  color:#fff;
+  font-size:13px;
 }
-
+.main-nav{
+  display:none;
+}
 .main-nav a{
-color:#ffcc00;
-margin-left:15px;
-font-weight:bold;
-text-decoration:none;
+  color:#ffcc00;
+  margin-left:15px;
+  font-weight:bold;
+  text-decoration:none;
 }
 
-/* LOGIN SECTION */
+/* LOGIN */
 #login-section{
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:80vh;
-position:relative;
-overflow:hidden;
+  min-height:80vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:url('RE7A4308.JPG') center/cover no-repeat;
+  position:relative;
 }
-
-#login-section .background{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url('RE7A4308.JPG') center/cover no-repeat;
-filter:brightness(0.5);
-animation:zoom 20s infinite alternate;
-z-index:0;
+#login-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
 }
-
-@keyframes zoom{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
-
 .login-box{
-position:relative;
-z-index:1;
-background:#fff;
-padding:40px;
-border-radius:15px;
-width:350px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
+  position:relative;
+  z-index:2;
+  background:#fff;
+  padding:45px;
+  width:370px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(0,0,0,.4);
 }
-
-.login-box h2{color:#004d26;}
-
+.login-box h2{
+  color:#004d26;
+  margin-bottom:5px;
+}
+.login-box p{
+  font-size:14px;
+  color:#555;
+  margin-bottom:20px;
+}
 .login-box input{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
+  width:100%;
+  padding:12px;
+  margin:12px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
 }
-
 .login-box button{
-width:100%;
-padding:12px;
-background:#004d26;
-color:#ffcc00;
-border:2px solid #ffcc00;
-font-weight:bold;
-cursor:pointer;
+  width:100%;
+  padding:12px;
+  background:#004d26;
+  color:#ffcc00;
+  border:2px solid #ffcc00;
+  font-weight:bold;
+  cursor:pointer;
+}
+.login-box small{
+  display:block;
+  margin-top:10px;
+  color:#004d26;
 }
 
 /* DASHBOARD */
 #dashboard-section{display:none;}
-
 .dashboard{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
-justify-content:center;
-padding:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  padding:40px;
 }
-
 .card{
-background:#ffcc00;
-color:#004d26;
-width:220px;
-padding:20px;
-border-radius:10px;
-border:2px solid #004d26;
-text-align:center;
-font-weight:bold;
+  width:220px;
+  background:#ffcc00;
+  color:#004d26;
+  padding:22px;
+  border-radius:12px;
+  font-weight:bold;
+  text-align:center;
+  border:2px solid #004d26;
+  cursor:pointer;
+  transition:.3s;
 }
-
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
 .section-container{
-background:#fff;
-margin:20px;
-padding:20px;
-border-radius:10px;
+  background:#fff;
+  margin:20px;
+  padding:20px;
+  border-radius:10px;
 }
-
-/* TABLE */
-table{width:100%;border-collapse:collapse;}
-th{background:#004d26;color:#ffcc00;padding:10px;}
-td{border:1px solid #004d26;padding:10px;}
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+th{
+  background:#004d26;
+  color:#ffcc00;
+  padding:10px;
+}
+td{
+  border:1px solid #004d26;
+  padding:10px;
+}
 
 /* FOOTER */
 .footer{
-background:#004d26;
-color:#ffcc00;
-text-align:center;
-padding:20px;
-border-top:5px solid #ffcc00;
+  background:#004d26;
+  color:#ffcc00;
+  text-align:center;
+  padding:20px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-.logo-wrap{flex-direction:column;text-align:center;}
-.card{width:90%;}
+  .logo-wrap{flex-direction:column;text-align:center;}
+  .card{width:90%;}
 }
 </style>
 
@@ -188,37 +188,33 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebas
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
 
 const firebaseConfig={
-apiKey:"AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
-authDomain:"leads-community-school.firebaseapp.com",
-projectId:"leads-community-school",
-storageBucket:"leads-community-school.appspot.com",
-messagingSenderId:"862968562597",
-appId:"1:862968562597:web:1cf258466bb299a5cc1e4c"
+  apiKey:"AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+  authDomain:"leads-community-school.firebaseapp.com",
+  projectId:"leads-community-school",
+  storageBucket:"leads-community-school.appspot.com",
+  messagingSenderId:"862968562597",
+  appId:"1:862968562597:web:1cf258466bb299a5cc1e4c"
 };
 
 const app=initializeApp(firebaseConfig);
 const auth=getAuth(app);
 
 window.login=function(e){
-e.preventDefault();
-signInWithEmailAndPassword(auth,parent.value,pass.value)
-.then(()=>{
-login-section.style.display="none";
-dashboard-section.style.display="block";
-homeLink.style.display="inline";
-alert("Welcome Parent!");
-})
-.catch(err=>alert(err.message));
-}
+  e.preventDefault();
+  signInWithEmailAndPassword(auth,parent.value,pass.value)
+  .catch(err=>alert(err.message));
+};
 
-window.logout=function(){signOut(auth).then(()=>location.reload());}
+window.logout=function(){
+  signOut(auth).then(()=>location.reload());
+};
 
 onAuthStateChanged(auth,user=>{
-if(user){
-login-section.style.display="none";
-dashboard-section.style.display="block";
-homeLink.style.display="inline";
-}
+  if(user){
+    document.getElementById("login-section").style.display="none";
+    document.getElementById("dashboard-section").style.display="block";
+    document.querySelector(".main-nav").style.display="block";
+  }
 });
 </script>
 
@@ -228,12 +224,10 @@ homeLink.style.display="inline";
 
 <div class="top-green">
 <div class="top-links">
-<a href="index.html" id="homeLink" style="display:none;">Home</a>
-<a href="student-login.html">Student Login</a>
-<a href="parent-login.html">Parent Login</a>
-<a href="staff-login.html">Staff Login</a>
-<a href="email-login.html">Email Login</a>
-<a href="careers.html">Careers</a>
+<a href="index.html">Home</a>
+<a href="student-login.html">Student</a>
+<a href="#">Parent</a>
+<a href="staff-login.html">Staff</a>
 </div>
 </div>
 
@@ -256,15 +250,18 @@ homeLink.style.display="inline";
 </header>
 
 <section id="login-section">
-<div class="background"></div>
-
 <div class="login-box">
-<h2>Parent Login</h2>
+<h2>Parent Portal</h2>
+<p>
+Stay connected to your child’s progress, attendance, and development.
+Together, we nurture excellence.
+</p>
 <form onsubmit="login(event)">
 <input id="parent" type="email" placeholder="Parent Email" required>
 <input id="pass" type="password" placeholder="Password" required>
 <button>Login</button>
 </form>
+<small>Need help? Contact the school administration</small>
 </div>
 </section>
 
@@ -289,7 +286,7 @@ homeLink.style.display="inline";
 </div>
 
 <div class="section-container" id="fees">
-<h2>Fees</h2>
+<h2>Fees Summary</h2>
 <table>
 <tr><th>Total</th><th>Paid</th><th>Balance</th></tr>
 <tr><td>₵1200</td><td>₵600</td><td>₵600</td></tr>
@@ -297,7 +294,7 @@ homeLink.style.display="inline";
 </div>
 
 <div class="section-container" id="reports">
-<h2>Report Cards</h2>
+<h2>Academic Report</h2>
 <table>
 <tr><th>Subject</th><th>Grade</th></tr>
 <tr><td>Math</td><td>A</td></tr>
