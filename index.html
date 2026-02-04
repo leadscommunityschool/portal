@@ -5,363 +5,212 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Leads Community School</title>
 
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-/* ---------- GENERAL RESET ---------- */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-scroll-behavior:smooth;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI}
+body{background:#f4f7f6}
 
-body{
-line-height:1.6;
-color:#333;
-background:#f2f7f5;
-}
+/* TOP BAR */
+.topbar{background:#004d26;color:#fff;padding:10px 30px;display:flex;justify-content:space-between}
+.topbar a{color:#ffcc00;margin-right:15px;font-weight:bold;cursor:pointer}
 
-/* ---------- TOP GREEN BAR ---------- */
-.top-green{
-background:#004d26;
-color:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 20px;
-font-size:.9rem;
-position:sticky;
-top:0;
-z-index:9999;
-}
+/* STAFF */
+.staff-dropdown{position:relative;display:inline-block}
+.staff-menu{display:none;position:absolute;background:#004d26;border-radius:8px}
+.staff-menu a{display:block;padding:10px;color:#ffcc00;text-decoration:none}
+.staff-dropdown:hover .staff-menu{display:block}
 
-.top-green a{
-color:#ffcc00;
-text-decoration:none;
-margin-right:15px;
-font-weight:bold;
-cursor:pointer;
-}
+/* HEADER */
+header{background:#ffcc00;padding:15px 30px;display:flex;align-items:center;gap:15px}
+header img{width:60px}
+header h2{color:#004d26}
 
-.top-green a:hover{color:#fff}
+/* HERO */
+.hero{height:85vh;position:relative;display:flex;align-items:center;justify-content:center;text-align:center}
+.hero-bg div{position:absolute;width:100%;height:100%;background-size:cover;background-position:center;opacity:0;animation:bg 24s infinite}
+.hero-bg div:nth-child(2){animation-delay:8s}
+.hero-bg div:nth-child(3){animation-delay:16s}
+@keyframes bg{0%{opacity:0}10%{opacity:1}30%{opacity:1}40%{opacity:0}100%{opacity:0}}
+.hero h1{color:#004d26;font-size:3rem;position:relative;background:#ffffffcc;padding:20px;border-radius:10px}
 
-/* STAFF DROPDOWN */
-.staff-dropdown{
-position:relative;
-display:inline-block;
-margin-right:15px;
-}
+/* SECTIONS */
+section{padding:80px 10%;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px}
+.card{background:#ffcc00;padding:25px;border-radius:12px}
 
-.staff-dropdown span{
-color:#ffcc00;
-font-weight:bold;
-cursor:pointer;
-display:flex;
-align-items:center;
-gap:6px;
-}
+/* GALLERY */
+.gallery img{width:100%;border-radius:10px}
 
-.staff-menu{
-display:none;
-position:absolute;
-top:25px;
-left:0;
-background:#004d26;
-border-radius:10px;
-min-width:160px;
-box-shadow:0 6px 15px rgba(0,0,0,.3);
-z-index:99999;
-overflow:hidden;
-}
+/* FOOTER */
+footer{background:#004d26;color:#fff;padding:50px;text-align:center}
 
-.staff-menu a{
-display:block;
-padding:10px 12px;
-color:#ffcc00;
-text-decoration:none;
-font-weight:bold;
-border-bottom:1px solid rgba(255,255,255,.2);
-}
-
-.staff-menu a:last-child{border-bottom:none}
-
-.staff-menu a:hover{
-background:#ffcc00;
-color:#004d26;
-}
-
-.staff-dropdown:hover .staff-menu{
-display:block;
-}
-
-/* ---------- HEADER ---------- */
-.main-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:#ffcc00;
-position:sticky;
-top:38px;
-z-index:999;
-box-shadow:0 4px 12px rgba(0,0,0,.15);
-border-radius:0 0 12px 12px;
-}
-
-.logo-area{
-display:flex;
-align-items:center;
-gap:15px;
-background:#004d26;
-padding:10px 20px;
-border-radius:10px;
-}
-
-.logo-area img{
-width:70px;
-height:70px;
-border-radius:10px;
-object-fit:cover;
-}
-
-.school-name{color:#ffcc00}
-
-.school-name p{color:#fff}
-
-.main-nav a{
-margin-left:20px;
-text-decoration:none;
-font-weight:500;
-color:#004d26;
-}
-
-.main-nav a:hover{color:#003d1f}
-
-/* ---------- HERO ---------- */
-.hero{
-position:relative;
-overflow:hidden;
-min-height:80vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-align:center;
-border-radius:15px;
-box-shadow:0 8px 25px rgba(0,0,0,.15);
-}
-
-.hero-bg,.bg-image{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-}
-
-.bg-image{
-background-size:cover;
-background-position:center;
-opacity:0;
-animation:bgFade 15s infinite;
-}
-
-.bg-image:nth-child(2){animation-delay:5s}
-.bg-image:nth-child(3){animation-delay:10s}
-
-@keyframes bgFade{
-0%{opacity:0}
-10%{opacity:1}
-33%{opacity:1}
-43%{opacity:0}
-100%{opacity:0}
-}
-
-.hero h1,.hero .btn{position:relative;z-index:1}
-
-.hero h1{font-size:3rem;color:#004d26}
-
-.hero .btn{
-background:#004d26;
-color:#ffcc00;
-padding:15px 35px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-}
-
-/* ---------- ABOUT ---------- */
-.about{
-text-align:center;
-padding:80px 20px;
-background:#e6f2e6;
-margin:40px auto;
-border-radius:12px;
-max-width:1000px;
-}
-
-/* ---------- FEATURES ---------- */
-.features{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-padding:80px 20px;
-background:#fff;
-}
-
-.box{
-background:#ffcc00;
-padding:35px 20px;
-width:280px;
-text-align:center;
-border-radius:15px;
-}
-
-/* ---------- FOOTER ---------- */
-.footer{
-background:#004d26;
-color:#fff;
-display:flex;
-justify-content:space-around;
-padding:50px 20px;
-flex-wrap:wrap;
-gap:30px;
-border-top:5px solid #ffcc00;
-}
-
-.footer h4{color:#ffcc00}
-
-/* ---------- MODALS ---------- */
-.modal{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:10000;
-}
-
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);justify-content:center;align-items:center}
 .modal.active{display:flex}
+.modal-content{background:#004d26;padding:30px;color:#ffcc00;border-radius:10px}
 
-.modal-content{
-background:#004d26;
-padding:30px;
-border-radius:12px;
-width:350px;
-text-align:center;
-color:#ffcc00;
-}
-
-.modal-content input{
-width:90%;
-padding:10px;
-margin:10px 0;
-border-radius:6px;
-border:none;
-}
-
-/* ---------- WHATSAPP ---------- */
-.whatsapp-btn{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#004d26;
-color:#ffcc00;
-padding:12px 22px;
-border-radius:50px;
-text-decoration:none;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media(max-width:800px){
-.features{flex-direction:column}
-.main-header{flex-direction:column}
-}
+/* WHATSAPP */
+.whatsapp{position:fixed;bottom:20px;right:20px;background:#004d26;color:#ffcc00;padding:12px 20px;border-radius:50px;text-decoration:none}
 </style>
 </head>
 
 <body>
 
-<div class="top-green">
-<a onclick="openModal('student')">👨‍🎓 Student Login</a>
-<a onclick="openModal('parent')">👨‍👩‍👧 Parent Login</a>
+<div class="topbar">
+<div>
+<a onclick="openModal('student')">Student</a>
+<a onclick="openModal('parent')">Parent</a>
 
 <div class="staff-dropdown">
-<span><i class="fa-solid fa-chalkboard-user"></i> Staff</span>
+<a>Staff</a>
 <div class="staff-menu">
 <a href="staff-login.html">Staff Login</a>
 <a href="admin-login.html">Admin Login</a>
 </div>
 </div>
-
+</div>
+<div>📞 +233243952644</div>
 </div>
 
-<header class="main-header">
-<div class="logo-area">
+<header>
 <img src="IMG-20260129-WA0005.jpg">
-<div class="school-name">
-<h1>Leads Community School</h1>
-<p>Training Tomorrow’s Leaders Today</p>
-</div>
-</div>
-
-<nav class="main-nav">
-<a href="about.html">About</a>
-<a href="academics.html">Academics</a>
-<a href="admissions.html">Admissions</a>
-<a href="contact.html">Contact</a>
-</nav>
+<h2>Leads Community School</h2>
 </header>
 
 <section class="hero">
 <div class="hero-bg">
-<div class="bg-image" style="background-image:url('IMG_1599.JPG')"></div>
-<div class="bg-image" style="background-image:url('IMG_1606.JPG')"></div>
-<div class="bg-image" style="background-image:url('IMG_2409.JPG')"></div>
+<div style="background-image:url('IMG_1599.JPG')"></div>
+<div style="background-image:url('IMG_1606.JPG')"></div>
+<div style="background-image:url('IMG_2409.JPG')"></div>
 </div>
-
-<h1>Training Tomorrow’s Leaders Today</h1>
-<a href="#admissions" class="btn">Schedule Visit</a>
+<h1>Training Future Leaders Today</h1>
 </section>
 
-<section class="about">
-<h2>An Educational Centre of Excellence</h2>
-<p>Leads Community School provides quality GES education.</p>
+<section>
+<h2>About Our School</h2>
+<p>Leads Community School is a GES aligned institution committed to academic excellence, moral discipline and leadership training.</p>
 </section>
 
-<section class="features">
-<div class="box">Academics</div>
-<div class="box">Admissions</div>
-<div class="box">News & Events</div>
-</section>
-
-<footer class="footer">
-<div>
-<h4>Contact</h4>
-<p>+233243952644</p>
-<p>leadscommunityschool35@gmail.com</p>
+<section>
+<h2>Vision • Mission • Values</h2>
+<div class="grid">
+<div class="card">Vision: Raising confident leaders.</div>
+<div class="card">Mission: Quality education for all.</div>
+<div class="card">Values: Discipline, Excellence, Integrity.</div>
 </div>
+</section>
+
+<section>
+<h2>Our Academic Programs</h2>
+<div class="grid">
+<div class="card">Kindergarten</div>
+<div class="card">Primary School</div>
+<div class="card">Junior High School</div>
+</div>
+</section>
+
+<section>
+<h2>Why Choose Us</h2>
+<div class="grid">
+<div class="card">Qualified Teachers</div>
+<div class="card">Modern Facilities</div>
+<div class="card">ICT Education</div>
+<div class="card">Safe Environment</div>
+</div>
+</section>
+
+<section>
+<h2>School Facilities</h2>
+<div class="grid">
+<div class="card">Computer Lab</div>
+<div class="card">Library</div>
+<div class="card">Playground</div>
+<div class="card">Science Lab</div>
+</div>
+</section>
+
+<section>
+<h2>Gallery</h2>
+<div class="grid gallery">
+<img src="IMG_1599.JPG">
+<img src="IMG_1606.JPG">
+<img src="IMG_2409.JPG">
+</div>
+</section>
+
+<section>
+<h2>Testimonials</h2>
+<div class="grid">
+<div class="card">"Excellent teaching!"</div>
+<div class="card">"My child improved greatly."</div>
+<div class="card">"Highly recommended."</div>
+</div>
+</section>
+
+<section>
+<h2>Admissions</h2>
+<p>Admissions open yearly. Visit campus or contact us.</p>
+</section>
+
+<section>
+<h2>Contact Us</h2>
+<p>Phone: +233243952644</p>
+<p>Email: leadscommunityschool@gmail.com</p>
+</section>
+
+<footer>
+<p>© 2026 Leads Community School</p>
 </footer>
 
-<a class="whatsapp-btn" href="https://wa.me/233243952644">WhatsApp</a>
+<a class="whatsapp" href="https://wa.me/233243952644">WhatsApp</a>
 
-<div class="modal" id="student-login"><div class="modal-content">Student Login<br><button onclick="closeModal('student')">Close</button></div></div>
-<div class="modal" id="parent-login"><div class="modal-content">Parent Login<br><button onclick="closeModal('parent')">Close</button></div></div>
+<!-- STUDENT LOGIN -->
+<div class="modal" id="student-login">
+<div class="modal-content">
+<h3>Student Login</h3>
+<input id="studentEmail" placeholder="Email"><br><br>
+<input id="studentPassword" type="password" placeholder="Password"><br><br>
+<button onclick="loginStudent()">Login</button>
+<button onclick="closeModal('student')">Close</button>
+</div>
+</div>
+
+<!-- PARENT LOGIN -->
+<div class="modal" id="parent-login">
+<div class="modal-content">
+<h3>Parent Login</h3>
+<input id="parentEmail" placeholder="Email"><br><br>
+<input id="parentPassword" type="password" placeholder="Password"><br><br>
+<button onclick="loginParent()">Login</button>
+<button onclick="closeModal('parent')">Close</button>
+</div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 
 <script>
-function openModal(t){
-document.getElementById(t+'-login').classList.add('active')
+firebase.initializeApp({
+apiKey:"AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
+authDomain:"leads-community-school.firebaseapp.com",
+projectId:"leads-community-school"
+});
+const auth=firebase.auth();
+
+function openModal(t){document.getElementById(t+'-login').classList.add('active')}
+function closeModal(t){document.getElementById(t+'-login').classList.remove('active')}
+
+function loginStudent(){
+auth.signInWithEmailAndPassword(studentEmail.value,studentPassword.value)
+.then(()=>alert("Student logged in"))
+.catch(e=>alert(e.message))
 }
-function closeModal(t){
-document.getElementById(t+'-login').classList.remove('active')
+
+function loginParent(){
+auth.signInWithEmailAndPassword(parentEmail.value,parentPassword.value)
+.then(()=>alert("Parent logged in"))
+.catch(e=>alert(e.message))
 }
 </script>
 
