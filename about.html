@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leads Community School</title>
+<title>About Us - Leads Community School</title>
 
 <!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -107,43 +107,82 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 .hero img{width:100%; border-radius:12px; max-width:400px;}
 .hero h1{margin-top:0;}
 .hero p{margin:10px 0;}
-.hero .btn{
-  background:#004d26;
-  color:#ffcc00;
-  padding:12px 25px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-}
-.hero .btn:hover{background:#003d1f; transform:translateY(-2px);}
-@keyframes slideUp{from{opacity:0;transform:translateY(40px);} to{opacity:1;}}
 
-/* ---------- FEATURES ---------- */
-.features{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;margin:40px auto;max-width:1100px;}
-.features .box{
-  background:#ffcc00;
-  color:#004d26;
-  padding:25px 15px;
-  width:280px;
+/* ---------- SECTIONS ---------- */
+.section-container{
+  max-width:1100px;
+  margin:25px auto;
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  border-left:6px solid #ffcc00;
+  box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+.section-container h2{color:#004d26; margin-bottom:15px;}
+.section-container p{font-size:1rem; line-height:1.6;}
+
+/* ---------- HIGHLIGHTS ---------- */
+.highlights{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
   text-align:center;
-  border-radius:15px;
-  transition:0.3s;
-  cursor:pointer;
+  margin-top:15px;
 }
-.features .box:hover{transform:translateY(-5px); box-shadow:0 8px 20px rgba(0,0,0,0.15);}
-.features .box h3{margin-bottom:10px;}
-.features .box p{margin-bottom:15px;}
-.features .btn-small{
+.highlight-card{
   background:#004d26;
-  color:#ffcc00;
-  padding:8px 20px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
+  color:white;
+  padding:20px;
+  border-radius:12px;
+  transition:transform 0.3s, box-shadow 0.3s;
 }
-.features .btn-small:hover{background:#003d1f; transform:translateY(-2px);}
+.highlight-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+.highlight-card i{
+  font-size:28px;
+  margin-bottom:10px;
+  color:#ffcc00;
+}
+
+/* ---------- VALUES ---------- */
+.values{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:15px;
+}
+.value-box{
+  background:#004d26;
+  color:white;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+  font-size:.85rem;
+}
+
+/* ---------- PRINCIPAL ---------- */
+.principal{
+  display:flex;
+  gap:25px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+.principal img{
+  width:200px;
+  border-radius:12px;
+}
+
+/* ---------- GALLERY ---------- */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+}
+.gallery img{
+  width:100%;
+  border-radius:10px;
+}
 
 /* ---------- FOOTER ---------- */
 .footer{
@@ -172,50 +211,11 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
   justify-content:center;
 }
 
-/* ---------- MODAL ---------- */
-.modal{
-  position:fixed;
-  top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.7);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:10000;
-  display:none;
-}
-.modal.active{display:flex;}
-.modal-content{
-  background:#004d26;
-  padding:30px;
-  border-radius:12px;
-  width:350px;
-  text-align:center;
-  color:#ffcc00;
-}
-.modal-content input{
-  width:90%;
-  padding:10px;
-  margin:10px 0;
-  border-radius:6px;
-  border:none;
-}
-.modal-content button{
-  width:95%;
-  padding:10px;
-  background:#ffcc00;
-  color:#004d26;
-  font-weight:bold;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-}
-.modal-content button:hover{background:#e6b800;}
-
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:768px){
 .hero{flex-direction:column;}
 .main-nav{margin-top:10px;}
-.features{flex-direction:column;align-items:center;}
+.principal{flex-direction:column;text-align:center;}
 }
 </style>
 </head>
@@ -249,6 +249,7 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
     </div>
   </div>
   <nav class="main-nav">
+    <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="academics.html">Academics</a>
     <a href="admissions.html">Admissions</a>
@@ -262,96 +263,95 @@ body{margin:0;font-family:Poppins,Arial;background:#f5f7fa;color:#004d26;}
 <!-- HERO -->
 <section class="hero">
   <div>
-    <h1>Training Tomorrow’s Leaders Today</h1>
-    <p>Leads Community School is dedicated to providing quality education that builds character, creativity, and confidence in every child.</p>
-    <a href="admissions.html" class="btn">Schedule a Visit</a>
+    <h1>About Leads Community School</h1>
+    <p>Leads Community School is committed to providing quality education while nurturing future leaders through discipline, creativity, and excellence.</p>
+    <p>We believe in holistic development combining academics, morals, arts, and sports to prepare learners for tomorrow.</p>
   </div>
   <img src="school-building.jpg" alt="School Building">
 </section>
 
-<!-- FEATURES -->
-<section class="features">
-  <div class="box">
-    <h3>Academics</h3>
-    <p>Strong curriculum aligned with GES standards.</p>
-    <a href="academics.html" class="btn-small">Learn More</a>
-  </div>
-  <div class="box">
-    <h3>Admissions</h3>
-    <p>Enroll your child into a caring learning environment.</p>
-    <a href="admissions.html" class="btn-small">Apply Now</a>
-  </div>
-  <div class="box">
-    <h3>News & Events</h3>
-    <p>Stay updated with school activities.</p>
-    <a href="news-events.html" class="btn-small">Read More</a>
-  </div>
+<!-- HIGHLIGHTS -->
+<section class="section-container">
+<h2>Our Highlights</h2>
+<div class="highlights">
+  <div class="highlight-card"><i class="fas fa-users"></i><h3>Small, Personalized Classes</h3></div>
+  <div class="highlight-card"><i class="fas fa-chalkboard-teacher"></i><h3>Dedicated & Caring Staff</h3></div>
+  <div class="highlight-card"><i class="fas fa-school"></i><h3>Modern Learning Environment</h3></div>
+  <div class="highlight-card"><i class="fas fa-lightbulb"></i><h3>Holistic Education</h3></div>
+</div>
+</section>
+
+<!-- VISION & MISSION -->
+<section class="section-container">
+<h2>Our Vision</h2>
+<p>To play a leading role in the educational sector in Ghana modeling quality, inclusive, and holistic education.</p>
+</section>
+
+<section class="section-container">
+<h2>Our Mission</h2>
+<p>To provide quality, inclusive, and holistic education that meets the required standard. We are a community of learners committed to raising a new generation of leaders who are productive members of their communities and the world at large.</p>
+</section>
+
+<!-- PRINCIPAL MESSAGE -->
+<section class="section-container">
+<h2>Principal’s Message</h2>
+<div class="principal">
+<img src="principal.jpg" alt="Principal">
+<p>Welcome to Leads Community School. We nurture confident learners who become responsible leaders.</p>
+</div>
+</section>
+
+<!-- CORE VALUES -->
+<section class="section-container">
+<h2>Core Values</h2>
+<div class="values">
+<div class="value-box">Integrity</div>
+<div class="value-box">Excellence</div>
+<div class="value-box">Child Friendly</div>
+<div class="value-box">Empathy</div>
+<div class="value-box">Team Spirit</div>
+<div class="value-box">Professionalism</div>
+<div class="value-box">Respect</div>
+<div class="value-box">Service</div>
+<div class="value-box">Compassion</div>
+<div class="value-box">Humility</div>
+</div>
+</section>
+
+<!-- SCHOOL GALLERY -->
+<section class="section-container">
+<h2>School Gallery</h2>
+<div class="gallery">
+<img src="gallery1.jpg" alt="Gallery Image 1">
+<img src="gallery2.jpg" alt="Gallery Image 2">
+<img src="gallery3.jpg" alt="Gallery Image 3">
+<img src="gallery4.jpg" alt="Gallery Image 4">
+</div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p>© 2026 Leads Community School</p>
-  <p>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-  </p>
+<p>© 2026 Leads Community School</p>
+<p>
+<a href="index.html">Home</a> |
+<a href="about.html">About</a> |
+<a href="contact.html">Contact</a>
+</p>
 </footer>
 
 <!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/233539566710">💬</a>
 
-<!-- LOGIN MODALS -->
-<div class="modal" id="student-login">
-  <div class="modal-content">
-    <h2>Student Login</h2>
-    <input type="email" id="loginEmail" placeholder="Email">
-    <input type="password" id="loginPassword" placeholder="Password">
-    <button onclick="loginStudent()">Login</button>
-    <button onclick="closeModal('student')">Close</button>
-  </div>
-</div>
-<div class="modal" id="parent-login">
-  <div class="modal-content">
-    <h2>Parent Login</h2>
-    <input type="email" placeholder="Email">
-    <input type="password" placeholder="Password">
-    <button>Login</button>
-    <button onclick="closeModal('parent')">Close</button>
-  </div>
-</div>
-
-<!-- SCRIPTS -->
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyCR_E_N61ECrYoC5p3_WY_hlPPHcYvd-tw",
-  authDomain: "leads-community-school.firebaseapp.com",
-  projectId: "leads-community-school",
-  storageBucket: "leads-community-school.appspot.com",
-  messagingSenderId: "862968562597",
-  appId: "1:862968562597:web:1cf258466bb299a5cc1e4c"
-};
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-function openModal(type){document.getElementById(type+'-login')?.classList.add('active');}
-function closeModal(type){document.getElementById(type+'-login')?.classList.remove('active');}
-
-function loginStudent(){
-  const email = document.getElementById('loginEmail').value;
-  const password = document.getElementById('loginPassword').value;
-  auth.signInWithEmailAndPassword(email,password)
-    .then(userCredential=>{alert(`Welcome ${userCredential.user.email}`); closeModal('student');})
-    .catch(error=>{alert(error.message);});
-}
-
 // Staff Dropdown toggle
 const staffDropdown = document.querySelector('.staff-dropdown');
 const staffMenu = staffDropdown.querySelector('.staff-menu');
 staffDropdown.addEventListener('click', () => { staffMenu.style.display = (staffMenu.style.display==='block')?'none':'block'; });
 window.addEventListener('click', e=>{ if(!staffDropdown.contains(e.target)) staffMenu.style.display='none'; });
+
+// Modals placeholder
+function openModal(type){document.getElementById(type+'-login')?.classList.add('active');}
+function closeModal(type){document.getElementById(type+'-login')?.classList.remove('active');}
 </script>
 </body>
 </html>
