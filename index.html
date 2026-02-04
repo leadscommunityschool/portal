@@ -12,7 +12,6 @@
       --dark-green:#0b3d2e;
       --rich-yellow:#f4c430;
       --white:#ffffff;
-      --light-gray:#f7f7f7;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
@@ -31,9 +30,20 @@
       z-index:1000;
     }
 
-    header h1 {
+    .logo {
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .logo img {
+      height:45px;
+    }
+
+    .logo span {
       color:var(--rich-yellow);
-      font-size:22px;
+      font-weight:700;
+      font-size:18px;
     }
 
     nav { display:flex; align-items:center; }
@@ -120,14 +130,21 @@
       margin-bottom:20px;
     }
 
-    .hero-text p { font-size:18px; margin-bottom:30px; }
+    .hero-text p {
+      font-size:18px;
+      margin-bottom:30px;
+    }
 
     /* SECTIONS */
     section { padding:80px 60px; }
 
     .center { text-align:center; }
 
-    h3 { color:var(--dark-green); font-size:34px; margin-bottom:15px; }
+    h3 {
+      color:var(--dark-green);
+      font-size:34px;
+      margin-bottom:15px;
+    }
 
     /* CARDS */
     .cards {
@@ -142,6 +159,18 @@
       padding:30px;
       border-left:5px solid var(--rich-yellow);
       box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    /* CTA */
+    .cta {
+      background:var(--dark-green);
+      color:#fff;
+      text-align:center;
+    }
+
+    .cta p {
+      max-width:700px;
+      margin:15px auto 30px;
     }
 
     /* FOOTER */
@@ -159,7 +188,12 @@
 
     footer h4 { color:var(--rich-yellow); margin-bottom:15px; }
 
-    footer a { color:#ccc; display:block; text-decoration:none; margin-bottom:8px; }
+    footer a {
+      color:#ccc;
+      display:block;
+      text-decoration:none;
+      margin-bottom:8px;
+    }
 
     footer a:hover { color:var(--rich-yellow); }
 
@@ -179,24 +213,28 @@
 <body>
 
 <header>
-  <h1>Leads Community School</h1>
+  <div class="logo">
+    <img src="images/logo.png" alt="Leads Community School Logo">
+    <span>Leads Community School</span>
+  </div>
+
   <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Academics</a>
-    <a href="#">Admissions</a>
-    <a href="#">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="contact.html">Contact</a>
 
     <div class="dropdown">
       <a href="#">Login ▾</a>
       <div class="dropdown-content">
-        <a href="#">Student Login</a>
-        <a href="#">Parent Login</a>
-        <a href="#">Staff Login</a>
+        <a href="login-student.html">Student Login</a>
+        <a href="login-parent.html">Parent Login</a>
+        <a href="login-staff.html">Staff Login</a>
       </div>
     </div>
 
-    <a href="#" class="btn">Enquire Online</a>
+    <a href="enquire.html" class="btn">Enquire Online</a>
   </nav>
 </header>
 
@@ -211,10 +249,11 @@
     <div class="hero-text">
       <h2>Educating Today. Leading Tomorrow.</h2>
       <p>
-        We nurture confident learners, strong character, and future leaders
-        through quality education, discipline, and care.
+        We nurture confident learners, strong character,
+        and future leaders through quality education,
+        discipline, and care.
       </p>
-      <a href="#" class="btn">Apply for Admission</a>
+      <a href="admissions.html" class="btn">Apply for Admission</a>
     </div>
   </div>
 </section>
@@ -224,7 +263,8 @@
   <div class="center">
     <h3>Why Parents Trust Us</h3>
   </div>
- <div class="cards">
+
+  <div class="cards">
     <div class="card">
       <h4>Quality Education</h4>
       <p>Strong academic foundation delivered by passionate and qualified teachers.</p>
@@ -242,7 +282,7 @@
 
     <div class="card">
       <h4>Individual Attention</h4>
-      <p>Every child is guided, supported, and encouraged to reach their full potential.</p>
+      <p>Every child is guided and encouraged to reach full potential.</p>
     </div>
   </div>
 </section>
@@ -251,31 +291,33 @@
 <section class="cta">
   <h3>Your Child’s Future Starts Here</h3>
   <p>
-    Give your child the gift of knowledge, values, and confidence
-    in a community that believes in their success.
+    Give your child the gift of knowledge, values,
+    and confidence in a community that believes in success.
   </p>
+  <a href="admissions.html" class="btn">Start Admission</a>
+</section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <h4>School</h4>
-      <a href="#">About Us</a>
-      <a href="#">Our Vision</a>
-      <a href="#">Careers</a>
+      <a href="about.html">About Us</a>
+      <a href="about.html">Our Vision</a>
+      <a href="careers.html">Careers</a>
     </div>
 
     <div>
       <h4>Portals</h4>
-      <a href="#">Student Login</a>
-      <a href="#">Parent Login</a>
-      <a href="#">Staff Login</a>
+      <a href="login-student.html">Student Login</a>
+      <a href="login-parent.html">Parent Login</a>
+      <a href="login-staff.html">Staff Login</a>
     </div>
 
     <div>
       <h4>Admissions</h4>
-      <a href="#">Apply Now</a>
-      <a href="#">Enquire Online</a>
+      <a href="admissions.html">Apply Now</a>
+      <a href="enquire.html">Enquire Online</a>
     </div>
 
     <div>
