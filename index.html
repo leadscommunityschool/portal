@@ -89,18 +89,42 @@ body { line-height: 1.6; color: #333; background-color: #f2f7f5; }
 <!-- TOP GREEN BAR -->
 <div class="top-green">
   <div class="top-links">
-    <a onclick="openModal('student')">👨‍🎓Student Login</a>
-    <a onclick="openModal('parent')">👨‍👩‍👧Parent Login</a>
-    <div class="staff-dropdown">
-      <span> <i class="fa-solid fa-chalkboard-user"></i> Staff </span>
-      <div class="staff-menu">
-        <a href="staff-login.html">Staff Login</a>
-        <a href="admin-login.html">Admin Login</a>
+    <!-- Student Login -->
+    <a href="javascript:void(0);" onclick="openModal('student')">👨‍🎓 Student Login</a>
+
+    <!-- Parent Login -->
+    <a href="javascript:void(0);" onclick="openModal('parent')">👨‍👩‍👧 Parent Login</a>
+
+    <!-- Staff Dropdown -->
+    <div class="staff-dropdown" style="position: relative; display: inline-block;">
+      <span style="cursor:pointer;"> <i class="fa-solid fa-chalkboard-user"></i> Staff ▼</span>
+      <div class="staff-menu" style="display: none; position: absolute; background:#004d26; padding:10px; border-radius:8px; top: 100%; left:0; z-index:999;">
+        <a href="staff-login.html" style="display:block; color:#ffcc00; text-decoration:none; margin:5px 0;">Staff Login</a>
+        <a href="admin-login.html" style="display:block; color:#ffcc00; text-decoration:none; margin:5px 0;">Admin Login</a>
       </div>
     </div>
+
+    <!-- Careers -->
     <a href="careers.html">Careers</a>
   </div>
 </div>
+
+<script>
+  // Staff Dropdown Toggle
+  const staffDropdown = document.querySelector('.staff-dropdown');
+  const staffMenu = staffDropdown.querySelector('.staff-menu');
+
+  staffDropdown.addEventListener('click', () => {
+    staffMenu.style.display = (staffMenu.style.display === 'block') ? 'none' : 'block';
+  });
+
+  // Close dropdown if clicked outside
+  window.addEventListener('click', function(e) {
+    if (!staffDropdown.contains(e.target)) {
+      staffMenu.style.display = 'none';
+    }
+  });
+</script>
 
 <!-- HEADER -->
 <header class="main-header">
